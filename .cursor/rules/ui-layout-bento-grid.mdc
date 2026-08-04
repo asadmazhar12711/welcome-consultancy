@@ -1,0 +1,22 @@
+---
+description: Enforces Bento Grid layout architecture, spotlight hover effects, and responsive design breakpoints derived from awesome-cursorrules and cursor-designer.
+globs: **/*.tsx, **/*.jsx, **/*.html, **/*.css
+---
+
+# Bento Grid Layout Architecture Rule (2026 Standard)
+
+When designing or modifying layouts, cards, and feature sections, you **MUST** follow Bento Grid engineering principles:
+
+## 1. Modular Grid Construction
+- Use CSS Grid (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6`) with intentional card spans (`col-span-2 row-span-2` for primary features).
+- Ensure visual hierarchy: high-value features occupy larger cells, supporting metrics occupy smaller 1x1 cells.
+
+## 2. Interactive Spotlight Glows
+- Every Bento card must feature:
+  - Top-right icon badge or live indicator.
+  - Spotlight hover border and glow: `hover:border-gold-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]`.
+  - Subtle top border highlight: `1px solid rgba(255, 255, 255, 0.08)`.
+
+## 3. Responsive Fallbacks (CLS ≤ 0.1)
+- Cards must collapse without layout shift or jank from 4 columns (`lg:grid-cols-4`) down to 1 column on mobile (`grid-cols-1`).
+- Never hardcode fixed pixel widths that overflow mobile screens (use `w-full`, `max-w-7xl`, `mx-auto`).

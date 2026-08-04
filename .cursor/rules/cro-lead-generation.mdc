@@ -1,0 +1,30 @@
+---
+description: Enforces high-converting UI/UX design, interactive EXIM tools, sticky CTAs, slot booking scheduler, and lead capture mechanisms.
+globs: **/*.html, **/*.js, **/*.jsx, **/*.ts, **/*.tsx
+---
+
+# CRO & Lead Generation Engineering Guidelines
+
+To maximize lead conversions for Welcome Consultancy's DGFT & EXIM advisory services:
+
+## 1. High-Converting Visual Architecture
+- Corporate color scheme: **Deep Navy (`#0F172A`) & Warm Gold (`#D4AF37`)**.
+- Hero sections must feature clear value propositions, trust badges (10+ Years, 500+ Exporters), and prominent dual CTAs ("Calculate Incentives" / "Book Free Consultation").
+- Verified client testimonials (C.D. Shah, Yusuf Tai, etc.) displayed prominently.
+
+## 2. Interactive Lead Magnets & EXIM Calculators
+Implement high-converting client tools:
+- **RoDTEP & Duty Drawback Export Incentive Calculator**: Inputs FOB Turnover & Sector -> Estimates cashback/incentive recovery.
+- **EPCG Duty Savings Estimator**: Inputs Capital Goods Value -> Displays instant duty savings & export obligation timeline.
+- **Custom EXIM Document Checklist Generator**: Exports downloadable custom document checklists based on product category.
+
+## 3. Consultation Booking Calendar (Slot Scheduler)
+- Interactive calendar allowing prospective exporters to select available date and time slots.
+- Real-time synchronization with Admin CMS availability settings.
+- Captures client name, mobile number, company name, service interest, and chosen slot.
+
+## 4. Sticky Contact CTAs & Lead Forms
+- **Sticky WhatsApp Bubble**: Direct link to `+91 98671 73397` with pre-filled message ("Hello Welcome Consultancy, I need EXIM advisory for...").
+- **Sticky Phone Call Trigger**: Fast one-tap calling on mobile viewports.
+- **Exit-Intent / Quick Consultation Popup Modal**: Non-intrusive popup for high-intent visitors.
+- **Service Inquiry Forms**: Every service page must feature a quick inquiry widget capturing the user's mobile number, email, and specific service requirement.

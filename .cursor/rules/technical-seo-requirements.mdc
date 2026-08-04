@@ -1,0 +1,38 @@
+---
+description: Technical SEO, AIO (Artificial Intelligence Optimization), and GEO (Generative Engine Optimization) requirements. Enforces Next.js App Router metadata, JSON-LD Schema, llms.txt, Core Web Vitals, and mobile-first responsiveness.
+globs: app/**/*, lib/**/*, public/**/*
+---
+
+# Technical SEO, AIO & GEO Development Requirements
+
+Enforce strict compliance with the project's official Technical SEO, AIO, and GEO Specifications across all pages:
+
+## 1. Mobile-First Responsive Priority
+- Design with mobile-first viewport constraints. Touch targets must be minimum 44px x 44px.
+- Enforce sticky WhatsApp (`+91 98671 73397`) and Phone CTAs across all mobile viewports.
+- Zero Cumulative Layout Shift (CLS ≤ 0.1) across all screen sizes.
+
+## 2. Semantic HTML & Heading Hierarchy
+- Use HTML5 semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+- Exactly **one `<h1>` per page**, containing primary DGFT & EXIM keywords.
+- Strict heading hierarchy (`H1 -> H2 -> H3 -> H4`). Never skip heading levels.
+- Address core search intent directly in the top 30 words of section introductory paragraphs for Generative AI snippet extraction (GEO).
+
+## 3. Dynamic Metadata & JSON-LD Schemas
+- Dynamic Next.js Metadata API per route (Meta Title 50-60 chars, Meta Description 150-160 chars, OpenGraph, Twitter Card, Canonical URL).
+- Dynamic JSON-LD structured data:
+  - `Organization` & `LocalBusiness` schema on Homepage & Contact page.
+  - `ProfessionalService` schema with DGFT credentials.
+  - `Service` schema on all 16 service pages.
+  - `FAQPage` schema on FAQ accordion sections.
+  - `BreadcrumbList` schema for structured navigation.
+
+## 4. AI Agent Discoverability (`llms.txt`)
+- Maintain `public/llms.txt` providing a concise markdown summary of Welcome Consultancy's 16 EXIM services for AI search engines (ChatGPT, Perplexity, Gemini, Claude).
+
+## 5. Interactive Service Context Pre-filling
+- Clicking any "Inquire Now" or "Apply" button on service cards or service pages MUST pass service parameters via URL (`/contact?service=epcg-license`) to automatically pre-fill the service context in the contact inquiry form!
+
+## 6. Core Web Vitals & Crawlability
+- LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1.
+- Auto-generated dynamic `sitemap.ts` and editable `robots.ts`.

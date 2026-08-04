@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Research & Design Inspiration — Welcome Consultancy</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Manrope', sans-serif;
+
+            /* Light Mode Colors */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --navy: #1e3a8a;
+            --navy-dark: #0f172a;
+            --blue-accent: #2563eb;
+            --blue-light: #eff6ff;
+            --border-color: #e2e8f0;
+            
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05), 0 0 0 1px rgb(0 0 0 / 0.02);
+            --row-hover: #f1f5f9;
+            --row-alt: #f8fafc;
+            --table-header-bg: #0f172a;
+            --table-header-text: #ffffff;
+            
+            --border-radius: 12px;
+            --transition-speed: 0.25s;
+            --sidebar-width: 300px;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Colors */
+            --bg-primary: #0b0f19;
+            --bg-secondary: #111827;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --navy: #60a5fa;
+            --navy-dark: #1f2937;
+            --blue-accent: #3b82f6;
+            --blue-light: #1e3a8a;
+            --border-color: #374151;
+            
+            --card-bg: #1f2937;
+            --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3), 0 0 0 1px rgb(255 255 255 / 0.05);
+            --row-hover: #2d3748;
+            --row-alt: #1a202c;
+            --table-header-bg: #1f2937;
+            --table-header-text: #f9fafb;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER AND NAVIGATION Controls */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            z-index: 1000;
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .header-logo {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .header-logo span {
+            color: var(--blue-accent);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-control {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-control:hover {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+        }
+
+        .btn-primary {
+            background-color: var(--blue-accent);
+            color: #ffffff;
+            border-color: var(--blue-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--navy);
+            border-color: var(--navy);
+            color: #ffffff;
+        }
+
+        /* LAYOUT CONTAINER */
+        .layout-container {
+            display: flex;
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* SIDEBAR / TABLE OF CONTENTS */
+        aside {
+            width: var(--sidebar-width);
+            border-right: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            position: fixed;
+            top: 70px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            background-color: var(--bg-primary);
+            z-index: 900;
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .sidebar-title {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            transition: all var(--transition-speed);
+        }
+
+        .toc-link:hover {
+            color: var(--blue-accent);
+            background-color: var(--bg-secondary);
+        }
+
+        .toc-link.active {
+            color: var(--blue-accent);
+            background-color: var(--blue-light);
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT AREA */
+        main {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 3rem 4rem;
+            max-width: 1400px;
+            overflow-x: hidden;
+        }
+
+        /* COVER PAGE & A4 CONTAINERS */
+        .section-page {
+            margin-bottom: 6rem;
+            scroll-margin-top: 100px;
+        }
+
+        #cover-page {
+            min-height: calc(100vh - 150px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 6rem;
+        }
+
+        .cover-badge {
+            background-color: var(--blue-light);
+            color: var(--blue-accent);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            width: fit-content;
+            margin-bottom: 2rem;
+        }
+
+        .cover-title {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cover-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 3.5rem;
+            max-width: 800px;
+        }
+
+        .cover-metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 3rem;
+            margin-top: auto;
+        }
+
+        .meta-item-label {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .meta-item-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .meta-item-value a {
+            color: var(--blue-accent);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        .meta-item-value a:hover {
+            color: var(--navy);
+            text-decoration: underline;
+        }
+
+        /* SECTIONS TYPOGRAPHY */
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            color: var(--blue-accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-note {
+            font-family: var(--font-body);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-desc-box {
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--blue-accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* TABLES INTERFACE */
+        .table-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            transition: box-shadow var(--transition-speed);
+        }
+
+        .table-header-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .table-info-summary {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .search-box-wrapper {
+            position: relative;
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .search-box-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.6rem 1rem 0.6rem 2.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            outline: none;
+            transition: all var(--transition-speed);
+        }
+
+        .search-input:focus {
+            border-color: var(--blue-accent);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.925rem;
+        }
+
+        th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        th.sortable:hover {
+            opacity: 0.9;
+        }
+
+        th.sortable::after {
+            content: "\f0dc";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-left: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        th.sort-asc::after {
+            content: "\f0de";
+            color: var(--blue-accent);
+            opacity: 1;
+        }
+
+        th.sort-desc::after {
+            content: "\f0dd";
+            color: var(--blue-accent);
+            opacity: 1;
+        }
+
+        td {
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            vertical-align: middle;
+            line-height: 1.5;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--row-alt);
+        }
+
+        tr:hover td {
+            background-color: var(--row-hover) !important;
+        }
+
+        /* SPECIAL TEXT CELL ACTIONS */
+        .cell-bold {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+        }
+
+        .cell-link {
+            color: var(--blue-accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-speed);
+        }
+
+        .cell-link:hover {
+            color: var(--navy);
+            text-decoration: underline;
+        }
+
+        .btn-visit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-visit:hover {
+            background-color: var(--blue-accent);
+            color: #ffffff;
+            border-color: var(--blue-accent);
+        }
+
+        /* RECOMMENDATION CARDS */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .direction-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2.25rem;
+            box-shadow: var(--card-shadow);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .direction-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgb(0 0 0 / 0.08), 0 0 0 1px var(--blue-accent);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--blue-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .card-list {
+            list-style: none;
+        }
+
+        .card-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .card-list-item i {
+            color: var(--blue-accent);
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        /* COLOR PALETTE PREVIEWS */
+        .color-swatch-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .color-swatch-wrapper {
+            text-align: center;
+            flex: 1;
+            min-width: 70px;
+        }
+
+        .color-swatch {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.5rem;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+
+        .color-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .color-hex {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        /* TYPOGRAPHY CARD */
+        .type-demo-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            background-color: var(--bg-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .type-demo-large {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .type-demo-body {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .type-demo-mono {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* FINAL RECOMMENDATION HERO BLOCK */
+        .recommendation-hero-block {
+            background-color: var(--bg-secondary);
+            border-left: 5px solid var(--blue-accent);
+            padding: 3rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-top: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .recommendation-hero-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .recommendation-p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .recommendation-integration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .integration-item {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 0.02);
+        }
+
+        .integration-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .integration-title i {
+            color: var(--blue-accent);
+        }
+
+        .integration-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* UTILITY FLOATING ACTIONS */
+        .floating-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 999;
+        }
+
+        .btn-floating {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--blue-accent);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-floating:hover {
+            background-color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(30, 58, 138, 0.4);
+        }
+
+        .btn-totop {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .btn-totop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+            background-color: var(--bg-secondary);
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-right {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* RESPONSIVE LAYOUTS */
+        @media (max-width: 1024px) {
+            .layout-container {
+                flex-direction: column;
+            }
+
+            aside {
+                position: relative;
+                top: 0;
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem 2rem;
+                height: auto;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 2.5rem 2rem;
+            }
+
+            .cover-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 0 1rem;
+            }
+
+            .header-logo span {
+                display: none;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .cover-title {
+                font-size: 2.25rem;
+            }
+
+            .cover-subtitle {
+                font-size: 1.15rem;
+            }
+
+            .table-header-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box-wrapper {
+                max-width: 100%;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendation-hero-block {
+                padding: 1.5rem;
+            }
+        }
+
+        /* PRINT STYLING SHEET */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 10pt;
+                line-height: 1.4;
+            }
+
+            /* Ensure links are styled distinctly and remain clickable in the output PDF */
+            a, .cell-link {
+                color: #2563eb !important;
+                text-decoration: underline !important;
+                pointer-events: auto !important;
+            }
+
+            /* Hide the 5th column ('Open Website') for domestic and international tables in PDF */
+            #table-domestic th:nth-child(5),
+            #table-domestic td:nth-child(5),
+            #table-international th:nth-child(5),
+            #table-international td:nth-child(5) {
+                display: none !important;
+            }
+
+            /* Hide interactive elements completely */
+            header, 
+            aside, 
+            .table-header-controls, 
+            .floating-actions, 
+            .btn-visit, 
+            footer,
+            .btn-control {
+                display: none !important;
+            }
+
+            .layout-container {
+                margin-top: 0 !important;
+                display: block !important;
+            }
+
+            main {
+                margin-left: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* Optimize Cover Page for clean printing */
+            #cover-page {
+                min-height: 100vh !important;
+                page-break-after: always;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            .cover-title {
+                font-size: 32pt !important;
+                color: #0f172a !important;
+                margin-top: 2in;
+            }
+
+            .cover-subtitle {
+                font-size: 16pt !important;
+                color: #475569 !important;
+            }
+
+            .cover-metadata-grid {
+                margin-top: auto !important;
+                border-top: 2px solid #e2e8f0 !important;
+                padding-top: 20pt !important;
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+            }
+
+            /* Section Page Breaks */
+            .section-page {
+                page-break-before: always;
+                margin-bottom: 30pt !important;
+                padding-top: 20pt;
+            }
+
+            .section-title {
+                font-size: 20pt !important;
+                color: #0f172a !important;
+                border-bottom: 2px solid #e2e8f0;
+                padding-bottom: 8pt;
+            }
+
+            .section-desc-box {
+                background-color: #f8fafc !important;
+                border-left: 4px solid #2563eb !important;
+                padding: 10pt 12pt !important;
+                margin-bottom: 15pt !important;
+            }
+
+            /* Tables Formatting in PDF */
+            .table-container {
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                overflow: visible !important;
+            }
+
+            table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                font-size: 9pt !important;
+            }
+
+            th, td {
+                padding: 8pt 10pt !important;
+                border-bottom: 1px solid #cbd5e1 !important;
+                color: #000000 !important;
+                white-space: normal !important;
+            }
+
+            th {
+                background-color: #f1f5f9 !important;
+                color: #000000 !important;
+                font-weight: bold !important;
+                border-bottom: 2px solid #cbd5e1 !important;
+            }
+
+            tr {
+                page-break-inside: avoid !important;
+            }
+
+            /* Cards formatting on PDF */
+            .cards-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 15pt !important;
+                page-break-inside: avoid !important;
+            }
+
+            .direction-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 15pt !important;
+                page-break-inside: avoid !important;
+            }
+
+            .recommendation-hero-block {
+                padding: 20pt !important;
+                border: 1px solid #cbd5e1 !important;
+                border-left: 5px solid #2563eb !important;
+                box-shadow: none !important;
+                page-break-inside: avoid !important;
+            }
+
+            .recommendation-integration-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 10pt !important;
+            }
+
+            .integration-item {
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+            }
+
+            /* Swatches optimization */
+            .color-swatch {
+                border: 1px solid #000000 !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER -->
+    <header>
+        <div class="header-logo">
+            <i class="fa-solid fa-globe"></i> Welcome Consultancy <span>Inspiration</span>
+        </div>
+        <div class="header-controls">
+            <button class="btn-control" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i> Theme
+            </button>
+            <button class="btn-control btn-primary" onclick="window.print()">
+                <i class="fa-solid fa-file-pdf"></i> Export to PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="layout-container">
+        
+        <!-- SIDEBAR NAVIGATION -->
+        <aside>
+            <div class="sidebar-title">Table of Contents</div>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <a href="#cover-page" class="toc-link active" data-section="cover-page">
+                        <i class="fa-solid fa-address-card"></i> Cover Page
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#introduction" class="toc-link" data-section="introduction">
+                        <i class="fa-solid fa-info-circle"></i> Introduction
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#domestic-competitors" class="toc-link" data-section="domestic-competitors">
+                        <i class="fa-solid fa-map-pin"></i> Domestic Competitors
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#international-competitors" class="toc-link" data-section="international-competitors">
+                        <i class="fa-solid fa-earth-americas"></i> International Competitors
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#world-class-consulting" class="toc-link" data-section="world-class-consulting">
+                        <i class="fa-solid fa-building"></i> World-Class Consulting
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#modern-saas" class="toc-link" data-section="modern-saas">
+                        <i class="fa-solid fa-laptop-code"></i> Modern SaaS References
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#digital-agencies" class="toc-link" data-section="digital-agencies">
+                        <i class="fa-solid fa-bezier-curve"></i> Premium Agencies
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#design-awards" class="toc-link" data-section="design-awards">
+                        <i class="fa-solid fa-trophy"></i> Award Winning Sites
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#design-direction" class="toc-link" data-section="design-direction">
+                        <i class="fa-solid fa-compass"></i> Recommended Direction
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#final-recommendation" class="toc-link" data-section="final-recommendation">
+                        <i class="fa-solid fa-star"></i> Final Recommendation
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT PANEL -->
+        <main>
+            
+            <!-- COVER PAGE -->
+            <section id="cover-page">
+                <div class="cover-badge">Design Research Deliverable</div>
+                <h1 class="cover-title">Website Research &<br>Design Inspiration</h1>
+                <p class="cover-subtitle">A curated exploration of global design benchmarks, structural patterns, and user experience layouts to shape the digital identity of Welcome Consultancy.</p>
+                
+                <div class="cover-metadata-grid">
+                    <div>
+                        <div class="meta-item-label">Prepared For</div>
+                        <div class="meta-item-value">Welcome Consultancy</div>
+                    </div>
+                    <div>
+                        <div class="meta-item-label">Current Website</div>
+                        <div class="meta-item-value"><a href="https://welcomeconsultancy.in/" target="_blank" rel="noopener noreferrer">welcomeconsultancy.in</a></div>
+                    </div>
+                    <div>
+                        <div class="meta-item-label">Prepared By</div>
+                        <div class="meta-item-value">adsara.in</div>
+                    </div>
+                    <div>
+                        <div class="meta-item-label">Date</div>
+                        <div class="meta-item-value" id="current-date">July 15, 2026</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTRODUCTION -->
+            <section id="introduction" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Preface</span>
+                    <h2 class="section-title">Introduction</h2>
+                </div>
+                <div class="section-desc-box">
+                    <p style="margin-bottom: 1rem;">We researched multiple websites across different industries. Instead of limiting inspiration to import-export companies, we also explored global consulting firms, enterprise SaaS products, premium agencies, and award-winning websites. This allows us to build a modern website that not only meets industry expectations but also stands apart from competitors.</p>
+                    <p>The purpose of this document is to provide design references and inspiration so that you can choose your preferred design direction before we begin the UI/UX design phase. We invite you to explore the following sections and share which styles, color treatments, and layouts resonate best with your vision.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 1: DOMESTIC COMPETITORS -->
+            <section id="domestic-competitors" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 01</span>
+                    <h2 class="section-title">Domestic Competitors (Business References)</h2>
+                    <p class="section-note">These websites belong to businesses operating in similar domains. Their business structure and services are useful references. However, most follow older design patterns and should primarily be used for understanding service presentation rather than UI design.</p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-controls">
+                        <div class="table-info-summary">Showing 3 verified Indian trade & DGFT consulting sites</div>
+                        <div class="search-box-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search domestic competitors..." onkeyup="searchTable(this, 'table-domestic')">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-domestic">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable(0, 'table-domestic')">Company</th>
+                                    <th>Website</th>
+                                    <th>Primary Focus</th>
+                                    <th>Why It Is Useful</th>
+                                    <th style="width: 150px;">Open Website</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-bold">Afleo Group</td>
+                                    <td><a href="https://afleo.com/" class="cell-link" target="_blank" rel="noopener noreferrer">afleo.com</a></td>
+                                    <td>DGFT & Import-Export Consulting, EPCG, Advance License, RoDTEP claims.</td>
+                                    <td>Excellent example of deep-dive blogs and resource guides. Demonstrates service categorization clearly.</td>
+                                    <td><a href="https://afleo.com/" class="btn-visit" target="_blank" rel="noopener noreferrer">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">DGFT Guru</td>
+                                    <td><a href="https://dgftguru.com/" class="cell-link" target="_blank" rel="noopener noreferrer">dgftguru.com</a></td>
+                                    <td>Government Incentives, Foreign Trade Policy compliance, and DGFT representation.</td>
+                                    <td>Demonstrates a clear focus on corporate compliance. Shows how regulatory news can build authority.</td>
+                                    <td><a href="https://dgftguru.com/" class="btn-visit" target="_blank" rel="noopener noreferrer">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Kireeti Consultants</td>
+                                    <td><a href="https://kireeticonsultants.com/" class="cell-link" target="_blank" rel="noopener noreferrer">kireeticonsultants.com</a></td>
+                                    <td>DGFT liaisoning, EPCG schemes, customs compliance, and SEZ approvals.</td>
+                                    <td>Good structural taxonomy for multi-sector industrial consulting services.</td>
+                                    <td><a href="https://kireeticonsultants.com/" class="btn-visit" target="_blank" rel="noopener noreferrer">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: INTERNATIONAL COMPETITORS -->
+            <section id="international-competitors" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 02</span>
+                    <h2 class="section-title">International Competitors</h2>
+                    <p class="section-note">These platforms belong to global customs, trade compliance, and logistics consulting corporations. They are exceptionally useful references for understanding international standards, data structure, and global professional trust elements.</p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-controls">
+                        <div class="table-info-summary">Showing 3 verified international global trade consultancies</div>
+                        <div class="search-box-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search international competitors..." onkeyup="searchTable(this, 'table-international')">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-international">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable(0, 'table-international')">Company</th>
+                                    <th>Website</th>
+                                    <th>Primary Focus</th>
+                                    <th>Why It Is Useful</th>
+                                    <th style="width: 150px;">Open Website</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-bold">Tradewin</td>
+                                    <td><a href="https://www.tradewin.net/" class="cell-link" target="_blank" rel="noopener noreferrer">tradewin.net</a></td>
+                                    <td>Global trade compliance consulting, classification, and supply chain security.</td>
+                                    <td>Features a clean, highly modern consulting website with robust resource libraries and clean data tables.</td>
+                                    <td><a href="https://www.tradewin.net/" class="btn-visit" target="_blank" rel="noopener noreferrer">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Livingston International</td>
+                                    <td><a href="https://www.livingstonintl.com/" class="cell-link" target="_blank" rel="noopener noreferrer">livingstonintl.com</a></td>
+                                    <td>Customs brokerage, global trade management, and trade advisory.</td>
+                                    <td>Excellent use of interactive tools (e.g., duty calculators) and rich thought leadership white papers.</td>
+                                    <td><a href="https://www.livingstonintl.com/" class="btn-visit" target="_blank" rel="noopener noreferrer">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Sandler, Travis & Rosenberg</td>
+                                    <td><a href="https://www.strtrade.com/" class="cell-link" target="_blank" rel="noopener noreferrer">strtrade.com</a></td>
+                                    <td>Customs law, international trade consulting, and compliance audits.</td>
+                                    <td>Premium layout focusing heavily on daily trade news, alerts, and legislative updates.</td>
+                                    <td><a href="https://www.strtrade.com/" class="btn-visit" target="_blank" rel="noopener noreferrer">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: WORLD-CLASS CONSULTING WEBSITES -->
+            <section id="world-class-consulting" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 03</span>
+                    <h2 class="section-title">World-Class Consulting Website References</h2>
+                    <p class="section-note">These are the world's most prestigious consulting websites. They establish the absolute pinnacle of authority, visual storytelling, clear typography systems, and clean structural grids.</p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-controls">
+                        <div class="table-info-summary">Showing 3 leading global consulting firms</div>
+                        <div class="search-box-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search global consulting..." onkeyup="searchTable(this, 'table-consulting')">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-consulting">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable(0, 'table-consulting')">Company</th>
+                                    <th>Website</th>
+                                    <th>What Makes Their Website Exceptional</th>
+                                    <th>Recommended Elements for Inspiration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-bold">McKinsey & Company</td>
+                                    <td><a href="https://www.mckinsey.com/" class="cell-link" target="_blank" rel="noopener noreferrer">mckinsey.com</a></td>
+                                    <td>Superior editorial typography, premium layouts, and immersive visual storytelling.</td>
+                                    <td>Editorial grid typography, elegant spacing, card layouts, and "Insights" feature sections.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Boston Consulting Group (BCG)</td>
+                                    <td><a href="https://www.bcg.com/" class="cell-link" target="_blank" rel="noopener noreferrer">bcg.com</a></td>
+                                    <td>Dynamic page transitions, bold visual headers, and deep-dive case studies.</td>
+                                    <td>Immersive static imagery, clean tabs for case studies, and modern navigation structures.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Bain & Company</td>
+                                    <td><a href="https://www.bain.com/" class="cell-link" target="_blank" rel="noopener noreferrer">bain.com</a></td>
+                                    <td>Highly optimized reading view, clean headers, and visual case study links.</td>
+                                    <td>Content-rich navigation sidebar, distraction-free reading mode, and a signature color highlighting layout.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: MODERN SAAS WEBSITES -->
+            <section id="modern-saas" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 04</span>
+                    <h2 class="section-title">Modern SaaS Websites</h2>
+                    <p class="section-note">These silicon valley leaders represent the highest standard of modern web technology layouts, grid layouts, card component design, and interface usability.</p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-controls">
+                        <div class="table-info-summary">Showing 3 leading SaaS website references</div>
+                        <div class="search-box-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search SaaS sites..." onkeyup="searchTable(this, 'table-saas')">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-saas">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable(0, 'table-saas')">Website</th>
+                                    <th>Best Feature</th>
+                                    <th>Recommended Inspiration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-bold">Stripe</td>
+                                    <td>Sleek UI grids, smooth transitions, and high-fidelity product representations.</td>
+                                    <td>Glassmorphism headers, gradient animations, structural cards, and high-quality footer layouts.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Linear</td>
+                                    <td>Dark mode, sharp keyboard shortcuts, minimal border styling.</td>
+                                    <td>Contrast-rich typography, fine lines (`border: 1px solid var(--border)`), grid borders, and visual hierarchy.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Notion</td>
+                                    <td>Soft cards, custom illustrations, and friendly, clean sidebar navigation.</td>
+                                    <td>High-readability tables, clean whitespace, and simple rounded cards.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: PREMIUM DIGITAL AGENCIES -->
+            <section id="digital-agencies" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 05</span>
+                    <h2 class="section-title">Premium Digital Agencies</h2>
+                    <p class="section-note">These boutique agencies design high-end digital identities for blue-chip companies globally. They are benchmarks for aesthetics, grids, and premium interactive layouts.</p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-controls">
+                        <div class="table-info-summary">Showing 3 award-winning digital design agencies</div>
+                        <div class="search-box-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search agencies..." onkeyup="searchTable(this, 'table-agencies')">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-agencies">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable(0, 'table-agencies')">Agency</th>
+                                    <th>Website</th>
+                                    <th>Best Known For</th>
+                                    <th>Recommended Inspiration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-bold">Clay</td>
+                                    <td><a href="https://clay.global/" class="cell-link" target="_blank" rel="noopener noreferrer">clay.global</a></td>
+                                    <td>World-class UI design, custom illustrations, and dynamic client showcases.</td>
+                                    <td>Luxurious whitespace, massive serif headers mixed with clean sans-serif bodies, and fluid card grids.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Ramotion</td>
+                                    <td><a href="https://www.ramotion.com/" class="cell-link" target="_blank" rel="noopener noreferrer">ramotion.com</a></td>
+                                    <td>Premium corporate SaaS interfaces, branding guidelines, and clean design systems.</td>
+                                    <td>Modern card grid layouts, case study presentations, and custom icon design references.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Locomotive</td>
+                                    <td><a href="https://locomotive.ca/" class="cell-link" target="_blank" rel="noopener noreferrer">locomotive.ca</a></td>
+                                    <td>Immersive animations, playful details, and premium custom transitions.</td>
+                                    <td>Page scroll indicators, interactive hover-to-reveal states, and beautiful typography.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: AWARD WINNING INSPIRATION -->
+            <section id="design-awards" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 06</span>
+                    <h2 class="section-title">Award Winning Inspiration</h2>
+                    <p class="section-note">These platforms aggregate award-winning, state-of-the-art designs globally. They are reference catalogs to find the latest design trends and layout paradigms.</p>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-controls">
+                        <div class="table-info-summary">Showing 3 premium web design galleries</div>
+                        <div class="search-box-wrapper">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" class="search-input" placeholder="Search platforms..." onkeyup="searchTable(this, 'table-awards')">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-awards">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable(0, 'table-awards')">Platform</th>
+                                    <th>Website</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell-bold">Awwwards</td>
+                                    <td><a href="https://www.awwwards.com/" class="cell-link" target="_blank" rel="noopener noreferrer">awwwards.com</a></td>
+                                    <td>Finding the absolute best in creative, experimental, and high-budget web designs globally.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Godly</td>
+                                    <td><a href="https://godly.website/" class="cell-link" target="_blank" rel="noopener noreferrer">godly.website</a></td>
+                                    <td>Handpicked inspiration focusing on top-tier interactions, animation, and developer-centric styling.</td>
+                                </tr>
+                                <tr>
+                                    <td class="cell-bold">Minimal Gallery</td>
+                                    <td><a href="https://minimal.gallery/" class="cell-link" target="_blank" rel="noopener noreferrer">minimal.gallery</a></td>
+                                    <td>Finding ultra-clean, minimalistic designs that focus on typography and whitespace.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: RECOMMENDED DESIGN DIRECTION -->
+            <section id="design-direction" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 07</span>
+                    <h2 class="section-title">Recommended Design Direction</h2>
+                    <p class="section-note">Based on our research across multiple industries, we have outlined the recommended visual system, palette, typography, and motion guidelines for the Welcome Consultancy platform.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- CARD 1: STYLE -->
+                    <div class="direction-card">
+                        <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3 class="card-title">Design Style</h3>
+                        <ul class="card-list">
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Modern Corporate & Minimalist</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Generous whitespace to feel premium</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Clean cards with subtle drop shadows</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Professional grids and enterprise borders</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> High-quality lifestyle photography</li>
+                        </ul>
+                    </div>
+
+                    <!-- CARD 2: PALETTE -->
+                    <div class="direction-card">
+                        <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3 class="card-title">Color Palette</h3>
+                        <p class="section-note" style="font-size:0.9rem; margin-bottom:1rem;">Professional, authority-rich color palette utilizing dark navy backgrounds, light gray panels, and crisp blue accents.</p>
+                        
+                        <div class="color-swatch-group">
+                            <div class="color-swatch-wrapper">
+                                <div class="color-swatch" style="background-color: #0f172a;"></div>
+                                <div class="color-name">Navy</div>
+                                <div class="color-hex">#0F172A</div>
+                            </div>
+                            <div class="color-swatch-wrapper">
+                                <div class="color-swatch" style="background-color: #2563eb;"></div>
+                                <div class="color-name">Accent Blue</div>
+                                <div class="color-hex">#2563EB</div>
+                            </div>
+                            <div class="color-swatch-wrapper">
+                                <div class="color-swatch" style="background-color: #f8fafc;"></div>
+                                <div class="color-name">Light Gray</div>
+                                <div class="color-hex">#F8FAFC</div>
+                            </div>
+                            <div class="color-swatch-wrapper">
+                                <div class="color-swatch" style="background-color: #ffffff;"></div>
+                                <div class="color-name">White</div>
+                                <div class="color-hex">#FFFFFF</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: TYPOGRAPHY -->
+                    <div class="direction-card">
+                        <div class="card-icon"><i class="fa-solid fa-font"></i></div>
+                        <h3 class="card-title">Typography</h3>
+                        
+                        <div class="type-demo-box">
+                            <div class="type-demo-large" style="font-family: 'Plus Jakarta Sans', sans-serif;">Plus Jakarta Sans</div>
+                            <div class="type-demo-mono">Used for premium headings, titles, and cards. (Extremely clean & corporate)</div>
+                        </div>
+                        <div class="type-demo-box">
+                            <div class="type-demo-large" style="font-family: 'Inter', sans-serif; font-weight: 500; font-size:1.25rem;">Inter Sans</div>
+                            <div class="type-demo-mono">Used for paragraphs, description text, lists, and forms. (High readability)</div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4: ANIMATIONS -->
+                    <div class="direction-card">
+                        <div class="card-icon"><i class="fa-solid fa-play"></i></div>
+                        <h3 class="card-title">Animation Guidelines</h3>
+                        <ul class="card-list">
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Subtle card lift on hover</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Smooth opacity fades on load</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Color transition on buttons</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> Clean tab/filter fade shifts</li>
+                            <li class="card-list-item"><i class="fa-solid fa-circle-check"></i> No heavy parallax or distracting loading spinners to maintain corporate dignity</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FINAL RECOMMENDATION -->
+            <section id="final-recommendation" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 08</span>
+                    <h2 class="section-title">Final Recommendation</h2>
+                </div>
+
+                <div class="recommendation-hero-block">
+                    <h3 class="recommendation-hero-title">A Cohesive, Cross-Industry Strategy</h3>
+                    <p class="recommendation-p">Instead of replicating a single competitor's platform, we strongly recommend a selective integration strategy. By taking the strongest layout and interface paradigms from different industries, we can create a unique, premium trade consultancy portal that establishes industry authority in India.</p>
+                    
+                    <div class="recommendation-integration-grid">
+                        <div class="integration-item">
+                            <h4 class="integration-title"><i class="fa-solid fa-border-top-left"></i> Hero Section</h4>
+                            <p class="integration-desc">Inspired by the McKinsey editorial layout. Clean sans-serif hierarchy, lots of whitespace, and professional lifestyle photography.</p>
+                        </div>
+                        <div class="integration-item">
+                            <h4 class="integration-title"><i class="fa-solid fa-table-list"></i> Service Showcase</h4>
+                            <p class="integration-desc">Inspired by the Airtable and Stripe grid structures. Services are displayed using modern grid blocks with crisp border outlines and color pills.</p>
+                        </div>
+                        <div class="integration-item">
+                            <h4 class="integration-title"><i class="fa-solid fa-bars"></i> Navigation & Footer</h4>
+                            <p class="integration-desc">Inspired by Linear. High contrast, sticky minimal headers, clean logo margins, and a detailed multi-column footer.</p>
+                        </div>
+                        <div class="integration-item">
+                            <h4 class="integration-title"><i class="fa-solid fa-shield-halved"></i> Trust Indicators</h4>
+                            <p class="integration-desc">Inspired by Deloitte and PwC. Prominently displays the partner logos, IndiaMart / JustDial certifications, and client testimonials with high-end typography.</p>
+                        </div>
+                    </div>
+                    
+                    <p class="recommendation-p" style="margin-bottom:0; font-weight: 500; font-size:1rem; color:var(--text-primary);">This multi-reference approach ensures the new Welcome Consultancy website remains extremely clean, modern, and trustworthy, directly supporting the company's 10+ years of trade consulting expertise.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- UTILITY ACTIONS -->
+    <div class="floating-actions">
+        <button class="btn-floating btn-totop" id="back-to-top" title="Go to Top" aria-label="Go to Top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                &copy; 2026 Welcome Consultancy. All rights reserved. Prepared by adsara.in.
+            </div>
+            <div class="footer-right">
+                Confidential &bull; Design Research & Inspiration
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Set dynamic date
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateEl = document.getElementById('current-date');
+            if (dateEl) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                dateEl.textContent = new Date().toLocaleDateString('en-US', options);
+            }
+
+            // Restore dark mode theme if set
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                updateThemeButton(true);
+            }
+        });
+
+        // Theme Switcher
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme === 'dark');
+        });
+
+        function updateThemeButton(isDark) {
+            const icon = themeToggle.querySelector('i');
+            if (isDark) {
+                icon.className = 'fa-solid fa-sun';
+                themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+                themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
+            }
+        }
+
+        // Live Table Search Filtering
+        function searchTable(input, tableId) {
+            const query = input.value.toLowerCase();
+            const table = document.getElementById(tableId);
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                let match = false;
+                const cells = row.getElementsByTagName('td');
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].innerText.toLowerCase().includes(query)) {
+                        match = true;
+                        break;
+                    }
+                }
+                row.style.display = match ? '' : 'none';
+            }
+        }
+
+        // Table Column Sorting
+        function sortTable(colIndex, tableId) {
+            const table = document.getElementById(tableId);
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const th = table.querySelectorAll('thead th')[colIndex];
+            
+            // Check current sort state
+            const isAsc = th.classList.contains('sort-asc');
+            
+            // Reset all headers sort classes
+            table.querySelectorAll('thead th').forEach(header => {
+                header.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            // Toggle Sort Order
+            const direction = isAsc ? -1 : 1;
+            th.classList.add(isAsc ? 'sort-desc' : 'sort-asc');
+
+            rows.sort((a, b) => {
+                const cellA = a.children[colIndex].textContent.trim().toLowerCase();
+                const cellB = b.children[colIndex].textContent.trim().toLowerCase();
+                
+                if (cellA < cellB) return -1 * direction;
+                if (cellA > cellB) return 1 * direction;
+                return 0;
+            });
+
+            // Append sorted rows to tbody
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Scroll to Top visibility
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+
+            // Track active section in sidebar TOC
+            trackTOCActiveSection();
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer to track active section
+        const sections = document.querySelectorAll('section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        function trackTOCActiveSection() {
+            let activeSectionId = 'cover-page';
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                // If the section top is close to the top of the viewport
+                if (rect.top <= 150) {
+                    activeSectionId = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === activeSectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

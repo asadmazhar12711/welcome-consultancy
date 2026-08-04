@@ -1,0 +1,26 @@
+---
+description: Next.js + Cloudflare Workers + Cloudflare D1 database edge architecture rules. Enforces Wrangler bindings, Cloudflare Workers runtime, and zero external dependencies outside Cloudflare.
+globs: app/**/*, lib/**/*, wrangler.json, wrangler.toml, next.config.js
+---
+
+# Next.js & Cloudflare Workers Stack Guidelines
+
+Follow these strict architectural rules when building and deploying Welcome Consultancy on Cloudflare Workers:
+
+## 1. Cloudflare Workers Target
+- Target runtime: **Cloudflare Workers Edge Network**. Deploy via `wrangler` CLI using Cloudflare Workers assets/site bindings.
+- Do **NOT** use external Node.js-only native modules that break in Workers.
+- Bind Cloudflare D1 Database in `wrangler.toml` (`env.DB`).
+
+## 2. Cloudflare D1 Database Operations
+- All database queries must run via Cloudflare D1 binding (`env.DB` or `getRequestContext().env.DB`).
+- Prepared statements MUST use parameterized queries (`db.prepare('SELECT * FROM leads WHERE mobile = ?').bind(mobile)`).
+- Never execute un-sanitized raw SQL strings.
+
+## 3. Next.js App Router Structure
+- `app/layout.tsx`: Root layout with font preloading (`Newsreader`, `Manrope`), floating island header, and footer.
+- `app/page.tsx`: Modern authority homepage with statistics counter, mega-menu, interactive calculators, slot scheduler, and exit popup.
+- `app/services/[slug]/page.tsx`: Dynamic service page for all 16 preserved DGFT service paths.
+- `app/api/leads/route.ts`: Edge API route to insert/fetch leads into D1 `leads` table.
+- `app/api/slots/route.ts`: Edge API route for consultation slot booking and availability sync.
+- `app/admin/page.tsx`: Secured Admin CMS dashboard with primary lead mobile action buttons and CSV export.

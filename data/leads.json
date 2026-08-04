@@ -1,0 +1,38 @@
+[
+  {
+    "id": "LEAD-1001",
+    "name": "Rajesh Sharma",
+    "mobile": "+91 98201 45678",
+    "email": "rajesh@sharmaexports.com",
+    "company": "Sharma International Pvt Ltd",
+    "service": "Export Incentives (RoDTEP)",
+    "source": "Incentive Calculator",
+    "status": "New",
+    "details": "Calculated estimated annual RoDTEP incentive for FOB Turnover of ₹5,00,00,000 (Textiles sector).",
+    "timestamp": "2026-07-29T10:15:00Z"
+  },
+  {
+    "id": "LEAD-1002",
+    "name": "Vikram Patel",
+    "mobile": "+91 98922 11443",
+    "email": "vpatel@patelpolymers.in",
+    "company": "Patel Polymers & Chemicals",
+    "service": "EPCG License",
+    "source": "EPCG Savings Estimator",
+    "status": "Contacted",
+    "details": "Calculated customs duty exemption for capital goods import worth ₹2,50,00,000.",
+    "timestamp": "2026-07-29T11:45:00Z"
+  },
+  {
+    "id": "LEAD-1003",
+    "name": "Ananya Roy",
+    "mobile": "+91 97110 88219",
+    "email": "aroy@royfoodstuffs.com",
+    "company": "Roy Foodstuffs Exporters",
+    "service": "FSSAI Registration & Health Certificate",
+    "source": "Consultation Booking Calendar",
+    "status": "New",
+    "details": "Booked consultation slot for July 30, 2026 at 02:00 PM.",
+    "timestamp": "2026-07-29T12:30:00Z"
+  }
+]

@@ -1,0 +1,19 @@
+---
+description: Enforces WCAG AA color contrast, keyboard navigation, ARIA accessibility, and focus indicators across UI components.
+globs: **/*.tsx, **/*.jsx, **/*.html
+---
+
+# Accessibility & WCAG AA Compliance Rule
+
+When generating or modifying frontend UI components, you **MUST** encode accessibility directly into the markup:
+
+## 1. Color Contrast & Readability in Dark Mode
+- All body text in obsidian dark mode (`#030712`) must maintain at least **4.5:1** contrast ratio (`#f9fafb` for headings, `#94a3b8` for descriptions).
+- Avoid dark grey text on dark backgrounds (`#334155` text on `#0b0f19` background is strictly forbidden).
+
+## 2. Interactive Focus Rings
+- All interactive controls (buttons, links, inputs, tabs) must have visible focus rings for keyboard navigation:
+  - `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950`
+
+## 3. ARIA Semantics
+- Custom interactive cards, tabs, and modals must include appropriate ARIA attributes (`aria-label`, `role="tab"`, `aria-selected="true"`).

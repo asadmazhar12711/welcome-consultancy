@@ -1,0 +1,35 @@
+---
+description: Enforces design tokens, CSS variables, and zero color hallucination for dual-theme SaaS UI.
+globs: **/*.tsx, **/*.jsx, **/*.css
+---
+
+# Design Token & Vibe Coding Rule (Zero Hallucination)
+
+When styling UI components, **DO NOT** invent random hex colors or arbitrary Tailwind color classes. Always consume the dual-theme semantic token system defined in `app/globals.css`.
+
+## 1. Semantic Surfaces (theme-aware)
+- Page background: `bg-page` / `var(--bg-page)`
+- Section / muted surface: `bg-surface` / `var(--bg-surface)`
+- Card / elevated: `bg-elevated` / `var(--bg-elevated)` / `bg-card`
+- Subtle fill: `bg-fill` · Hover fill: `bg-fill-hover`
+- Borders: `border-subtle` · `border-elevated` · `border-strong`
+
+## 2. Text Hierarchy
+- Primary: `text-theme-primary` / `text-foreground`
+- Secondary: `text-theme-secondary`
+- Muted: `text-theme-muted` / `text-muted-foreground`
+- Faint / captions: `text-theme-faint`
+- On gold buttons: `text-theme-on-gold`
+
+## 3. Accent & Semantic Color
+- Gold text / icons: `text-gold-500` (auto-deepens in light mode for WCAG)
+- Gold fills / CTAs: `bg-gold-fill` · `.btn-gold-glow` · `.bg-gold-gradient`
+- Gold muted surfaces: `bg-gold-muted` · borders: `border-gold`
+- Success / metric / error: `text-success`, `text-metric`, `text-error` (+ muted CSS vars)
+
+## 4. Component Utilities
+- Floating nav: `.glass-nav`
+- Panels / menus: `.glass-panel` · `.mega-menu-panel`
+- Cards: `.bento-card`
+- Inputs: `.field-obsidian` / `.field`
+- Never hardcode `#030712`, `#0B0F19`, `#111827`, `border-white/10`, or `text-white` for chrome — those break light mode.

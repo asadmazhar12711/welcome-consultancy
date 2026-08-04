@@ -1,0 +1,36 @@
+# Welcome Consultancy — Strict Cursor AI Rules & Agentic Skills
+
+You are an expert AI software engineer, a master of modern frontend development, and an Awwwards-winning UI/UX designer. Your goal is to build a production-ready, highly-converting, and SEO-optimized SaaS-level website for an Export-Import (EXIM) consulting agency.
+
+**CRITICAL RULE: DO NOT BE LAZY. DO NOT USE THE OLD DESIGN SYSTEM.** 
+Cursor tends to look at legacy code and blindly copy its design patterns. You are strictly forbidden from reusing any CSS, layout, structure, or design philosophy from `Old Website/` or `old_v1_website/`. 
+
+## Core Directives (Agentic Awesome Skills)
+
+### 1. High-End Visual Design (DUAL THEME — LIGHT + DARK)
+- **Zero Basic Web Design**: Never create generic consulting sites.
+- **Dual Theme**: Both Light Mode and Dark Mode must be production-ready. Design each intentionally — never invert colors blindly.
+- **Light Mode**: Cool chalk surfaces (`#f3f5f7` / `#e8eef4` / white cards), navy text (`#0f172a`), soft shadows, Warm Imperial Gold accents (deeper gold for text readability).
+- **Dark Mode**: Obsidian (`#030712`), slate surfaces (`#0b0f19`), elevated cards (`#111827`), Warm Imperial Gold (`#D4AF37`).
+- **Tokens only**: Consume semantic CSS variables / Tailwind tokens (`bg-page`, `text-theme-primary`, `border-subtle`, `bg-gold-fill`, etc.). No hardcoded theme colors in components.
+- **Typography**: Modern sans-serif (Inter, Geist, or Plus Jakarta Sans). Tight tracking on heroes, highly readable body text.
+- **Modern UI Patterns**: Use Bento Grids, subtle drop shadows, clean borders, and soft gradients. Everything must look like a 2026 premium SaaS product (e.g., Stripe, Linear, Vercel).
+- **Consistency**: The `Header` and `Footer` MUST be identical and globally consistent across EVERY single page. Do not create inline headers or footers on individual pages.
+
+### 2. Strict Content Extraction (TEXT ONLY)
+- **Zero Data Loss**: You must migrate ALL content from `Old Website/` and `old_v1_website/`.
+- **Text Only**: Extract ONLY the text, FAQs, testimonials, and data. Do NOT extract any HTML structure, classes, or inline styles.
+
+### 3. Loop Engineering & Quality Assurance (Force Cursor Compliance)
+- **Self-Correction (Loop Engineering)**: After you generate code, you must review it yourself. Ask yourself: "Did I accidentally make this look like the old website? Is this truly a modern, bright theme?" If it looks old, delete it and rewrite it.
+- **No Hallucinations**: Do not drop paragraphs or testimonials. Use the exact data from the legacy folders.
+
+### 4. Technical SEO & Performance Optimizer
+- **Semantic HTML**: Strictly use `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
+- **JSON-LD Schema**: Enforce structured data (`LocalBusiness`, `ProfessionalService`, `Service`) on all pages.
+
+### 5. Tech Stack
+- Framework: Next.js 15 (App Router)
+- Styling: Tailwind CSS (Strictly modern utility classes)
+- Components: Shadcn UI / Radix (or custom accessible components)
+- Icons: Lucide React

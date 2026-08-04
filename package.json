@@ -1,0 +1,38 @@
+{
+  "name": "welcome-consultancy",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Welcome Consultancy — DGFT & EXIM advisory platform on Next.js + Cloudflare Workers",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "db:local": "wrangler d1 execute welcome-consultancy-db --local --file=./schema.sql",
+    "db:remote": "wrangler d1 execute welcome-consultancy-db --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.6.5",
+    "cheerio": "^1.2.0",
+    "lucide-react": "^1.28.0",
+    "next": "^15.3.5",
+    "next-themes": "^0.4.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260729.1",
+    "@types/node": "^22.15.32",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.25",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.22.0"
+  }
+}

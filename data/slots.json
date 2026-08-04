@@ -1,0 +1,15 @@
+{
+  "workingDays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  "startTime": "10:00",
+  "endTime": "18:00",
+  "slotDurationMinutes": 30,
+  "bookedSlots": [
+    {
+      "date": "2026-07-30",
+      "time": "14:00",
+      "clientName": "Ananya Roy",
+      "mobile": "+91 97110 88219",
+      "service": "FSSAI Registration & Health Certificate"
+    }
+  ]
+}

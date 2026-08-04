@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Scope, Website Audit & Development Timeline — Welcome Consultancy Redesign</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS RESET & GENERAL VARIABLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --font-heading: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+
+            /* Light Theme Palette - Executive Corporate Navy & Gold Accents */
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f1f5f9;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            
+            --primary: #0f2c6f;       /* Deep Corporate Navy */
+            --primary-light: #eff6ff;
+            --primary-dark: #0a1e4d;
+            
+            --accent: #e8a020;        /* Warm Gold Authority */
+            --accent-light: #fef3c7;
+            --accent-dark: #b45309;
+            
+            --border-color: #e2e8f0;
+            --border-hover: #cbd5e1;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            
+            --transition-normal: 0.25s ease;
+            --sidebar-width: 310px;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Theme Palette */
+            --bg-primary: #060d1a;
+            --bg-secondary: #0c182c;
+            --bg-tertiary: #14233d;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            
+            --primary: #2563eb;
+            --primary-light: rgba(37, 99, 235, 0.15);
+            --primary-dark: #60a5fa;
+            
+            --accent: #f59e0b;
+            --accent-light: rgba(245, 158, 11, 0.15);
+            --accent-dark: #fbbf24;
+            
+            --border-color: #1e293b;
+            --border-hover: #334155;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.65;
+            transition: background-color var(--transition-normal), color var(--transition-normal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 72px;
+            background-color: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2.5rem;
+            z-index: 1000;
+            transition: background-color var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        [data-theme="dark"] header {
+            background-color: rgba(12, 24, 44, 0.88);
+        }
+
+        .header-logo {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            letter-spacing: -0.025em;
+        }
+
+        .header-logo i {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .header-logo span {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            background: var(--primary-light);
+            padding: 0.25rem 0.7rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-control {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.55rem 1.1rem;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-control:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* LAYOUT & SIDEBAR */
+        .layout-container {
+            display: flex;
+            min-height: 100vh;
+            margin-top: 72px;
+        }
+
+        aside {
+            width: var(--sidebar-width);
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 72px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            z-index: 900;
+            transition: background-color var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .sidebar-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            padding-left: 0.75rem;
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.925rem;
+            transition: all var(--transition-normal);
+        }
+
+        .toc-link i {
+            width: 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: color var(--transition-normal);
+        }
+
+        .toc-link:hover {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .toc-link.active {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .toc-link.active i {
+            color: var(--primary);
+        }
+
+        main {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 3.5rem 4rem;
+            max-width: 1400px;
+        }
+
+        /* SECTIONS & COVER PAGE */
+        .section-page {
+            margin-bottom: 6rem;
+            scroll-margin-top: 100px;
+        }
+
+        #cover-page {
+            min-height: calc(100vh - 180px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .cover-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+            border: 1px solid rgba(15, 44, 111, 0.15);
+        }
+
+        .cover-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cover-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 860px;
+            margin-bottom: 3.5rem;
+            font-weight: 400;
+        }
+
+        .cover-metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 2.25rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .meta-item-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+
+        .meta-item-value {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.025em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 900px;
+        }
+
+        /* CARDS & PANELS */
+        .info-card-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        .info-card-box h3 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            background: var(--bg-tertiary);
+            padding: 1.5rem;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* TABLES */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--bg-tertiary);
+            padding: 1.1rem 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(15, 44, 111, 0.02);
+        }
+
+        .badge-status {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .badge-legacy {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .badge-benchmark {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+
+        .badge-target {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* AUDIT GRID & ISSUES LIST */
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .audit-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .audit-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .audit-card-title i {
+            color: #dc2626;
+        }
+
+        .audit-issue-list {
+            list-style: none;
+        }
+
+        .audit-issue-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+        }
+
+        .audit-issue-item i {
+            color: #dc2626;
+            margin-top: 0.25rem;
+            font-size: 0.85rem;
+        }
+
+        .audit-issue-item strong {
+            color: var(--text-primary);
+        }
+
+        /* SCOPE CARDS */
+        .scope-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .scope-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+        }
+
+        .scope-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--border-hover);
+        }
+
+        .scope-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .scope-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-sm);
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+        }
+
+        .scope-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .scope-card-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .scope-card-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .scope-card-item i {
+            color: var(--primary);
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .scope-card-item strong {
+            color: var(--text-primary);
+        }
+
+        /* TIMELINE BLOCK COMPONENT */
+        .timeline-visual {
+            position: relative;
+            margin-top: 3rem;
+            padding-left: 2.75rem;
+        }
+
+        .timeline-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 9px;
+            width: 3px;
+            background: var(--border-color);
+        }
+
+        .timeline-block {
+            position: relative;
+            margin-bottom: 3.5rem;
+        }
+
+        .timeline-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -35px;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 4px solid var(--border-color);
+            z-index: 2;
+            box-shadow: 0 0 0 5px var(--bg-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .timeline-block.active .timeline-dot {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 6px var(--primary-light);
+        }
+
+        .timeline-content-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-period {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-milestone {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-top: 0.5rem;
+        }
+
+        .timeline-demo-badge {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-demo-badge i {
+            color: var(--primary);
+        }
+
+        .timeline-desc-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.75rem;
+            max-width: 950px;
+        }
+
+        .timeline-subtasks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .subtask-col-title {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.85rem;
+        }
+
+        .subtask-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .subtask-item {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.925rem;
+            color: var(--text-secondary);
+        }
+
+        .subtask-item i {
+            font-size: 0.85rem;
+        }
+
+        .subtask-item i.fa-circle-check {
+            color: var(--primary);
+        }
+
+        .subtask-item i.fa-circle-notch {
+            color: var(--accent);
+        }
+
+        /* CHECKLIST CONTROLS */
+        .checklist-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 380px;
+            width: 100%;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.65rem 1.1rem 0.65rem 2.6rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            outline: none;
+            transition: all var(--transition-normal);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 44, 111, 0.12);
+        }
+
+        .checklist-filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.825rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all var(--transition-normal);
+        }
+
+        .btn-filter.active, .btn-filter:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+        }
+
+        .deliverable-list-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .deliverable-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.15rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: background var(--transition-normal);
+        }
+
+        .deliverable-row:last-child {
+            border-bottom: none;
+        }
+
+        .deliverable-row:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .deliverable-info {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+        }
+
+        .deliverable-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: transparent;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .deliverable-row.completed .deliverable-checkbox {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .deliverable-row.completed .deliverable-title {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        .deliverable-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .deliverable-category {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .deliverable-status {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.7rem;
+            border-radius: 4px;
+        }
+
+        .status-sprint1 {
+            background: rgba(37, 99, 235, 0.12);
+            color: var(--primary);
+        }
+
+        .status-sprint2 {
+            background: rgba(232, 160, 32, 0.15);
+            color: #b45309;
+        }
+
+        .status-sprint3 {
+            background: rgba(16, 185, 129, 0.12);
+            color: #047857;
+        }
+
+        /* TECH STACK CARDS */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tech-icon {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+
+        .tech-info-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-info-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* FLOATING TO-TOP ACTION */
+        .floating-actions {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 999;
+        }
+
+        .btn-floating {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all var(--transition-normal);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .btn-floating.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn-floating:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3.5rem 2.5rem;
+            margin-top: 6rem;
+            background-color: var(--bg-secondary);
+            transition: background-color var(--transition-normal), border-color var(--transition-normal);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-left {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+        }
+
+        .footer-right {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* RESPONSIVE LAYOUTS */
+        @media (max-width: 1024px) {
+            .layout-container {
+                flex-direction: column;
+            }
+
+            aside {
+                position: relative;
+                top: 0;
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 1.5rem 2rem;
+                height: auto;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 2.5rem 2rem;
+            }
+
+            .cover-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding: 0 1.25rem;
+            }
+
+            .header-logo span {
+                display: none;
+            }
+
+            main {
+                padding: 2rem 1.25rem;
+            }
+
+            .cover-title {
+                font-size: 2.1rem;
+            }
+
+            .cover-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .checklist-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .scope-grid, .tech-grid, .audit-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* PRINT & PDF EXPORT OPTIMIZATION */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 10pt;
+                line-height: 1.45;
+            }
+
+            a {
+                color: #0f2c6f !important;
+                text-decoration: underline !important;
+            }
+
+            /* Hide non-printable interactive controls */
+            header, 
+            aside, 
+            .checklist-controls, 
+            .floating-actions, 
+            .btn-control,
+            footer {
+                display: none !important;
+            }
+
+            .layout-container {
+                margin-top: 0 !important;
+                display: block !important;
+            }
+
+            main {
+                margin-left: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* Cover Page formatting for A4 Page */
+            #cover-page {
+                min-height: 98vh !important;
+                page-break-after: always;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                border-bottom: none !important;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            .cover-title {
+                font-size: 32pt !important;
+                color: #0f172a !important;
+                margin-top: 1.5in;
+            }
+
+            .cover-subtitle {
+                font-size: 14pt !important;
+                color: #334155 !important;
+            }
+
+            .cover-metadata-grid {
+                margin-top: auto !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 20pt !important;
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 15pt;
+                box-shadow: none !important;
+            }
+
+            /* Section formatting */
+            .section-page {
+                page-break-before: always;
+                margin-bottom: 25pt !important;
+                padding-top: 15pt;
+            }
+
+            .section-title {
+                font-size: 20pt !important;
+                color: #0f172a !important;
+                border-bottom: 2px solid #0f2c6f;
+                padding-bottom: 8pt;
+            }
+
+            /* Ensure clean page breaks for cards and blocks */
+            .scope-grid, .tech-grid, .stats-grid, .audit-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 15pt !important;
+                page-break-inside: avoid !important;
+            }
+
+            .scope-card, .tech-card, .info-card-box, .comparison-table-wrapper, .audit-card {
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                background: white !important;
+                page-break-inside: avoid !important;
+            }
+
+            /* Timeline print alignment */
+            .timeline-visual::before {
+                background: #cbd5e1 !important;
+            }
+
+            .timeline-dot {
+                border-color: #0f2c6f !important;
+                background: white !important;
+            }
+
+            .timeline-content-card {
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+                background: white !important;
+                page-break-inside: avoid !important;
+            }
+
+            .timeline-period {
+                background: #eff6ff !important;
+                color: #0f2c6f !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            /* Table styling in print */
+            th {
+                background-color: #f1f5f9 !important;
+                color: black !important;
+                font-weight: bold !important;
+                border-bottom: 2px solid #cbd5e1 !important;
+            }
+
+            td, th {
+                padding: 8pt 10pt !important;
+                border-bottom: 1px solid #cbd5e1 !important;
+            }
+
+            tr {
+                page-break-inside: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP HEADER -->
+    <header>
+        <div class="header-logo">
+            <i class="fa-solid fa-compass-drafting"></i> Welcome Consultancy <span>Executive Proposal</span>
+        </div>
+        <div class="header-controls">
+            <button class="btn-control" id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i> Theme
+            </button>
+            <button class="btn-control btn-primary" onclick="window.print()">
+                <i class="fa-solid fa-file-pdf"></i> Export Proposal to PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTAINER -->
+    <div class="layout-container">
+        
+        <!-- SIDEBAR NAVIGATION -->
+        <aside>
+            <div class="sidebar-title">Proposal Sections</div>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <a href="#cover-page" class="toc-link active" data-section="cover-page">
+                        <i class="fa-solid fa-file-contract"></i> Cover Sheet
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#project-context" class="toc-link" data-section="project-context">
+                        <i class="fa-solid fa-briefcase"></i> Executive Summary
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#current-site-audit" class="toc-link" data-section="current-site-audit">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i> Current Website Audit
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#benchmarks" class="toc-link" data-section="benchmarks">
+                        <i class="fa-solid fa-star"></i> Strategic Vision & Benchmark
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#project-scope" class="toc-link" data-section="project-scope">
+                        <i class="fa-solid fa-layer-group"></i> Proposed Scope & Features
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#timeline-milestones" class="toc-link" data-section="timeline-milestones">
+                        <i class="fa-solid fa-calendar-check"></i> 25-Day Road Map
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#deliverables-checklist" class="toc-link" data-section="deliverables-checklist">
+                        <i class="fa-solid fa-list-check"></i> Scope Deliverables
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#tech-stack" class="toc-link" data-section="tech-stack">
+                        <i class="fa-solid fa-server"></i> Architecture & Security
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT PANEL -->
+        <main>
+            
+            <!-- COVER PAGE -->
+            <section id="cover-page">
+                <div class="cover-badge">Formal Technical Proposal & Scope Specification</div>
+                <h1 class="cover-title">Digital Transformation &<br>Website Redesign Scope</h1>
+                <p class="cover-subtitle">A comprehensive technical audit, bespoke architectural road map, and interactive milestone schedule prepared for <strong>Welcome Consultancy</strong> to elevate global trade authority and digital lead generation.</p>
+                
+                <div class="cover-metadata-grid">
+                    <div>
+                        <div class="meta-item-label">Client Organization</div>
+                        <div class="meta-item-value">Welcome Consultancy</div>
+                    </div>
+                    <div>
+                        <div class="meta-item-label">Principal Consultant</div>
+                        <div class="meta-item-value">Mr. Nandkumar Kalambe</div>
+                    </div>
+                    <div>
+                        <div class="meta-item-label">Development Agency</div>
+                        <div class="meta-item-value">adsara.in</div>
+                    </div>
+                    <div>
+                        <div class="meta-item-label">Project Turnaround</div>
+                        <div class="meta-item-value">25 Development Days</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 01: PROJECT CONTEXT -->
+            <section id="project-context" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 01</span>
+                    <h2 class="section-title">Executive Summary & Objectives</h2>
+                    <p class="section-desc">Welcome Consultancy holds over a decade of domain leadership across Indian Foreign Trade, DGFT regulatory filings, and import-export incentive recovery. The strategic goal of this project is to build a bespoke, high-converting digital platform that matches this institutional prestige.</p>
+                </div>
+
+                <div class="info-card-box">
+                    <h3><i class="fa-solid fa-award" style="color:var(--primary);"></i> Institutional Authority to be Highlighted</h3>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">The modernized portal will anchor your reputation on concrete operational credentials, projecting immediate trust to exporters, manufacturers, and international logistics partners from the moment they land on the home page.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label">Years of Industry Leadership</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">16+</div>
+                            <div class="stat-label">Specialized EXIM & DGFT Services</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Satisfied Exporters & Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Regulatory & Customs Compliance</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 02: CURRENT WEBSITE AUDIT -->
+            <section id="current-site-audit" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 02</span>
+                    <h2 class="section-title">Comprehensive Audit of Current Website</h2>
+                    <p class="section-desc">Our engineering team has performed an exhaustive A-to-Z structural, technical, and content extraction audit of your existing website (<a href="https://www.welcomeconsultancy.in" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-weight:600;">welcomeconsultancy.in</a>) to identify critical growth blockers and outline essential preservation requirements.</p>
+                </div>
+
+                <div class="info-card-box" style="margin-bottom:2rem;">
+                    <h3><i class="fa-solid fa-sitemap" style="color:var(--primary);"></i> Content & Architecture Inventory (To Be Exactly Preserved)</h3>
+                    <p style="color:var(--text-secondary); margin-bottom:1.25rem;">To guarantee **zero disruption to existing search rankings (SEO)** and ensure seamless continuity for returning clients, our development team will manually migrate and enhance the complete existing service structure across all **16 dedicated service paths**:</p>
+                    
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1rem; font-size:0.925rem; color:var(--text-secondary);">
+                        <div>
+                            <strong style="color:var(--text-primary); display:block; margin-bottom:0.5rem;"><i class="fa-solid fa-arrow-right-to-bracket" style="color:var(--primary);"></i> Core Licensing & Registrations:</strong>
+                            <ul style="list-style:none; padding-left:0.5rem; display:flex; flex-direction:column; gap:0.35rem;">
+                                <li>&bull; Import - Export Code (IEC Code)</li>
+                                <li>&bull; Export Promotion Capital Goods (EPCG License)</li>
+                                <li>&bull; Advance Authorization / Licence Scheme</li>
+                                <li>&bull; Export House Certificate / Star Export House</li>
+                                <li>&bull; RCMC Application (Export Promotion Councils)</li>
+                                <li>&bull; AD Code & ICEGATE Registration Services</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong style="color:var(--text-primary); display:block; margin-bottom:0.5rem;"><i class="fa-solid fa-file-shield" style="color:var(--primary);"></i> Specialized Compliance & Incentives:</strong>
+                            <ul style="list-style:none; padding-left:0.5rem; display:flex; flex-direction:column; gap:0.35rem;">
+                                <li>&bull; Export Incentives (RoDTEP / RoSCTL / Drawback)</li>
+                                <li>&bull; Authorized Economic Operator (AEO Registration)</li>
+                                <li>&bull; Certificate of Origin (C.O.O.) & Digital Signature</li>
+                                <li>&bull; FSSAI Registration (For Export & Import)</li>
+                                <li>&bull; SIMS & REX Registration Services</li>
+                                <li>&bull; Health Certificate & Interest Equalization Scheme</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-family:var(--font-heading); font-size:1.35rem; font-weight:700; color:var(--text-primary); margin-bottom:1.25rem;">Technical & Structural Issues Identified (Why Redesign is Vital)</h3>
+                
+                <div class="audit-grid">
+                    <div class="audit-card">
+                        <div class="audit-card-title"><i class="fa-solid fa-link-slash"></i> Broken Quick Links & Placeholders</div>
+                        <ul class="audit-issue-list">
+                            <li class="audit-issue-item"><i class="fa-solid fa-triangle-exclamation"></i> <span><strong>8 Placeholder Sidebar Links:</strong> The "Quick Links" section on the homepage currently lists 8 identical links labelled <em>"Import of Pets"</em> that all point to broken anchors (<code>#</code>), undermining corporate credibility.</span></li>
+                            <li class="audit-issue-item"><i class="fa-solid fa-triangle-exclamation"></i> <span><strong>Empty Email Hyperlink:</strong> The header contact bar features an empty <code>href="mailto:"`</code> tag with no email address assigned, preventing clients from clicking to email inquiries.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="audit-card">
+                        <div class="audit-card-title"><i class="fa-solid fa-gauge-high"></i> Heavy Performance Bloat</div>
+                        <ul class="audit-issue-list">
+                            <li class="audit-issue-item"><i class="fa-solid fa-triangle-exclamation"></i> <span><strong>30+ HTTP CSS Requests:</strong> The legacy WordPress Elementor setup loads more than 30 individual stylesheets and 12 font files sequentially, causing noticeable render-blocking lag.</span></li>
+                            <li class="audit-issue-item"><i class="fa-solid fa-triangle-exclamation"></i> <span><strong>Outdated Asset Dependencies:</strong> Reliance on older jQuery scripts, redundant Flaticon libraries (8 versions loaded simultaneously), and unoptimized stock background images.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="audit-card">
+                        <div class="audit-card-title"><i class="fa-solid fa-magnifying-glass-arrow-right"></i> SEO & Visibility Deficits</div>
+                        <ul class="audit-issue-list">
+                            <li class="audit-issue-item"><i class="fa-solid fa-triangle-exclamation"></i> <span><strong>Missing Structured Schema:</strong> No JSON-LD <code>LocalBusiness</code> or <code>ProfessionalService</code> schema markup exists to help Google display rich business details or star ratings in search results.</span></li>
+                            <li class="audit-issue-item"><i class="fa-solid fa-triangle-exclamation"></i> <span><strong>Generic Blog Thumbnails:</strong> News articles rely on 2019 theme demo placeholder thumbnails (<code>theme-10.jpg</code>, <code>theme-07.jpg</code>) rather than authentic trade graphics.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: STRATEGIC VISION & BENCHMARK -->
+            <section id="benchmarks" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 03</span>
+                    <h2 class="section-title">Strategic Vision & Approved Benchmark</h2>
+                    <p class="section-desc">To position Welcome Consultancy at the absolute forefront of India's EXIM advisory sector, we transition the visual and structural architecture toward our approved corporate benchmark.</p>
+                </div>
+
+                <div class="info-card-box">
+                    <h3><i class="fa-solid fa-check-double" style="color:var(--primary);"></i> Approved Industry Benchmark: Kireeti Consultants</h3>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">As confirmed in our initial design alignment, <strong><a href="https://www.kireeticonsultants.com" target="_blank" rel="noopener noreferrer" style="color:var(--primary); text-decoration:none; font-weight:600;">kireeticonsultants.com</a></strong> serves as our structural benchmark. We will elevate your platform beyond this standard by introducing a bespoke **Deep Navy & Warm Gold corporate palette**, fluid glassmorphic headers, structured multi-column mega navigation, and modern interactive elements.</p>
+                </div>
+
+                <div class="comparison-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform Architecture</th>
+                                <th>Operational Status</th>
+                                <th>Design Philosophy & Structural Capabilities</th>
+                                <th>Redesign Transformation Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight:700; color:var(--text-primary);">welcomeconsultancy.in <span style="font-weight:400; font-size:0.8rem; color:var(--text-muted);">(Existing Site)</span></td>
+                                <td><span class="badge-status badge-legacy">Legacy Setup</span></td>
+                                <td>WordPress Elementor theme (`Consultio`). Basic masonry icon grid for services. Heavy asset bloat and outdated 2018 visual hierarchy.</td>
+                                <td>Provides the foundational content, all 16 core service descriptions, and verified client testimonials for exact migration.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:700; color:var(--text-primary);">kireeticonsultants.com <span style="font-weight:400; font-size:0.8rem; color:var(--text-muted);">(Design Benchmark)</span></td>
+                                <td><span class="badge-status badge-benchmark">Approved Reference</span></td>
+                                <td>Clean corporate taxonomy. Clear division between Licensing, DGFT Advisory, and Customs clearance. High institutional trust presentation.</td>
+                                <td>Inspires our multi-column navigation taxonomy and structured, executive-level service presentation.</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight:700; color:var(--text-primary);">ADSARA Bespoke Portal <span style="font-weight:400; font-size:0.8rem; color:var(--text-muted);">(Proposed Solution)</span></td>
+                                <td><span class="badge-status badge-target">Target Deliverable</span></td>
+                                <td>Custom high-speed architecture. Sleek card layouts with subtle hover elevation, custom typography, and 100% responsive fluid mobile design.</td>
+                                <td>Lightning-fast Cloudflare edge loading, interactive EXIM calculators, direct WhatsApp lead capture, and dynamic CMS dashboard.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 04: PROPOSED SCOPE & FEATURES -->
+            <section id="project-scope" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 04</span>
+                    <h2 class="section-title">Proposed Scope of Work & Features</h2>
+                    <p class="section-desc">Our development team will manually engineer your new web portal across four core structural pillars, combining high-converting frontend design with powerful interactive consulting utilities.</p>
+                </div>
+
+                <div class="scope-grid">
+                    <!-- PILLAR 1: FRONTEND PORTAL -->
+                    <div class="scope-card">
+                        <div class="scope-card-header">
+                            <div class="scope-card-icon"><i class="fa-solid fa-desktop"></i></div>
+                            <div>
+                                <h3 class="scope-card-title">Frontend Corporate Portal</h3>
+                                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Bespoke Visual Architecture</span>
+                            </div>
+                        </div>
+                        <ul class="scope-card-list">
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Full-Screen Authority Hero:</strong> Dynamic hero section featuring high-impact corporate messaging, clear value propositions, and dual action CTAs.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Structured Services Mega-Menu:</strong> Intuitive 3-column navigation cleanly categorizing Licensing, DGFT Compliance, and Export Incentives.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>16 Dedicated Service Pages:</strong> Complete visual overhaul of every individual service page with clear benefits, document checklists, and FAQ sections.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Preserved Client Testimonials:</strong> Prominent presentation of all 5 verified corporate client reviews (C.D. Shah, Yusuf Tai, etc.) with verified company badges.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- PILLAR 2: INTERACTIVE CONSULTING TOOLS -->
+                    <div class="scope-card">
+                        <div class="scope-card-header">
+                            <div class="scope-card-icon"><i class="fa-solid fa-calculator"></i></div>
+                            <div>
+                                <h3 class="scope-card-title">Interactive Consulting Tools</h3>
+                                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">High-Converting Lead Magnets</span>
+                            </div>
+                        </div>
+                        <ul class="scope-card-list">
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Real-Time Export Incentive Calculator:</strong> Allows visitors to select their sector and input FOB turnover to instantly calculate estimated RoDTEP / Duty Drawback benefits.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>EPCG Duty Savings Estimator:</strong> Interactive widget showing manufacturers upfront customs duty savings and required export obligation timelines.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Custom Document Checklist Generator:</strong> Dynamic tool where exporters select their cargo type to generate and download exact licensing requirements.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Sticky WhatsApp & Call CTAs:</strong> One-click floating WhatsApp bubble (<code>+91 98671 73397</code>) and direct phone triggers across all mobile viewports.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- PILLAR 3: ADMIN CMS & BOOKING MANAGEMENT -->
+                    <div class="scope-card">
+                        <div class="scope-card-header">
+                            <div class="scope-card-icon"><i class="fa-solid fa-user-gear"></i></div>
+                            <div>
+                                <h3 class="scope-card-title">Custom Admin CMS Panel</h3>
+                                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Seamless Client Control</span>
+                            </div>
+                        </div>
+                        <ul class="scope-card-list">
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Dynamic Service Content Manager:</strong> Secure administrative dashboard to add, update, or modify service descriptions and rates without touching code.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Regulatory Updates Ticker Manager:</strong> Easily publish urgent DGFT notifications, customs circulars, and EXIM news directly to the homepage ticker.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Consultation Booking Calendar:</strong> Integrated scheduling tool allowing prospective clients to book trade advisory appointments directly.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Testimonial & Partner Logo Manager:</strong> Upload new client reviews, ratings, and accreditation certificates effortlessly.</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- PILLAR 4: SPEED, SECURITY & TECHNICAL SEO -->
+                    <div class="scope-card">
+                        <div class="scope-card-header">
+                            <div class="scope-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h3 class="scope-card-title">Speed, Security & SEO</h3>
+                                <span style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Enterprise Technical Grade</span>
+                            </div>
+                        </div>
+                        <ul class="scope-card-list">
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Cloudflare Serverless Edge Hosting:</strong> High-performance global CDN deployment guaranteeing sub-second loading speeds across India and globally.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Complete Structured Data Schema:</strong> Manual injection of JSON-LD <code>ProfessionalService</code>, <code>LocalBusiness</code>, and <code>FAQPage</code> schemas for Google Rich Snippets.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Strict Form Security & Hardening:</strong> Implementation of honeypot anti-spam protection, input sanitization, and SSL encryption on all inquiry forms.</span></li>
+                            <li class="scope-card-item"><i class="fa-solid fa-circle-check"></i> <span><strong>100% URL Continuity Preservation:</strong> Exact redirect and canonical preservation of all 16 legacy service URLs to maintain existing search authority.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 05: 25-DAY DEVELOPMENT TIMELINE -->
+            <section id="timeline-milestones" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 05</span>
+                    <h2 class="section-title">25-Day Development Road Map</h2>
+                    <p class="section-desc">Our development process is structured into three dedicated, highly disciplined engineering sprints, complete with formal client demonstration sessions for review and refinement.</p>
+                </div>
+
+                <div class="timeline-visual">
+                    
+                    <!-- SPRINT 1 -->
+                    <div class="timeline-block active">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content-card">
+                            <div class="timeline-header-flex">
+                                <div>
+                                    <span class="timeline-period">Day 01 - Day 08</span>
+                                    <h3 class="timeline-milestone">Sprint 1: UI/UX Architecture & Core Frontend Framework</h3>
+                                </div>
+                                <div class="timeline-demo-badge">
+                                    <i class="fa-solid fa-desktop"></i> Client Demo #01 on Day 08
+                                </div>
+                            </div>
+                            <p class="timeline-desc-text">We establish the bespoke visual identity, typography scales (`Inter` + `Plus Jakarta Sans`), and color tokens (`Navy & Gold`). We engineer the main homepage experience, structural mega-navigation, and responsive layout foundations across all mobile and desktop viewports.</p>
+                            
+                            <div class="timeline-subtasks">
+                                <div>
+                                    <h4 class="subtask-col-title">Engineering Focus & Deliverables</h4>
+                                    <ul class="subtask-list">
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-check"></i> Complete design token & global CSS grid setup</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-check"></i> High-authority homepage hero & statistics counters</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-check"></i> 3-Column Services Mega-Menu taxonomy architecture</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-check"></i> Responsive mobile navigation & multi-column footer</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="subtask-col-title">Demo 1 Client Checkpoints</h4>
+                                    <ul class="subtask-list" style="color:var(--text-primary); font-weight:500;">
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Review overall corporate visual authority and aesthetics</li>
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Verify navigation categorization (Licensing vs. Incentives)</li>
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Provide initial layout refinement feedback</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SPRINT 2 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content-card">
+                            <div class="timeline-header-flex">
+                                <div>
+                                    <span class="timeline-period">Day 09 - Day 16</span>
+                                    <h3 class="timeline-milestone">Sprint 2: Service Pages, Interactive Tools & Admin CMS</h3>
+                                </div>
+                                <div class="timeline-demo-badge">
+                                    <i class="fa-solid fa-user-gear"></i> Client Demo #02 on Day 16
+                                </div>
+                            </div>
+                            <p class="timeline-desc-text">We incorporate Demo 1 adjustments and manually engineer the complete suite of 16 individual service pages. Simultaneously, we build the interactive Export Incentive Calculator, consultation booking scheduler, and secure administrative CMS portal.</p>
+                            
+                            <div class="timeline-subtasks">
+                                <div>
+                                    <h4 class="subtask-col-title">Engineering Focus & Deliverables</h4>
+                                    <ul class="subtask-list">
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-notch fa-spin"></i> Build all 16 individual service pages with checklists</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-notch fa-spin"></i> Engineer real-time Export Incentive & RoDTEP calculator</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-notch fa-spin"></i> Develop consultation booking scheduler & form hardening</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle-notch fa-spin"></i> Connect secure Admin CMS dashboard for service updates</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="subtask-col-title">Demo 2 Client Checkpoints</h4>
+                                    <ul class="subtask-list" style="color:var(--text-primary); font-weight:500;">
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Test interactive calculator logic & accuracy</li>
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Verify CMS login, content editing & review upload tools</li>
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Confirm all 16 service descriptions and contact forms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SPRINT 3 -->
+                    <div class="timeline-block">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content-card">
+                            <div class="timeline-header-flex">
+                                <div>
+                                    <span class="timeline-period">Day 17 - Day 25</span>
+                                    <h3 class="timeline-milestone">Sprint 3: QA Audit, SEO Schema Injection & Live Deployment</h3>
+                                </div>
+                                <div class="timeline-demo-badge">
+                                    <i class="fa-solid fa-rocket"></i> Live Launch on Day 25
+                                </div>
+                            </div>
+                            <p class="timeline-desc-text">We finalize all secondary refinements from Demo 2. Our engineers conduct comprehensive multi-viewport QA audits, inject structured JSON-LD schemas across all pages, verify exact 100% URL continuity, and deploy the production platform live on Cloudflare's global edge network.</p>
+                            
+                            <div class="timeline-subtasks">
+                                <div>
+                                    <h4 class="subtask-col-title">Engineering Focus & Deliverables</h4>
+                                    <ul class="subtask-list">
+                                        <li class="subtask-item"><i class="fa-regular fa-circle"></i> Implement final client revisions & copy adjustments</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle"></i> Inject complete JSON-LD structured data & OpenGraph tags</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle"></i> Run rigorous cross-browser & mobile viewport QA testing</li>
+                                        <li class="subtask-item"><i class="fa-regular fa-circle"></i> Configure custom domain SSL & deploy live to production</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="subtask-col-title">Final Handover Checkpoints</h4>
+                                    <ul class="subtask-list" style="color:var(--text-primary); font-weight:500;">
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Official live platform launch on welcomeconsultancy.in</li>
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Delivery of complete administrative credentials & guide</li>
+                                        <li class="subtask-item"><i class="fa-solid fa-arrow-right" style="color:var(--primary);"></i> Final executive sign-off & project completion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION 06: SCOPE DELIVERABLES CHECKLIST -->
+            <section id="deliverables-checklist" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 06</span>
+                    <h2 class="section-title">Scope Deliverables Checklist</h2>
+                    <p class="section-desc">Search or filter through our contractual scope deliverables below to see exactly what is included across each sprint of the development lifecycle.</p>
+                </div>
+
+                <div class="checklist-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="checklist-search" class="search-input" placeholder="Search scope deliverables..." onkeyup="filterChecklist()">
+                    </div>
+                    <div class="checklist-filter-buttons">
+                        <button class="btn-filter active" onclick="filterChecklistCategory('all', this)">All Items</button>
+                        <button class="btn-filter" onclick="filterChecklistCategory('frontend', this)">Frontend & UI</button>
+                        <button class="btn-filter" onclick="filterChecklistCategory('tools', this)">Interactive Tools</button>
+                        <button class="btn-filter" onclick="filterChecklistCategory('admin', this)">Admin CMS</button>
+                        <button class="btn-filter" onclick="filterChecklistCategory('seo', this)">Speed & SEO</button>
+                    </div>
+                </div>
+
+                <div class="deliverable-list-box" id="checklist-container">
+                    <!-- Item 1 -->
+                    <div class="deliverable-row" data-category="frontend">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Homepage Visual Redesign & Executive Authority Hero</span>
+                            <span class="deliverable-category">frontend</span>
+                        </div>
+                        <span class="deliverable-status status-sprint1">Sprint 1 Deliverable</span>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="deliverable-row" data-category="frontend">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">3-Column Services Mega-Menu Navigation Architecture</span>
+                            <span class="deliverable-category">frontend</span>
+                        </div>
+                        <span class="deliverable-status status-sprint1">Sprint 1 Deliverable</span>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="deliverable-row" data-category="frontend">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">About Us Institutional History & Leadership Profile Page</span>
+                            <span class="deliverable-category">frontend</span>
+                        </div>
+                        <span class="deliverable-status status-sprint1">Sprint 1 Deliverable</span>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="deliverable-row" data-category="frontend">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Migration & Styling of All 5 Verified Client Testimonials</span>
+                            <span class="deliverable-category">frontend</span>
+                        </div>
+                        <span class="deliverable-status status-sprint1">Sprint 1 Deliverable</span>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="deliverable-row" data-category="frontend">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Custom Engineering of All 16 Dedicated EXIM Service Pages</span>
+                            <span class="deliverable-category">frontend</span>
+                        </div>
+                        <span class="deliverable-status status-sprint2">Sprint 2 Deliverable</span>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="deliverable-row" data-category="tools">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Real-Time Export Incentive & RoDTEP Calculator Tool</span>
+                            <span class="deliverable-category">tools</span>
+                        </div>
+                        <span class="deliverable-status status-sprint2">Sprint 2 Deliverable</span>
+                    </div>
+                    <!-- Item 7 -->
+                    <div class="deliverable-row" data-category="tools">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">EPCG Customs Duty Savings & Obligation Estimator Widget</span>
+                            <span class="deliverable-category">tools</span>
+                        </div>
+                        <span class="deliverable-status status-sprint2">Sprint 2 Deliverable</span>
+                    </div>
+                    <!-- Item 8 -->
+                    <div class="deliverable-row" data-category="tools">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Floating WhatsApp Quick-Chat (`+91 98671 73397`) Integration</span>
+                            <span class="deliverable-category">tools</span>
+                        </div>
+                        <span class="deliverable-status status-sprint2">Sprint 2 Deliverable</span>
+                    </div>
+                    <!-- Item 9 -->
+                    <div class="deliverable-row" data-category="admin">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Secure Admin CMS Panel for Dynamic Services Management</span>
+                            <span class="deliverable-category">admin</span>
+                        </div>
+                        <span class="deliverable-status status-sprint2">Sprint 2 Deliverable</span>
+                    </div>
+                    <!-- Item 10 -->
+                    <div class="deliverable-row" data-category="admin">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Trade Consultation Booking & Appointment Scheduler Module</span>
+                            <span class="deliverable-category">admin</span>
+                        </div>
+                        <span class="deliverable-status status-sprint2">Sprint 2 Deliverable</span>
+                    </div>
+                    <!-- Item 11 -->
+                    <div class="deliverable-row" data-category="seo">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">100% URL Preservation & Canonical Redirect Architecture</span>
+                            <span class="deliverable-category">seo</span>
+                        </div>
+                        <span class="deliverable-status status-sprint3">Sprint 3 Deliverable</span>
+                    </div>
+                    <!-- Item 12 -->
+                    <div class="deliverable-row" data-category="seo">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">JSON-LD `ProfessionalService` & `FAQPage` Schema Injection</span>
+                            <span class="deliverable-category">seo</span>
+                        </div>
+                        <span class="deliverable-status status-sprint3">Sprint 3 Deliverable</span>
+                    </div>
+                    <!-- Item 13 -->
+                    <div class="deliverable-row" data-category="seo">
+                        <div class="deliverable-info">
+                            <div class="deliverable-checkbox" onclick="toggleCheck(this)"><i class="fa-solid fa-check"></i></div>
+                            <span class="deliverable-title">Cloudflare Serverless Edge Hosting & Speed Optimization</span>
+                            <span class="deliverable-category">seo</span>
+                        </div>
+                        <span class="deliverable-status status-sprint3">Sprint 3 Deliverable</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 07: TECH STACK & ARCHITECTURE -->
+            <section id="tech-stack" class="section-page">
+                <div class="section-header">
+                    <span class="section-number">Section 07</span>
+                    <h2 class="section-title">Technical Architecture & Security Standards</h2>
+                    <p class="section-desc">We engineer your platform using modern, enterprise-grade development frameworks and cloud edge networks to guarantee uncompromising speed, data security, and long-term reliability.</p>
+                </div>
+
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fa-brands fa-react"></i></div>
+                        <div>
+                            <div class="tech-info-title">React / Next.js Architecture</div>
+                            <div class="tech-info-desc">Custom component-based frontend architecture engineered for rapid server-side rendering and zero layout shift.</div>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div>
+                            <div class="tech-info-title">Tailwind CSS Design System</div>
+                            <div class="tech-info-desc">Utility-first styling ensuring perfectly consistent spacing, fluid typography, and responsive multi-device layouts.</div>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fa-solid fa-database"></i></div>
+                        <div>
+                            <div class="tech-info-title">Secure Cloud Database</div>
+                            <div class="tech-info-desc">Encrypted data storage and authentication managing client consultation bookings and testimonial verification.</div>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon"><i class="fa-brands fa-cloudflare"></i></div>
+                        <div>
+                            <div class="tech-info-title">Cloudflare Global Edge CDN</div>
+                            <div class="tech-info-desc">Enterprise hosting across global edge servers providing built-in DDoS defense and sub-second page delivery.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FLOATING UTILITY ACTIONS -->
+    <div class="floating-actions">
+        <button class="btn-floating" id="back-to-top" title="Go to Top" aria-label="Go to Top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                &copy; 2026 Welcome Consultancy. Formal Project Scope & Technical Specification. Prepared by adsara.in.
+            </div>
+            <div class="footer-right">
+                Confidential Deliverable &bull; Executive Proposal
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Dark/Light Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+            
+            if (targetTheme === 'dark') {
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+        });
+
+        // Initialize Theme from LocalStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.className = 'fa-solid fa-sun';
+        }
+
+        // Floating Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Sidebar Active TOC Link Tracker
+        const sections = document.querySelectorAll('section');
+        const tocLinks = document.querySelectorAll('.toc-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 180) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Checklist Checkbox interactive state
+        function toggleCheck(checkbox) {
+            const row = checkbox.closest('.deliverable-row');
+            row.classList.toggle('completed');
+        }
+
+        // Checklist Search Filter
+        function filterChecklist() {
+            const query = document.getElementById('checklist-search').value.toLowerCase();
+            const rows = document.querySelectorAll('.deliverable-row');
+            const activeCategoryFilter = document.querySelector('.btn-filter.active').textContent.toLowerCase();
+
+            rows.forEach(row => {
+                const title = row.querySelector('.deliverable-title').textContent.toLowerCase();
+                const category = row.getAttribute('data-category').toLowerCase();
+                
+                let matchesCategory = true;
+                if (activeCategoryFilter.includes('frontend')) matchesCategory = category === 'frontend';
+                else if (activeCategoryFilter.includes('tools')) matchesCategory = category === 'tools';
+                else if (activeCategoryFilter.includes('admin')) matchesCategory = category === 'admin';
+                else if (activeCategoryFilter.includes('seo')) matchesCategory = category === 'seo';
+
+                const matchesQuery = title.includes(query);
+
+                if (matchesQuery && matchesCategory) {
+                    row.style.display = 'flex';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Checklist Category Filter Tab Control
+        function filterChecklistCategory(category, button) {
+            document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const query = document.getElementById('checklist-search').value.toLowerCase();
+            const rows = document.querySelectorAll('.deliverable-row');
+
+            rows.forEach(row => {
+                const title = row.querySelector('.deliverable-title').textContent.toLowerCase();
+                const itemCategory = row.getAttribute('data-category').toLowerCase();
+                
+                const matchesQuery = title.includes(query);
+                const matchesCategory = category === 'all' || itemCategory === category;
+
+                if (matchesQuery && matchesCategory) {
+                    row.style.display = 'flex';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

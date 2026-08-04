@@ -1,0 +1,27 @@
+---
+description: Enforces natural, high-craft, professional code quality without AI code smells or generic AI comments.
+globs: **/*
+---
+
+# Anti-AI Code Craftsmanship Rules
+
+To ensure the codebase reads like a premium, human-engineered production application, adhere strictly to these engineering guidelines:
+
+## 1. No AI Code Smells or Commentary
+- **NEVER** write comments like `// AI Generated`, `// Added by AI`, `// Helper function for user`, or generic self-describing comments (e.g., `// This function adds two numbers`).
+- Write meaningful, domain-specific JSDoc / docstrings only where business logic requires clarification.
+- Avoid over-explaining trivial logic or wrapping standard code in verbose, unnecessary comments.
+
+## 2. No Superficial Fallbacks or Swallowed Exceptions
+- Do **NOT** use silent `try { ... } catch (e) {}` blocks that swallow errors or return dummy mock data.
+- Handle edge cases explicitly with detailed error reporting or user-facing feedback.
+- Avoid returning `null` or `{}` blindly; handle missing states gracefully with informative logs or fallback UI states.
+
+## 3. Clean, Modular, and Maintainable Architecture
+- Write idiomatic CSS3, HTML5, and JS/TS. Follow single responsibility principles.
+- Use Semantic HTML tags (`<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<footer>`).
+- Keep component and stylesheet logic cleanly separated and well-structured.
+
+## 4. Production-Ready High Craftsmanship
+- Use modern UI design standards: curated color tokens (`Navy & Warm Gold`), subtle micro-interactions, responsive mobile grids, and optimized asset loading.
+- Ensure all interactive elements (buttons, forms, links) have active hover/focus states, accessibility labels, and unique IDs.

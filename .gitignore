@@ -1,0 +1,16 @@
+node_modules
+.next
+.open-next
+.wrangler
+.env
+.env.local
+.env*.local
+dist
+out
+*.log
+.DS_Store
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# Legacy reference site — keep local only
+old_v1_website/

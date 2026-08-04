@@ -1,0 +1,25 @@
+---
+description: Institutional editorial UI system for Welcome Consultancy — anti-slop, navy/gold brand locked.
+globs: app/**/*, components/**/*, app/globals.css
+---
+
+# Welcome Consultancy UI System
+
+Before any UI edit, read `.better-web-ui.md` and prefer `.agents/skills/ui-design-brain`, `frontend-design`, `typeset`, `hierarchy`, `polish`.
+
+## Locked brand
+- Navy `#0F172A`, Gold `#D4AF37` only as primary accent
+- Cool chalk surfaces — never cream+terracotta+serif broadsheet cluster
+- Fonts: Newsreader (display) + Manrope (body). Never Inter/Roboto/Arial
+
+## Layout
+- Hero = one composition: brand signal, one headline, one support line, one CTA group, full-bleed atmosphere
+- No equal card grids in hero; services use asymmetric editorial rows
+- Floating island header (not full-bleed sticky bar glued edge-to-edge)
+- Touch targets ≥ 44px; sticky WhatsApp/Phone retained
+
+## Craft
+- 8px spacing grid; one primary button per section
+- Motion: transform/opacity only; ~500–800ms ease `[0.32,0.72,0,1]`
+- Semantic HTML; single H1 per page
+---

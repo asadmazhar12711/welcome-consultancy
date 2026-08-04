@@ -1,0 +1,25 @@
+---
+description: Enforces Stripe, Linear, and Vercel SaaS UI/UX design standards across all web pages, components, and layouts.
+globs: **/*.html, **/*.js, **/*.jsx, **/*.ts, **/*.tsx, **/*.css
+---
+
+# Stripe/Linear SaaS UI/UX Excellence Rule
+
+When generating, modifying, or refactoring UI components and pages in this repository, you **MUST** follow Stripe/Linear SaaS design standards:
+
+## 1. Zero Basic / Conventional Web Design
+- Do NOT create generic white background websites with basic blue buttons or wall-of-text service cards.
+- Always use **Obsidian/Slate Dark Mode (`#030712`, `#0B0F19`, `#0F172A`)** with subtle glass borders (`1px solid rgba(255,255,255,0.08)`).
+- Pair dark obsidian surfaces with **Warm Imperial Gold (`#D4AF37`)** for institutional CTAs and subtle **Cyan (`#06B6D4`)** or **Emerald (`#10B981`)** for financial calculation metrics.
+
+## 2. Bento Grid Modular Architecture
+- Structure feature catalogs, service lists, and dashboard metrics into modular **Bento Grid cells** (`grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4`).
+- Use spotlight hover glows (`hover:border-gold-500/40 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]`) on all bento cards.
+
+## 3. Product-Led Above-The-Fold Utility
+- The homepage Hero section MUST include an **interactive product widget** (e.g., live RoDTEP/EPCG Duty Calculator or Consultation Slot Booker) above the fold.
+- Never use generic hero illustrations or stock imagery placeholders.
+
+## 4. Craftsmanship & Micro-Interactions
+- Use smooth hover translations (`hover:-translate-y-1`), scale feedback (`active:scale-95`), and animated status badges (`animate-pulse`).
+- All code MUST be clean, production-grade, and free of AI comments or AI code smells.

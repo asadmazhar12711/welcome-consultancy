@@ -1,0 +1,73 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Users, Calendar, FileText, Settings, LayoutDashboard } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
+const NAV = [
+  { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+  { href: "/admin/leads", label: "Leads", icon: Users },
+  { href: "/admin/meetings", label: "Meeting Slots", icon: Calendar },
+  { href: "/admin/blogs", label: "Blog CMS", icon: FileText },
+];
+
+function isActive(pathname: string, href: string, exact?: boolean) {
+  if (exact) return pathname === href;
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  return (
+    <div className="flex min-h-screen bg-page">
+      <aside className="flex w-64 flex-col border-r border-subtle bg-surface shadow-theme-sm">
+        <div className="flex h-16 items-center border-b border-subtle px-6">
+          <span className="font-bold tracking-tight text-theme-primary">Admin Console</span>
+        </div>
+        <nav className="flex-1 space-y-1 p-4">
+          {NAV.map((item) => {
+            const active = isActive(pathname, item.href, item.exact);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
+                  active
+                    ? "border border-gold bg-gold-muted text-gold-500 shadow-gold"
+                    : "border border-transparent text-theme-secondary hover:bg-fill-hover hover:text-theme-primary"
+                }`}
+              >
+                <item.icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+        <div className="border-t border-subtle p-4">
+          <Link
+            href="/"
+            className="flex items-center gap-3 rounded-xl border border-transparent px-3 py-2.5 text-sm font-medium text-theme-secondary transition-colors hover:bg-fill-hover hover:text-theme-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page"
+          >
+            <Settings className="h-4 w-4 shrink-0" aria-hidden="true" />
+            Back to Site
+          </Link>
+        </div>
+      </aside>
+
+      <div className="flex h-screen flex-1 flex-col overflow-hidden">
+        <header className="flex h-16 items-center justify-end gap-4 border-b border-subtle bg-elevated px-8 shadow-theme-sm">
+          <ThemeToggle />
+          <span className="text-sm font-medium text-theme-secondary">Super Admin</span>
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gold bg-gold-muted text-sm font-bold text-gold-500">
+            A
+          </div>
+        </header>
+        <main className="flex-1 overflow-y-auto bg-page p-8">{children}</main>
+      </div>
+    </div>
+  );
+}

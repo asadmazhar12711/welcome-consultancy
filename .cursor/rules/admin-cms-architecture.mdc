@@ -1,0 +1,29 @@
+---
+description: Enforces Admin CMS design and lead management specifications.
+globs: **/admin/**/*, **/api/**/*, **/*cms*
+---
+
+# Admin CMS & Lead Management Architecture Guidelines
+
+The Admin CMS acts as the central command center for Welcome Consultancy's lead pipeline and appointment scheduling.
+
+## 1. Lead Pipeline & Contact Priority
+- **Mobile Number Emphasis**: All incoming lead tables must highlight the client's phone/mobile number as the primary actionable field, complete with one-click "Call" and "WhatsApp" triggers.
+- **Lead Source Tagging**: Every lead record must be tagged by its origin:
+  - Service Page Inquiry (e.g., EPCG, RoDTEP, IEC)
+  - Interactive Incentive Calculator
+  - EPCG Duty Estimator
+  - Document Checklist Generator
+  - Consultation Booking Calendar
+  - Sticky WhatsApp / Exit-Intent Popup
+- **Status Workflow**: Support status updates (New, Contacted, In Progress, Converted, Archived).
+- **Export Capabilities**: Allow one-click CSV/Excel export of lead logs for CRM integration.
+
+## 2. Consultation Slot Manager
+- Admin panel interface to define weekly working days, start/end hours, slot interval (e.g., 30 mins), and blocked dates.
+- Real-time sync with frontend consultation scheduler widget.
+- View and manage upcoming booked slots with client details.
+
+## 3. Dynamic Service & News Ticker CMS
+- Modify text, document checklists, and FAQ lists for all 16 service paths without code edits.
+- Publish and manage DGFT circulars, EXIM trade notifications, and homepage ticker updates.
