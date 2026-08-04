@@ -94,31 +94,30 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-[100] px-4 pt-4 sm:px-6">
       <nav
         aria-label="Main navigation"
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-5 py-3.5 transition-all duration-300 ${
+        className={`mx-auto flex max-w-7xl items-center justify-between rounded-none px-5 py-3.5 transition-all duration-300 ${
           scrolled || megaOpen ? "glass-nav" : "border border-transparent bg-transparent"
         }`}
       >
         <Link
           href="/"
-          className="group flex items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/40"
+          className="group flex items-center rounded-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/40"
         >
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-gradient font-display text-xl font-semibold text-theme-on-gold shadow-gold transition-transform duration-300 group-hover:scale-105">
-            W
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-[17px] font-semibold tracking-tight text-theme-primary transition-colors group-hover:text-gold-500">
-              {SITE.name}
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-theme-muted">
-              DGFT & EXIM
-            </span>
-          </span>
+          <img
+            src="/images/logo-light.png"
+            alt="Welcome Consultancy"
+            className="h-11 w-auto block dark:hidden object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+          />
+          <img
+            src="/images/logo-dark.png"
+            alt="Welcome Consultancy"
+            className="h-11 w-auto hidden dark:block object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+          />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
           <Link
             href="/"
-            className="rounded-full px-4 py-2 text-sm font-semibold text-theme-secondary transition-colors hover:bg-fill hover:text-theme-primary"
+            className="rounded-none px-4 py-2 text-sm font-semibold text-theme-secondary transition-colors hover:bg-fill hover:text-theme-primary"
           >
             Home
           </Link>
@@ -134,7 +133,7 @@ export function Header() {
               onClick={() => setMegaOpen((v) => !v)}
               aria-expanded={megaOpen}
               aria-haspopup="true"
-              className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 rounded-none px-4 py-2 text-sm font-semibold transition-colors ${
                 megaOpen || pathname?.startsWith("/service")
                   ? "bg-gold-muted text-gold-500"
                   : "text-theme-secondary hover:bg-fill hover:text-theme-primary"
@@ -151,7 +150,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-semibold text-theme-secondary transition-colors hover:bg-fill hover:text-theme-primary"
+              className="rounded-none px-4 py-2 text-sm font-semibold text-theme-secondary transition-colors hover:bg-fill hover:text-theme-primary"
             >
               {link.label}
             </Link>
@@ -168,7 +167,7 @@ export function Header() {
             {SITE.phones[0].display}
           </a>
           <Link href="/contact-us">
-            <Button className="rounded-full px-6 font-extrabold">Book Appointment</Button>
+            <Button className="rounded-none px-6 font-extrabold">Book Appointment</Button>
           </Link>
         </div>
 
@@ -176,7 +175,7 @@ export function Header() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-subtle bg-fill text-theme-primary transition-colors hover:bg-fill-hover"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-none border border-subtle bg-fill text-theme-primary transition-colors hover:bg-fill-hover"
             aria-expanded={mobileOpen}
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((v) => !v)}
@@ -191,7 +190,7 @@ export function Header() {
           ref={megaRef}
           onMouseEnter={openMega}
           onMouseLeave={scheduleCloseMega}
-          className="mega-menu-panel animate-mega-menu mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl"
+          className="mega-menu-panel animate-mega-menu mx-auto mt-2 max-w-7xl overflow-hidden rounded-none"
           role="region"
           aria-label="Services mega menu"
         >
@@ -206,9 +205,9 @@ export function Header() {
                     <li key={s.slug}>
                       <Link
                         href={`/service/${s.slug}`}
-                        className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-fill"
+                        className="group flex items-start gap-3 rounded-none px-3 py-2.5 transition-colors hover:bg-fill"
                       >
-                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-subtle bg-fill transition-colors group-hover:border-gold group-hover:bg-gold-muted">
+                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-none border border-subtle bg-fill transition-colors group-hover:border-gold group-hover:bg-gold-muted">
                           <ArrowRight className="h-3.5 w-3.5 text-theme-muted group-hover:text-gold-500" />
                         </span>
                         <span>
@@ -231,9 +230,9 @@ export function Header() {
                     <li key={s.slug}>
                       <Link
                         href={`/service/${s.slug}`}
-                        className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-fill"
+                        className="group flex items-start gap-3 rounded-none px-3 py-2.5 transition-colors hover:bg-fill"
                       >
-                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-subtle bg-fill transition-colors group-hover:border-gold group-hover:bg-gold-muted">
+                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-none border border-subtle bg-fill transition-colors group-hover:border-gold group-hover:bg-gold-muted">
                           <ArrowRight className="h-3.5 w-3.5 text-theme-muted group-hover:text-gold-500" />
                         </span>
                         <span>
@@ -252,7 +251,7 @@ export function Header() {
             <aside className="relative flex flex-col justify-between overflow-hidden border-t border-subtle bg-gradient-to-b from-elevated to-page p-8 md:p-10 lg:border-l lg:border-t-0">
               <ShieldCheck className="pointer-events-none absolute -right-4 top-4 h-36 w-36 text-gold-500 opacity-[0.06]" />
               <div className="relative z-10">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-gold bg-gold-muted">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-none border border-gold bg-gold-muted">
                   <Zap className="h-6 w-6 text-gold-500" />
                 </div>
                 <h3 className="mb-2 text-xl font-extrabold tracking-tight text-theme-primary">
@@ -275,8 +274,8 @@ export function Header() {
       )}
 
       {mobileOpen && (
-        <div className="glass-panel animate-mega-menu mx-auto mt-2 flex max-w-7xl flex-col gap-1 rounded-3xl p-4 lg:hidden">
-          <Link href="/" className="rounded-xl px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
+        <div className="glass-panel animate-mega-menu mx-auto mt-2 flex max-w-7xl flex-col gap-1 rounded-none p-4 lg:hidden">
+          <Link href="/" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             Home
           </Link>
           <div className="px-4 py-2">
@@ -296,20 +295,20 @@ export function Header() {
               ))}
             </div>
           </div>
-          <Link href="/#tools" className="rounded-xl px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
+          <Link href="/#tools" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             Tools
           </Link>
-          <Link href="/about-us" className="rounded-xl px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
+          <Link href="/about-us" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             About Us
           </Link>
-          <Link href="/contact-us" className="rounded-xl px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
+          <Link href="/contact-us" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             Contact
           </Link>
           <a
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold-glow mt-3 rounded-xl px-4 py-4 text-center text-sm font-extrabold"
+            className="btn-gold-glow mt-3 rounded-none px-4 py-4 text-center text-sm font-extrabold"
           >
             WhatsApp {SITE.phoneDisplay}
           </a>

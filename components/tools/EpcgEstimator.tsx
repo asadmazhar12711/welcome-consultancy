@@ -35,7 +35,7 @@ export default function EpcgEstimator() {
             EPCG Zero-Duty License Estimator
           </h3>
         </div>
-        <div className="hidden items-center gap-1.5 rounded-full border border-subtle bg-fill px-3 py-1.5 text-xs font-mono text-success sm:flex">
+        <div className="hidden items-center gap-1.5 rounded-none border border-subtle bg-fill px-3 py-1.5 text-xs font-mono text-success sm:flex">
           <span>Duty Saved: {dutyRate}%</span>
         </div>
       </div>
@@ -62,7 +62,7 @@ export default function EpcgEstimator() {
               step={1000000}
               value={machineryCost}
               onChange={(e) => setMachineryCost(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer rounded-lg accent-gold-500"
+              className="h-2 w-full cursor-pointer rounded-none accent-gold-500"
               aria-valuemin={1000000}
               aria-valuemax={100000000}
               aria-valuenow={machineryCost}
@@ -94,7 +94,7 @@ export default function EpcgEstimator() {
               step={0.5}
               value={dutyRate}
               onChange={(e) => setDutyRate(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer rounded-lg accent-success"
+              className="h-2 w-full cursor-pointer rounded-none accent-success"
               aria-valuemin={10}
               aria-valuemax={40}
               aria-valuenow={dutyRate}
@@ -108,7 +108,7 @@ export default function EpcgEstimator() {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="relative overflow-hidden rounded-2xl border border-subtle bg-elevated p-6 shadow-theme-md">
+          <div className="relative overflow-hidden rounded-none border border-subtle bg-elevated p-6 shadow-theme-md">
             <span className="mb-1 block text-[11px] uppercase tracking-widest text-theme-muted">
               Total Customs Duty Exempted
             </span>
@@ -131,7 +131,7 @@ export default function EpcgEstimator() {
               href={`https://wa.me/919867173397?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold-glow block w-full rounded-xl py-3 text-center text-sm"
+              className="btn-gold-glow block w-full rounded-none py-3 text-center text-sm"
             >
               Apply for 0% Duty EPCG License
             </a>

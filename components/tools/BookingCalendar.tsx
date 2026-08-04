@@ -38,7 +38,7 @@ export default function BookingCalendar() {
             Schedule 1-on-1 DGFT Consultation
           </h3>
         </div>
-        <div className="hidden items-center gap-1.5 rounded-full border border-gold bg-gold-muted px-3 py-1.5 text-xs font-mono text-gold-500 sm:flex">
+        <div className="hidden items-center gap-1.5 rounded-none border border-gold bg-gold-muted px-3 py-1.5 text-xs font-mono text-gold-500 sm:flex">
           <span>Priority Booking</span>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function BookingCalendar() {
                   type="button"
                   onClick={() => setSelectedSlot(slot)}
                   aria-pressed={selectedSlot === slot}
-                  className={`rounded-xl border px-3 py-2.5 text-left text-xs font-mono font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
+                  className={`rounded-none border px-3 py-2.5 text-left text-xs font-mono font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
                     selectedSlot === slot
                       ? "border-gold-fill bg-gold-muted text-theme-primary shadow-gold"
                       : "border-subtle bg-fill text-theme-muted hover:border-elevated hover:bg-fill-hover hover:text-theme-primary"
@@ -141,7 +141,7 @@ export default function BookingCalendar() {
           href={`https://wa.me/919867173397?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-gold-glow block w-full rounded-full py-3 px-8 text-center text-sm sm:w-auto"
+          className="btn-gold-glow block w-full rounded-none py-3 px-8 text-center text-sm sm:w-auto"
         >
           Confirm Appointment on WhatsApp
         </a>

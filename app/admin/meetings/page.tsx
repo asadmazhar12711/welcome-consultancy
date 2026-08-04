@@ -17,7 +17,7 @@ export default function MeetingsPage() {
         <BentoCard>
           <h3 className="mb-4 text-lg font-semibold text-theme-primary">Upcoming Consultations</h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between rounded-xl border border-subtle bg-fill p-4 transition-colors hover:border-elevated hover:bg-fill-hover">
+            <div className="flex items-center justify-between rounded-none border border-subtle bg-fill p-4 transition-colors hover:border-elevated hover:bg-fill-hover">
               <div>
                 <p className="font-medium text-theme-primary">Advisory on EPCG</p>
                 <p className="text-sm text-theme-secondary">with Ramesh Singh</p>
@@ -33,7 +33,7 @@ export default function MeetingsPage() {
         <BentoCard>
           <h3 className="mb-4 text-lg font-semibold text-theme-primary">Available Slots Config</h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between rounded-xl border border-subtle bg-fill p-4 transition-colors hover:border-elevated hover:bg-fill-hover">
+            <div className="flex items-center justify-between rounded-none border border-subtle bg-fill p-4 transition-colors hover:border-elevated hover:bg-fill-hover">
               <div>
                 <p className="font-medium text-theme-primary">Standard Slot</p>
                 <p className="text-sm text-theme-secondary">Mon - Fri, 10am to 5pm</p>

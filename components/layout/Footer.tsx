@@ -15,13 +15,17 @@ export function Footer() {
       <div className="container-site relative z-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
-            <div className="mb-6 flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-gradient font-display text-xl font-semibold text-theme-on-gold shadow-gold">
-                W
-              </span>
-              <span className="font-display text-xl font-semibold tracking-tight text-theme-primary">
-                {SITE.name}
-              </span>
+            <div className="mb-6 flex items-center">
+              <img
+                src="/images/logo-light.png"
+                alt="Welcome Consultancy"
+                className="h-12 w-auto block dark:hidden object-contain"
+              />
+              <img
+                src="/images/logo-dark.png"
+                alt="Welcome Consultancy"
+                className="h-12 w-auto hidden dark:block object-contain"
+              />
             </div>
             <p className="mb-8 max-w-sm text-sm font-medium leading-relaxed text-theme-muted">
               {SITE.mission.intro}
@@ -101,7 +105,7 @@ export function Footer() {
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 animate-pulse-glow rounded-full bg-[var(--success)]" aria-hidden />
+            <span className="h-2 w-2 animate-pulse-glow rounded-none bg-[var(--success)]" aria-hidden />
             <p>Serving exporters PAN India since {SITE.metrics.since}</p>
           </div>
         </div>

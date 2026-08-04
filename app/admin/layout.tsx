@@ -35,7 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
+                className={`flex items-center gap-3 rounded-none px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
                   active
                     ? "border border-gold bg-gold-muted text-gold-500 shadow-gold"
                     : "border border-transparent text-theme-secondary hover:bg-fill-hover hover:text-theme-primary"
@@ -50,7 +50,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="border-t border-subtle p-4">
           <Link
             href="/"
-            className="flex items-center gap-3 rounded-xl border border-transparent px-3 py-2.5 text-sm font-medium text-theme-secondary transition-colors hover:bg-fill-hover hover:text-theme-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page"
+            className="flex items-center gap-3 rounded-none border border-transparent px-3 py-2.5 text-sm font-medium text-theme-secondary transition-colors hover:bg-fill-hover hover:text-theme-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page"
           >
             <Settings className="h-4 w-4 shrink-0" aria-hidden="true" />
             Back to Site
@@ -62,7 +62,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <header className="flex h-16 items-center justify-end gap-4 border-b border-subtle bg-elevated px-8 shadow-theme-sm">
           <ThemeToggle />
           <span className="text-sm font-medium text-theme-secondary">Super Admin</span>
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-gold bg-gold-muted text-sm font-bold text-gold-500">
+          <div className="flex h-8 w-8 items-center justify-center rounded-none border border-gold bg-gold-muted text-sm font-bold text-gold-500">
             A
           </div>
         </header>

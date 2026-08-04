@@ -28,7 +28,7 @@ export default function BlogsPage() {
               <tr className="transition-colors hover:bg-fill-hover">
                 <td className="px-6 py-4 font-medium text-theme-primary">New RoDTEP Guidelines 2026</td>
                 <td className="px-6 py-4">
-                  <span className="inline-flex rounded-full border border-gold bg-gold-muted px-2.5 py-1 text-xs font-semibold text-gold-500">
+                  <span className="inline-flex rounded-none border border-gold bg-gold-muted px-2.5 py-1 text-xs font-semibold text-gold-500">
                     Published
                   </span>
                 </td>
@@ -40,7 +40,7 @@ export default function BlogsPage() {
               <tr className="transition-colors hover:bg-fill-hover">
                 <td className="px-6 py-4 font-medium text-theme-primary">How to optimize EPCG tracking</td>
                 <td className="px-6 py-4">
-                  <span className="inline-flex rounded-full border border-subtle bg-fill px-2.5 py-1 text-xs font-semibold text-theme-muted">
+                  <span className="inline-flex rounded-none border border-subtle bg-fill px-2.5 py-1 text-xs font-semibold text-theme-muted">
                     Draft
                   </span>
                 </td>

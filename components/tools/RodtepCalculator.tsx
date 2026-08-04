@@ -60,7 +60,7 @@ export default function RodtepCalculator() {
             RoDTEP Incentive Refund Calculator
           </h3>
         </div>
-        <div className="hidden items-center gap-1.5 rounded-full border border-subtle bg-fill px-3 py-1.5 text-xs font-mono text-metric sm:flex">
+        <div className="hidden items-center gap-1.5 rounded-none border border-subtle bg-fill px-3 py-1.5 text-xs font-mono text-metric sm:flex">
           <span>Rate: {selectedSector.rate}%</span>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function RodtepCalculator() {
               step={250000}
               value={fobValue}
               onChange={(e) => setFobValue(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer rounded-lg accent-gold-500"
+              className="h-2 w-full cursor-pointer rounded-none accent-gold-500"
               aria-valuemin={500000}
               aria-valuemax={50000000}
               aria-valuenow={fobValue}
@@ -137,7 +137,7 @@ export default function RodtepCalculator() {
                   type="button"
                   onClick={() => setExportFrequency(freq.id)}
                   aria-pressed={exportFrequency === freq.id}
-                  className={`rounded-xl border px-3 py-2.5 text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
+                  className={`rounded-none border px-3 py-2.5 text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
                     exportFrequency === freq.id
                       ? "border-gold-fill bg-gold-muted text-gold-500 shadow-gold"
                       : "border-subtle bg-fill text-theme-muted hover:border-elevated hover:bg-fill-hover hover:text-theme-primary"
@@ -151,7 +151,7 @@ export default function RodtepCalculator() {
         </div>
 
         <div className="lg:col-span-5">
-          <div className="relative overflow-hidden rounded-2xl border border-subtle bg-elevated p-6 shadow-theme-md">
+          <div className="relative overflow-hidden rounded-none border border-subtle bg-elevated p-6 shadow-theme-md">
             <span className="mb-1 block text-[11px] uppercase tracking-widest text-theme-muted">
               Estimated Annual Scrip Refund
             </span>
@@ -174,7 +174,7 @@ export default function RodtepCalculator() {
               href={`https://wa.me/919867173397?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold-glow block w-full rounded-xl py-3 text-center text-sm"
+              className="btn-gold-glow block w-full rounded-none py-3 text-center text-sm"
             >
               Claim RoDTEP Scrips via Advisory
             </a>

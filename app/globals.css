@@ -81,7 +81,7 @@
     --border: 214 24% 88%;
     --input: 214 24% 88%;
     --ring: 43 65% 48%;
-    --radius: 1rem;
+    --radius: 0rem;
 
     --surface: 0 0% 100%;
     --elevated: 0 0% 100%;
@@ -208,7 +208,7 @@
   }
   ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-thumb);
-    border-radius: 4px;
+    border-radius: 0px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--scrollbar-thumb-hover);
@@ -238,7 +238,7 @@
   }
 
   .bento-card {
-    @apply relative overflow-hidden rounded-3xl transition-all duration-300 ease-out;
+    @apply relative overflow-hidden rounded-none transition-all duration-300 ease-out;
     background: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-md);
@@ -312,7 +312,7 @@
   }
 
   .field-obsidian {
-    @apply w-full rounded-xl px-4 py-3.5 text-sm font-medium outline-none transition;
+    @apply w-full rounded-none px-4 py-3.5 text-sm font-medium outline-none transition;
     border: 1px solid var(--border-subtle);
     background: var(--bg-fill);
     color: var(--text-primary);
@@ -345,7 +345,7 @@
   .field input,
   .field select,
   .field textarea {
-    @apply w-full rounded-xl px-4 py-3.5 text-sm font-medium outline-none transition;
+    @apply w-full rounded-none px-4 py-3.5 text-sm font-medium outline-none transition;
     border: 1px solid var(--border-subtle);
     background: var(--bg-fill);
     color: var(--text-primary);
@@ -373,7 +373,7 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-none px-5 py-3 text-sm font-semibold transition-all duration-300 disabled:pointer-events-none disabled:opacity-50;
   }
 
   .btn-primary {
@@ -397,7 +397,7 @@
   }
 
   .service-row {
-    @apply flex flex-col gap-4 rounded-3xl border p-6 transition-colors sm:flex-row sm:items-center sm:justify-between;
+    @apply flex flex-col gap-4 rounded-none border p-6 transition-colors sm:flex-row sm:items-center sm:justify-between;
     background: var(--bg-elevated);
     border-color: var(--border-subtle);
   }
@@ -462,7 +462,7 @@
   }
 
   .modal {
-    @apply w-full max-w-md rounded-3xl p-6;
+    @apply w-full max-w-md rounded-none p-6;
     background: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-xl);
@@ -474,7 +474,7 @@
   }
 
   .modal-close {
-    @apply flex h-9 w-9 items-center justify-center rounded-full text-xl transition-colors;
+    @apply flex h-9 w-9 items-center justify-center rounded-none text-xl transition-colors;
     background: var(--bg-fill);
     color: var(--text-muted);
   }
@@ -501,7 +501,7 @@
   }
 
   .sticky-cta {
-    @apply flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:scale-95;
+    @apply flex h-14 w-14 items-center justify-center rounded-none shadow-lg transition-transform duration-300 hover:-translate-y-0.5 active:scale-95;
   }
 
   .sticky-cta svg {
@@ -614,7 +614,7 @@
   }
 
   .process-step {
-    @apply relative rounded-3xl border p-7 transition-all duration-300;
+    @apply relative rounded-none border p-7 transition-all duration-300;
     background: var(--bg-elevated);
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-sm);
@@ -627,14 +627,14 @@
   }
 
   .process-step .step-index {
-    @apply mb-5 flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold;
+    @apply mb-5 flex h-10 w-10 items-center justify-center rounded-none text-sm font-extrabold;
     background: var(--gold-muted);
     color: var(--gold);
     border: 1px solid var(--gold-border);
   }
 
   .editorial-row {
-    @apply flex flex-col gap-5 rounded-[1.75rem] border p-6 transition-all duration-300 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8;
+    @apply flex flex-col gap-5 rounded-none border p-6 transition-all duration-300 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8;
     background: var(--bg-elevated);
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-sm);
@@ -653,7 +653,7 @@
   }
 
   .tool-shell {
-    @apply overflow-hidden rounded-[2rem] border;
+    @apply overflow-hidden rounded-none border;
     background: var(--bg-elevated);
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-xl);
@@ -666,28 +666,28 @@
   }
 
   .status-ok {
-    @apply rounded-xl border p-4 text-sm font-bold;
+    @apply rounded-none border p-4 text-sm font-bold;
     color: var(--success);
     background: var(--success-muted);
     border-color: color-mix(in srgb, var(--success) 30%, transparent);
   }
 
   .status-err {
-    @apply rounded-xl border p-4 text-sm font-bold;
+    @apply rounded-none border p-4 text-sm font-bold;
     color: var(--error);
     background: var(--error-muted);
     border-color: color-mix(in srgb, var(--error) 30%, transparent);
   }
 
   .icon-well {
-    @apply flex shrink-0 items-center justify-center rounded-2xl border;
+    @apply flex shrink-0 items-center justify-center rounded-none border;
     background: var(--bg-fill);
     border-color: var(--border-subtle);
     color: var(--gold);
   }
 
   .icon-well-gold {
-    @apply flex shrink-0 items-center justify-center rounded-2xl border;
+    @apply flex shrink-0 items-center justify-center rounded-none border;
     background: var(--gold-muted);
     border-color: var(--gold-border);
     color: var(--gold);
@@ -758,7 +758,7 @@
 
 /* ── Visual-first media system ── */
   .visual-frame {
-    @apply rounded-[1.75rem] border;
+    @apply rounded-none border;
     border-color: var(--border-subtle);
     background: var(--bg-elevated);
     box-shadow: var(--shadow-lg);
@@ -831,14 +831,14 @@
   }
 
   .service-visual-row__media {
-    @apply relative aspect-square w-full overflow-hidden rounded-[1.75rem] border;
+    @apply relative aspect-square w-full overflow-hidden rounded-none border;
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-lg);
     background: var(--bg-elevated);
   }
 
   .quote-editorial {
-    @apply relative overflow-hidden rounded-[2rem] border p-8 md:p-12;
+    @apply relative overflow-hidden rounded-none border p-8 md:p-12;
     background: var(--bg-elevated);
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-md);
@@ -851,7 +851,7 @@
   }
 
   .infographic-stage {
-    @apply relative overflow-hidden rounded-[2rem] border;
+    @apply relative overflow-hidden rounded-none border;
     border-color: var(--border-subtle);
     box-shadow: var(--shadow-xl);
     background: var(--bg-elevated);

@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     "EXIM advisory",
     "Welcome Consultancy",
   ],
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",

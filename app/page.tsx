@@ -317,7 +317,7 @@ export default function HomePage() {
                   role="tab"
                   aria-selected={activeTab === id}
                   onClick={() => setActiveTab(id)}
-                  className={`min-h-11 flex-1 rounded-xl px-4 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/40 ${
+                  className={`min-h-11 flex-1 rounded-none px-4 py-2.5 text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/40 ${
                     activeTab === id
                       ? "bg-gold-fill text-theme-on-gold shadow-gold"
                       : "text-theme-muted hover:bg-fill-hover hover:text-theme-primary"
@@ -374,7 +374,7 @@ export default function HomePage() {
                   “
                 </span>
                 <div className="relative z-10 mb-6 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold bg-gold-muted text-base font-extrabold text-gold-500">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-none border border-gold bg-gold-muted text-base font-extrabold text-gold-500">
                     {t.name.charAt(0)}
                   </div>
                   <div>
@@ -412,7 +412,7 @@ export default function HomePage() {
               {SITE.faqs.map((faq, i) => (
                 <div
                   key={faq.q}
-                  className="overflow-hidden rounded-3xl border border-subtle bg-elevated shadow-theme-sm transition-colors hover:border-elevated"
+                  className="overflow-hidden rounded-none border border-subtle bg-elevated shadow-theme-sm transition-colors hover:border-elevated"
                 >
                   <button
                     type="button"
@@ -422,7 +422,7 @@ export default function HomePage() {
                   >
                     {faq.q}
                     <span
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all ${
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-none transition-all ${
                         openFaq === i
                           ? "rotate-180 border border-gold bg-gold-muted text-gold-500"
                           : "bg-fill text-theme-muted"

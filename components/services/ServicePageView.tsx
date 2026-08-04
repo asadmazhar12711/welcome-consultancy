@@ -63,7 +63,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                   </Button>
                 </a>
               </div>
-              <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-subtle bg-elevated px-5 py-3">
+              <div className="mt-8 inline-flex items-center gap-3 rounded-none border border-subtle bg-elevated px-5 py-3">
                 <Clock className="h-5 w-5 text-gold-500" aria-hidden />
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-theme-faint">
@@ -74,7 +74,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
               </div>
             </div>
 
-            <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-subtle shadow-theme-xl sm:aspect-[4/3] lg:aspect-square">
+            <div className="relative aspect-square overflow-hidden rounded-none border border-subtle shadow-theme-xl sm:aspect-[4/3] lg:aspect-square">
               <Image
                 src={art.src}
                 alt={art.alt}
@@ -114,7 +114,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                   {service.benefits.map((benefit) => (
                     <li
                       key={benefit}
-                      className="flex items-start gap-3 rounded-xl border border-subtle bg-elevated p-4"
+                      className="flex items-start gap-3 rounded-none border border-subtle bg-elevated p-4"
                     >
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold-500" />
                       <span className="text-sm font-semibold text-theme-secondary">{benefit}</span>
@@ -129,7 +129,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                 <FileText className="h-7 w-7 text-gold-500" />
                 Required documents
               </h2>
-              <div className="rounded-3xl border border-subtle bg-elevated p-8 md:p-10">
+              <div className="rounded-none border border-subtle bg-elevated p-8 md:p-10">
                 <p className="mb-6 text-sm font-medium text-theme-muted">
                   Keep the following ready to initiate processing of {service.navTitle}:
                 </p>
@@ -149,7 +149,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
 
             {service.checklist.length > 0 &&
               JSON.stringify(service.checklist) !== JSON.stringify(documents) && (
-                <div className="rounded-3xl border border-gold bg-gold-muted p-8">
+                <div className="rounded-none border border-gold bg-gold-muted p-8">
                   <h2 className="mb-5 flex items-center gap-2 text-xl font-extrabold text-theme-primary">
                     <FileText className="h-5 w-5 text-gold-500" />
                     Additional checklist
@@ -174,7 +174,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                   {service.faqs.map((faq) => (
                     <details
                       key={faq.q}
-                      className="group rounded-2xl border border-subtle bg-elevated p-5 open:border-gold"
+                      className="group rounded-none border border-subtle bg-elevated p-5 open:border-gold"
                     >
                       <summary className="cursor-pointer list-none font-bold text-theme-primary marker:content-none">
                         {faq.q}
@@ -190,7 +190,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
           </div>
 
           <aside className="space-y-5">
-            <div className="sticky top-28 rounded-3xl border border-gold bg-elevated p-8 shadow-theme-xl">
+            <div className="sticky top-28 rounded-none border border-gold bg-elevated p-8 shadow-theme-xl">
               <div className="icon-well-gold mx-auto mb-6 h-16 w-16">
                 <Phone className="h-8 w-8" aria-hidden />
               </div>
@@ -223,7 +223,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
               </a>
             </div>
 
-            <div className="rounded-3xl border border-subtle bg-elevated p-6">
+            <div className="rounded-none border border-subtle bg-elevated p-6">
               <h3 className="mb-4 font-extrabold text-theme-primary">Related services</h3>
               <ul className="space-y-3">
                 {related.map((item) => (

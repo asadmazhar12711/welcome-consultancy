@@ -136,7 +136,7 @@ function ContactForm() {
         type="submit"
         disabled={status === "sending"}
         size="lg"
-        className="h-14 w-full rounded-xl text-base font-extrabold"
+        className="h-14 w-full rounded-none text-base font-extrabold"
       >
         {status === "sending" ? "Submitting…" : "Submit enquiry"}
       </Button>
@@ -274,7 +274,7 @@ export default function ContactUsPage() {
           </div>
 
           {/* Form secondary */}
-          <div className="rounded-[2rem] border border-subtle bg-elevated p-7 shadow-theme-xl md:p-10 lg:sticky lg:top-28 lg:self-start">
+          <div className="rounded-none border border-subtle bg-elevated p-7 shadow-theme-xl md:p-10 lg:sticky lg:top-28 lg:self-start">
             <div className="mb-8">
               <h3 className="font-display text-2xl font-semibold text-theme-primary md:text-3xl">
                 Send a message

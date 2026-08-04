@@ -25,7 +25,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-11 w-11",
     };
 
-    const compClassName = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] ${variants[variant]} ${sizes[size]} ${className}`;
+    const compClassName = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] ${variants[variant]} ${sizes[size]} ${className}`;
 
     if (asChild && React.isValidElement(props.children)) {
       const child = props.children as React.ReactElement<{ className?: string }>;

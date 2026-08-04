@@ -13,7 +13,7 @@ export default function AdminDashboardPage() {
       <div className="grid gap-6 md:grid-cols-3">
         <BentoCard>
           <div className="mb-4 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold bg-gold-muted text-gold-500">
+            <div className="flex h-10 w-10 items-center justify-center rounded-none border border-gold bg-gold-muted text-gold-500">
               <Users className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
@@ -26,7 +26,7 @@ export default function AdminDashboardPage() {
 
         <BentoCard>
           <div className="mb-4 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold bg-gold-muted text-gold-500">
+            <div className="flex h-10 w-10 items-center justify-center rounded-none border border-gold bg-gold-muted text-gold-500">
               <Calendar className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>
@@ -39,7 +39,7 @@ export default function AdminDashboardPage() {
 
         <BentoCard>
           <div className="mb-4 flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold bg-gold-muted text-gold-500">
+            <div className="flex h-10 w-10 items-center justify-center rounded-none border border-gold bg-gold-muted text-gold-500">
               <TrendingUp className="h-5 w-5" aria-hidden="true" />
             </div>
             <div>

@@ -15,7 +15,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <div
-        className="h-10 w-10 shrink-0 rounded-full border border-subtle bg-fill"
+        className="h-10 w-10 shrink-0 rounded-none border border-subtle bg-fill"
         aria-hidden
       />
     );
@@ -27,7 +27,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-subtle bg-fill text-theme-muted shadow-theme-sm transition-all duration-200 hover:border-elevated hover:bg-fill-hover hover:text-theme-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page"
+      className="relative inline-flex h-10 w-10 items-center justify-center rounded-none border border-subtle bg-fill text-theme-muted shadow-theme-sm transition-all duration-200 hover:border-elevated hover:bg-fill-hover hover:text-theme-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-page"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       <Sun className="absolute h-4 w-4 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0" />

@@ -14,3 +14,13 @@ tsconfig.tsbuildinfo
 
 # Legacy reference site — keep local only
 old_v1_website/
+
+# Temporary image review/generation staging
+public/illustrations-preview/
+image-preview-final/
+image-preview-round2/
+image-preview-round3/
+image-import/
+logos/
+branding-preview/
+validation-screenshots/

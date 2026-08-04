@@ -30,7 +30,7 @@ export default function LeadsPage() {
                 <td className="px-6 py-4 font-medium text-theme-primary">Rahul Sharma</td>
                 <td className="px-6 py-4 text-theme-secondary">Sharma Exports Ltd.</td>
                 <td className="px-6 py-4">
-                  <span className="inline-flex rounded-full border border-gold bg-gold-muted px-2.5 py-1 text-xs font-semibold text-gold-500">
+                  <span className="inline-flex rounded-none border border-gold bg-gold-muted px-2.5 py-1 text-xs font-semibold text-gold-500">
                     RoDTEP Claim
                   </span>
                 </td>

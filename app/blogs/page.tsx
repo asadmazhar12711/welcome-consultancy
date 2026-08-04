@@ -53,7 +53,7 @@ export default function BlogsPage() {
             return (
               <article
                 key={post.title}
-                className="group grid grid-cols-1 overflow-hidden rounded-[1.75rem] border border-subtle bg-elevated shadow-theme-sm transition-all duration-300 hover:border-gold hover:shadow-theme-md md:grid-cols-[280px_1fr]"
+                className="group grid grid-cols-1 overflow-hidden rounded-none border border-subtle bg-elevated shadow-theme-sm transition-all duration-300 hover:border-gold hover:shadow-theme-md md:grid-cols-[280px_1fr]"
               >
                 <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[200px]">
                   <Image

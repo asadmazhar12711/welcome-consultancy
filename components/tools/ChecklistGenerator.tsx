@@ -91,7 +91,7 @@ export default function ChecklistGenerator() {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="h-3 w-32 overflow-hidden rounded-full border border-subtle bg-fill">
+          <div className="h-3 w-32 overflow-hidden rounded-none border border-subtle bg-fill">
             <div
               className="h-full bg-gold-fill transition-all duration-500"
               style={{ width: `${progressPercent}%` }}
@@ -116,7 +116,7 @@ export default function ChecklistGenerator() {
               type="button"
               onClick={() => toggleDoc(doc.id)}
               aria-pressed={isChecked}
-              className={`rounded-xl border p-4 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
+              className={`rounded-none border p-4 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
                 isChecked
                   ? "border-gold bg-gold-muted shadow-gold"
                   : "border-subtle bg-fill hover:border-elevated hover:bg-fill-hover"
@@ -124,7 +124,7 @@ export default function ChecklistGenerator() {
             >
               <div className="flex items-start gap-3">
                 <div
-                  className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border text-xs ${
+                  className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-none border text-xs ${
                     isChecked
                       ? "border-gold-fill bg-gold-fill font-bold text-theme-on-gold"
                       : "border-elevated bg-elevated"
@@ -155,7 +155,7 @@ export default function ChecklistGenerator() {
           href={`https://wa.me/919867173397?text=${whatsappMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-gold-glow inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm"
+          className="btn-gold-glow inline-flex items-center gap-2 rounded-none px-6 py-2.5 text-sm"
         >
           Send Checklist to Advisor (WhatsApp)
         </a>
