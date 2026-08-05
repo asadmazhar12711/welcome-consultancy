@@ -189,55 +189,57 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
             )}
           </div>
 
-          <aside className="space-y-5">
-            <div className="sticky top-28 rounded-none border border-gold bg-elevated p-8 shadow-theme-xl">
-              <div className="icon-well-gold mx-auto mb-6 h-16 w-16">
-                <Phone className="h-8 w-8" aria-hidden />
+          <aside className="lg:self-start">
+            <div className="sticky top-28 space-y-5">
+              <div className="rounded-none border border-gold bg-elevated p-8 shadow-theme-xl">
+                <div className="icon-well-gold mx-auto mb-6 h-16 w-16">
+                  <Phone className="h-8 w-8" aria-hidden />
+                </div>
+                <h3 className="text-center font-display text-2xl font-semibold tracking-tight text-theme-primary">
+                  Expert consultation
+                </h3>
+                <p className="mt-3 text-center text-sm font-medium leading-relaxed text-theme-muted">
+                  Speak with {SITE.founder}&apos;s DGFT desk about {service.navTitle}. We typically
+                  respond within business hours.
+                </p>
+                <Link href={serviceInquiryHref(service.slug)} className="mt-6 block">
+                  <Button className="h-12 w-full font-extrabold">
+                    Inquire now <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <a href={SITE.phones[0].href} className="mt-3 block">
+                  <Button variant="outline" className="h-12 w-full font-bold">
+                    Call {SITE.phones[0].display}
+                  </Button>
+                </a>
+                <a
+                  href={whatsappUrl(
+                    `Hello Welcome Consultancy, I need assistance with ${service.navTitle}.`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 block text-center text-sm font-semibold text-theme-muted transition-colors hover:text-gold-500"
+                >
+                  WhatsApp {SITE.phoneDisplay}
+                </a>
               </div>
-              <h3 className="text-center font-display text-2xl font-semibold tracking-tight text-theme-primary">
-                Expert consultation
-              </h3>
-              <p className="mt-3 text-center text-sm font-medium leading-relaxed text-theme-muted">
-                Speak with {SITE.founder}&apos;s DGFT desk about {service.navTitle}. We typically
-                respond within business hours.
-              </p>
-              <Link href={serviceInquiryHref(service.slug)} className="mt-6 block">
-                <Button className="h-12 w-full font-extrabold">
-                  Inquire now <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-              <a href={SITE.phones[0].href} className="mt-3 block">
-                <Button variant="outline" className="h-12 w-full font-bold">
-                  Call {SITE.phones[0].display}
-                </Button>
-              </a>
-              <a
-                href={whatsappUrl(
-                  `Hello Welcome Consultancy, I need assistance with ${service.navTitle}.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 block text-center text-sm font-semibold text-theme-muted transition-colors hover:text-gold-500"
-              >
-                WhatsApp {SITE.phoneDisplay}
-              </a>
-            </div>
 
-            <div className="rounded-none border border-subtle bg-elevated p-6">
-              <h3 className="mb-4 font-extrabold text-theme-primary">Related services</h3>
-              <ul className="space-y-3">
-                {related.map((item) => (
-                  <li key={item.slug}>
-                    <Link
-                      href={`/service/${item.slug}`}
-                      className="group flex items-center justify-between text-sm font-semibold text-theme-muted transition-colors hover:text-gold-500"
-                    >
-                      {item.navTitle}
-                      <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="rounded-none border border-subtle bg-elevated p-6">
+                <h3 className="mb-4 font-extrabold text-theme-primary">Related services</h3>
+                <ul className="space-y-3">
+                  {related.map((item) => (
+                    <li key={item.slug}>
+                      <Link
+                        href={`/service/${item.slug}`}
+                        className="group flex items-center justify-between text-sm font-semibold text-theme-muted transition-colors hover:text-gold-500"
+                      >
+                        {item.navTitle}
+                        <ArrowRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </aside>
         </div>

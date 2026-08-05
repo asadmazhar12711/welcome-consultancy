@@ -3,14 +3,20 @@ import { getEnv } from "@/lib/env";
 import {
   createAdminSessionToken,
   timingSafeEqualString,
+  verifyAdminSessionToken,
 } from "@/lib/admin-auth";
 import { optionalString } from "@/lib/validation";
-
-export const runtime = "edge";
 
 async function sessionSecret(): Promise<string> {
   const env = await getEnv();
   return env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD || "";
+}
+
+export async function GET(request: NextRequest) {
+  const secret = await sessionSecret();
+  const token = request.cookies.get("wc_admin")?.value;
+  const authenticated = await verifyAdminSessionToken(token, secret);
+  return NextResponse.json({ authenticated });
 }
 
 export async function POST(request: NextRequest) {

@@ -20,7 +20,8 @@ import { SITE, whatsappUrl } from "@/lib/site";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/#tools", label: "Tools" },
+  { href: "/tools", label: "Tools" },
+  { href: "/blogs", label: "Blog" },
   { href: "/about-us", label: "About Us" },
   { href: "/contact-us", label: "Contact" },
 ];
@@ -190,7 +191,7 @@ export function Header() {
           ref={megaRef}
           onMouseEnter={openMega}
           onMouseLeave={scheduleCloseMega}
-          className="mega-menu-panel animate-mega-menu mx-auto mt-2 max-w-7xl overflow-hidden rounded-none"
+          className="mega-menu-panel animate-mega-menu mx-auto mt-2 max-w-7xl overflow-hidden rounded-none bg-elevated text-theme-primary"
           role="region"
           aria-label="Services mega menu"
         >
@@ -274,7 +275,7 @@ export function Header() {
       )}
 
       {mobileOpen && (
-        <div className="glass-panel animate-mega-menu mx-auto mt-2 flex max-w-7xl flex-col gap-1 rounded-none p-4 lg:hidden">
+        <div className="glass-panel animate-mega-menu mx-auto mt-2 flex max-w-7xl flex-col gap-1 rounded-none bg-elevated p-4 text-theme-primary lg:hidden">
           <Link href="/" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             Home
           </Link>
@@ -295,8 +296,11 @@ export function Header() {
               ))}
             </div>
           </div>
-          <Link href="/#tools" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
+          <Link href="/tools" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             Tools
+          </Link>
+          <Link href="/blogs" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
+            Blog
           </Link>
           <Link href="/about-us" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
             About Us

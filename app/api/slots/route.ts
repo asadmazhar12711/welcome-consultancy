@@ -9,8 +9,6 @@ import {
   optionalString,
 } from "@/lib/validation";
 
-export const runtime = "edge";
-
 const DAY_NAMES = [
   "Sunday",
   "Monday",
@@ -214,4 +212,26 @@ export async function PUT(request: NextRequest) {
     .run();
 
   return NextResponse.json({ success: true, config: await readConfig(db) });
+}
+
+export async function DELETE(request: NextRequest) {
+  const denied = await adminGate(request);
+  if (denied) return denied;
+
+  const id = optionalString(request.nextUrl.searchParams.get("id"), 80);
+  if (!id) {
+    return NextResponse.json({ error: "Valid booking id is required." }, { status: 400 });
+  }
+
+  const db = await getDB();
+  const result = await db
+    .prepare("UPDATE consultation_slots SET status = 'Cancelled' WHERE id = ?")
+    .bind(id)
+    .run();
+
+  if (!result.meta.changes) {
+    return NextResponse.json({ error: "Booking not found." }, { status: 404 });
+  }
+
+  return NextResponse.json({ success: true });
 }

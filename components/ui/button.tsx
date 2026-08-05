@@ -10,12 +10,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className = "", variant = "default", size = "default", asChild = false, ...props }, ref) => {
     const variants: Record<string, string> = {
       default:
-        "bg-gold-fill text-theme-on-gold shadow-gold hover:brightness-110",
+        "bg-gold-fill text-theme-on-gold shadow-gold hover:shadow-gold-lg hover:brightness-[1.06] hover:-translate-y-0.5",
       outline:
-        "border border-elevated bg-fill text-theme-primary hover:border-strong hover:bg-fill-hover",
+        "border border-elevated bg-fill text-theme-primary hover:-translate-y-0.5 hover:border-gold hover:bg-fill-hover",
       ghost: "text-theme-secondary hover:bg-fill hover:text-theme-primary",
       secondary:
-        "bg-elevated text-theme-primary border border-subtle hover:bg-fill-hover",
+        "bg-elevated text-theme-primary border border-subtle hover:-translate-y-0.5 hover:border-elevated hover:bg-fill-hover",
     };
 
     const sizes: Record<string, string> = {
@@ -25,7 +25,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-11 w-11",
     };
 
-    const compClassName = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] ${variants[variant]} ${sizes[size]} ${className}`;
+    const compClassName = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:pointer-events-none disabled:opacity-50 disabled:translate-y-0 active:scale-[0.98] active:translate-y-0 ${variants[variant]} ${sizes[size]} ${className}`;
 
     if (asChild && React.isValidElement(props.children)) {
       const child = props.children as React.ReactElement<{ className?: string }>;

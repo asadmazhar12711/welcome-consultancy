@@ -5,32 +5,36 @@
 @layer base {
   /* ─── Light Mode (intentional chalk / navy system) ─── */
   :root {
-    --bg-page: #f3f5f7;
-    --bg-surface: #eef1f5;
+    --bg-page: #eef1f6;
+    --bg-surface: #e3e8f0;
     --bg-elevated: #ffffff;
-    --bg-muted: #e4eaf1;
-    --bg-fill: rgba(15, 23, 42, 0.045);
-    --bg-fill-hover: rgba(15, 23, 42, 0.08);
-    --bg-overlay: rgba(15, 23, 42, 0.45);
+    --bg-muted: #dde3ed;
+    --bg-fill: rgba(11, 20, 40, 0.055);
+    --bg-fill-hover: rgba(11, 20, 40, 0.09);
+    --bg-overlay: rgba(7, 13, 28, 0.5);
 
-    --border-subtle: rgba(15, 23, 42, 0.1);
-    --border-elevated: rgba(15, 23, 42, 0.16);
-    --border-strong: rgba(15, 23, 42, 0.22);
+    --border-subtle: rgba(11, 20, 40, 0.12);
+    --border-elevated: rgba(11, 20, 40, 0.19);
+    --border-strong: rgba(11, 20, 40, 0.28);
 
     /* Fill gold stays bright; text gold deepens for WCAG AA on chalk */
-    --gold-fill: #d4af37;
+    --gold-fill: #cc9a2e;
     --gold: #8b6914;
     --gold-soft: #b89728;
-    --gold-deep: #a08020;
-    --gold-muted: rgba(212, 175, 55, 0.14);
-    --gold-border: rgba(139, 105, 20, 0.35);
+    --gold-deep: #96721a;
+    --gold-muted: rgba(204, 154, 46, 0.13);
+    --gold-border: rgba(139, 105, 20, 0.32);
 
-    --text-primary: #0f172a;
-    --text-secondary: #334155;
-    --text-muted: #475569;
-    --text-faint: #64748b;
-    --text-on-gold: #0f172a;
-    --text-inverse: #f8fafc;
+    --navy-deep: #0a1530;
+    --navy: #0f1f42;
+    --navy-soft: #16295299;
+
+    --text-primary: #0a1530;
+    --text-secondary: #2f3d5c;
+    --text-muted: #52607e;
+    --text-faint: #6b7793;
+    --text-on-gold: #0a1530;
+    --text-inverse: #f7f8fa;
 
     --success: #059669;
     --success-muted: rgba(5, 150, 105, 0.12);
@@ -43,26 +47,30 @@
     --metric: #0891b2;
     --metric-muted: rgba(8, 145, 178, 0.1);
 
-    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 1px rgba(15, 23, 42, 0.02);
-    --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.03), 0 10px 24px rgba(15, 23, 42, 0.06);
-    --shadow-lg: 0 8px 16px rgba(15, 23, 42, 0.04), 0 20px 48px rgba(15, 23, 42, 0.08);
-    --shadow-xl: 0 16px 32px rgba(15, 23, 42, 0.06), 0 32px 72px rgba(15, 23, 42, 0.1);
-    --shadow-inset: inset 0 1px 2px rgba(15, 23, 42, 0.06);
-    --shadow-gold: 0 4px 14px rgba(212, 175, 55, 0.18), 0 0 0 1px rgba(212, 175, 55, 0.08);
-    --shadow-gold-lg: 0 8px 28px rgba(212, 175, 55, 0.28), 0 0 0 1px rgba(212, 175, 55, 0.12);
+    --shadow-sm: 0 1px 2px rgba(10, 21, 48, 0.07), 0 1px 1px rgba(10, 21, 48, 0.05);
+    --shadow-md: 0 4px 10px rgba(10, 21, 48, 0.06), 0 12px 28px rgba(10, 21, 48, 0.1);
+    --shadow-lg: 0 10px 24px rgba(10, 21, 48, 0.08), 0 24px 56px rgba(10, 21, 48, 0.14);
+    --shadow-xl: 0 18px 40px rgba(10, 21, 48, 0.1), 0 36px 84px rgba(10, 21, 48, 0.16);
+    --shadow-inset: inset 0 1px 2px rgba(10, 21, 48, 0.07);
+    --shadow-gold: 0 4px 14px rgba(204, 154, 46, 0.2), 0 0 0 1px rgba(204, 154, 46, 0.1);
+    --shadow-gold-lg: 0 10px 30px rgba(204, 154, 46, 0.3), 0 0 0 1px rgba(204, 154, 46, 0.14);
+    --shadow-navy: 0 20px 44px rgba(10, 21, 48, 0.22), 0 4px 12px rgba(10, 21, 48, 0.14);
 
-    --glass-bg: rgba(255, 255, 255, 0.78);
-    --glass-border: rgba(15, 23, 42, 0.08);
-    --mesh-base: #f3f5f7;
-    --mesh-gold: rgba(212, 175, 55, 0.12);
-    --mesh-cyan: rgba(6, 182, 212, 0.06);
-    --mesh-emerald: rgba(16, 185, 129, 0.05);
-    --scrollbar-track: #e8eef4;
-    --scrollbar-thumb: #cbd5e1;
-    --scrollbar-thumb-hover: #94a3b8;
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(10, 21, 48, 0.1);
+    --mesh-base: #eef1f6;
+    --mesh-gold: rgba(204, 154, 46, 0.16);
+    --mesh-cyan: rgba(6, 182, 212, 0.07);
+    --mesh-emerald: rgba(16, 185, 129, 0.06);
+    --scrollbar-track: #dde3ed;
+    --scrollbar-thumb: #b3bdcc;
+    --scrollbar-thumb-hover: #8b96ab;
+
+    --grad-navy: linear-gradient(160deg, #0f1f42 0%, #0a1530 62%, #060d1f 100%);
+    --grad-card-sheen: linear-gradient(150deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 45%);
 
     /* Shadcn-compatible HSL tokens */
-    --background: 210 20% 96%;
+    --background: 213 30% 95%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -70,9 +78,9 @@
     --popover-foreground: 222 47% 11%;
     --primary: 43 65% 48%;
     --primary-foreground: 222 47% 11%;
-    --secondary: 214 32% 93%;
+    --secondary: 213 30% 91%;
     --secondary-foreground: 222 47% 11%;
-    --muted: 214 32% 93%;
+    --muted: 213 30% 91%;
     --muted-foreground: 215 16% 40%;
     --accent: 43 65% 48%;
     --accent-foreground: 222 47% 11%;
@@ -128,6 +136,10 @@
     --metric: #22d3ee;
     --metric-muted: rgba(34, 211, 238, 0.12);
 
+    --navy-deep: #0a1530;
+    --navy: #111d38;
+    --navy-soft: #1a2b4d99;
+
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.03);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -135,6 +147,7 @@
     --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.45);
     --shadow-gold: 0 0 24px rgba(212, 175, 55, 0.28), 0 0 0 1px rgba(212, 175, 55, 0.15);
     --shadow-gold-lg: 0 0 40px rgba(212, 175, 55, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.2);
+    --shadow-navy: 0 24px 56px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
 
     --glass-bg: rgba(3, 7, 18, 0.72);
     --glass-border: rgba(255, 255, 255, 0.1);
@@ -145,6 +158,9 @@
     --scrollbar-track: #030712;
     --scrollbar-thumb: #1e293b;
     --scrollbar-thumb-hover: #334155;
+
+    --grad-navy: linear-gradient(160deg, #16294d 0%, #0a1530 55%, #030712 100%);
+    --grad-card-sheen: linear-gradient(150deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 45%);
 
     --background: 224 71.4% 4.1%;
     --foreground: 210 40% 98%;
@@ -224,21 +240,22 @@
   }
 
   .glass-panel {
-    background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+    background: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-lg);
     @apply backdrop-blur-xl;
   }
 
   .mega-menu-panel {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-xl);
+    color: var(--text-primary);
     @apply backdrop-blur-xl;
   }
 
   .bento-card {
-    @apply relative overflow-hidden rounded-none transition-all duration-300 ease-out;
+    @apply relative overflow-hidden rounded-none p-6 transition-all duration-300 ease-out;
     background: var(--bg-elevated);
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-md);
@@ -314,7 +331,7 @@
   .field-obsidian {
     @apply w-full rounded-none px-4 py-3.5 text-sm font-medium outline-none transition;
     border: 1px solid var(--border-subtle);
-    background: var(--bg-fill);
+    background: var(--bg-elevated);
     color: var(--text-primary);
     box-shadow: var(--shadow-inset);
   }
@@ -347,7 +364,7 @@
   .field textarea {
     @apply w-full rounded-none px-4 py-3.5 text-sm font-medium outline-none transition;
     border: 1px solid var(--border-subtle);
-    background: var(--bg-fill);
+    background: var(--bg-elevated);
     color: var(--text-primary);
   }
 
@@ -361,6 +378,25 @@
   .field textarea:focus {
     border-color: var(--gold);
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold-fill) 28%, transparent);
+  }
+
+  /* Native <select> lists inherit closed-control color; without an opaque option
+     surface, dark-mode menus render light text on a light OS popup (invisible). */
+  select {
+    color-scheme: inherit;
+    background-color: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+
+  select option,
+  select optgroup {
+    background-color: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+
+  .dark select,
+  html.dark select {
+    color-scheme: dark;
   }
 
   .field-error {
@@ -688,6 +724,143 @@
 
   .icon-well-gold {
     @apply flex shrink-0 items-center justify-center rounded-none border;
+    background: var(--gold-muted);
+    border-color: var(--gold-border);
+    color: var(--gold);
+  }
+
+  /* ── Editorial composition system: collage frames, floating stats, timelines ── */
+
+  .navy-panel {
+    background: var(--grad-navy);
+    box-shadow: var(--shadow-navy);
+  }
+
+  .card-sheen {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .card-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: var(--grad-card-sheen);
+  }
+
+  .collage-frame {
+    @apply relative overflow-hidden rounded-none border;
+    border-color: var(--border-subtle);
+    background: var(--bg-elevated);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .collage-frame img {
+    @apply block transition-transform duration-700 ease-out;
+  }
+
+  .collage-frame:hover img {
+    transform: scale(1.035);
+  }
+
+  .stat-float {
+    @apply absolute z-20 flex items-center gap-3 rounded-none border px-5 py-4;
+    background: var(--bg-elevated);
+    border-color: var(--border-elevated);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .stat-float .stat-float__value {
+    @apply font-display text-2xl font-semibold leading-none tracking-tight;
+    color: var(--text-primary);
+  }
+
+  .stat-float .stat-float__label {
+    @apply mt-1 text-[10px] font-extrabold uppercase tracking-[0.14em];
+    color: var(--text-faint);
+  }
+
+  .rail-step {
+    @apply relative flex gap-5 pb-10 pl-0;
+  }
+
+  .rail-step::before {
+    content: "";
+    @apply absolute left-[19px] top-11 bottom-0 w-px;
+    background: linear-gradient(
+      to bottom,
+      var(--gold-border),
+      var(--border-subtle) 85%
+    );
+  }
+
+  .rail-step:last-child::before {
+    display: none;
+  }
+
+  .rail-step:last-child {
+    @apply pb-0;
+  }
+
+  .rail-step__index {
+    @apply relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-none border text-sm font-extrabold;
+    background: var(--bg-elevated);
+    border-color: var(--gold-border);
+    color: var(--gold);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .flow-card {
+    @apply relative flex flex-col gap-4 rounded-none border p-6;
+    background: var(--bg-elevated);
+    border-color: var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .flow-card:hover {
+    border-color: var(--gold-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .flow-card__arrow {
+    @apply pointer-events-none absolute -right-4 top-1/2 z-10 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-none border lg:flex;
+    background: var(--bg-page);
+    border-color: var(--border-elevated);
+    color: var(--gold);
+  }
+
+  .trust-badge {
+    @apply flex items-center justify-center rounded-none border px-5 py-4 text-center transition-all duration-300;
+    background: var(--bg-elevated);
+    border-color: var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .trust-badge:hover {
+    border-color: var(--gold-border);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .metric-tile {
+    @apply relative flex flex-col justify-between overflow-hidden rounded-none border p-6;
+    background: var(--bg-elevated);
+    border-color: var(--border-subtle);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .metric-tile::before {
+    content: "";
+    @apply pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full;
+    background: var(--gold-muted);
+    filter: blur(24px);
+  }
+
+  .pill-tag {
+    @apply inline-flex items-center gap-1.5 rounded-none border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em];
     background: var(--gold-muted);
     border-color: var(--gold-border);
     color: var(--gold);

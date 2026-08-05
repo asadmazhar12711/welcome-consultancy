@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { LeadCaptureInline } from "@/components/forms/LeadCaptureInline";
 
 interface DocItem {
   id: string;
@@ -147,18 +148,19 @@ export default function ChecklistGenerator() {
         })}
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-4 border-t border-subtle pt-6 sm:flex-row">
-        <p className="text-xs text-theme-secondary">
-          Selected <span className="font-bold text-theme-primary">{selectedCount}</span> mandatory EXIM certificates required for Indian Customs customs clearance.
+      <div className="flex flex-col gap-4 border-t border-subtle pt-6 sm:flex-row sm:items-start sm:justify-between">
+        <p className="text-xs text-theme-secondary sm:max-w-xs">
+          Selected <span className="font-bold text-theme-primary">{selectedCount}</span> mandatory EXIM certificates required for Indian Customs clearance.
         </p>
-        <a
-          href={`https://wa.me/919867173397?text=${whatsappMessage}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-gold-glow inline-flex items-center gap-2 rounded-none px-6 py-2.5 text-sm"
-        >
-          Send Checklist to Advisor (WhatsApp)
-        </a>
+        <div className="w-full sm:max-w-sm">
+          <LeadCaptureInline
+            source="Document Checklist Generator"
+            service="Compliance Documentation"
+            details={`Checklist (${selectedCount}/${totalCount}): ${selectedNames.join(", ")}.`}
+            whatsappHref={`https://wa.me/919867173397?text=${whatsappMessage}`}
+            ctaLabel="Send Checklist to Advisor"
+          />
+        </div>
       </div>
     </div>
   );

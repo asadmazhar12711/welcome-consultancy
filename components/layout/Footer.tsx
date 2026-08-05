@@ -9,69 +9,67 @@ export function Footer() {
   const col2 = SERVICES.slice(mid);
 
   return (
-    <footer className="relative overflow-hidden border-t border-subtle bg-page pb-10 pt-20">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,var(--mesh-gold)_0%,transparent_55%)]" />
+    <footer className="navy-panel relative overflow-hidden pb-10 pt-20">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.1)_0%,transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.05)_0%,transparent_50%)]" />
 
       <div className="container-site relative z-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-4">
             <div className="mb-6 flex items-center">
               <img
-                src="/images/logo-light.png"
-                alt="Welcome Consultancy"
-                className="h-12 w-auto block dark:hidden object-contain"
-              />
-              <img
                 src="/images/logo-dark.png"
                 alt="Welcome Consultancy"
-                className="h-12 w-auto hidden dark:block object-contain"
+                className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="mb-8 max-w-sm text-sm font-medium leading-relaxed text-theme-muted">
+            <p className="mb-8 max-w-sm text-sm font-medium leading-relaxed text-slate-400">
               {SITE.mission.intro}
             </p>
-            <ul className="space-y-4 text-sm font-semibold text-theme-secondary">
+            <ul className="space-y-4 text-sm font-semibold text-slate-300">
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="inline-flex items-center gap-3 transition-colors hover:text-gold-500"
+                  className="inline-flex items-center gap-3 transition-colors hover:text-[#e5c158]"
                 >
-                  <Mail className="h-4 w-4 text-gold-500" aria-hidden />
+                  <Mail className="h-4 w-4 text-[#d4af37]" aria-hidden />
                   {SITE.email}
                 </a>
               </li>
               <li>
                 <a
                   href={SITE.phones[0].href}
-                  className="inline-flex items-center gap-3 transition-colors hover:text-gold-500"
+                  className="inline-flex items-center gap-3 transition-colors hover:text-[#e5c158]"
                 >
-                  <Phone className="h-4 w-4 text-gold-500" aria-hidden />
+                  <Phone className="h-4 w-4 text-[#d4af37]" aria-hidden />
                   {SITE.phones[0].display} / {SITE.phones[1].display}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" aria-hidden />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" aria-hidden />
                 <span className="max-w-[280px] leading-relaxed">{SITE.address.full}</span>
               </li>
               <li className="inline-flex items-center gap-3">
-                <Clock className="h-4 w-4 text-gold-500" aria-hidden />
+                <Clock className="h-4 w-4 text-[#d4af37]" aria-hidden />
                 {SITE.hours}
               </li>
             </ul>
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="eyebrow mb-6">Explore</h3>
-            <ul className="space-y-4 text-sm font-semibold text-theme-muted">
+            <h3 className="mb-6 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#d4af37]">
+              Explore
+            </h3>
+            <ul className="space-y-4 text-sm font-semibold text-slate-400">
               {[
                 { label: "About Us", href: "/about-us" },
                 { label: "All Services", href: "/services" },
                 { label: "Contact", href: "/contact-us" },
-                { label: "Exporter Tools", href: "/#tools" },
+                { label: "Exporter Tools", href: "/tools" },
                 { label: "Blogs", href: "/blogs" },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="transition-colors hover:text-theme-primary">
+                  <Link href={item.href} className="transition-colors hover:text-white">
                     {item.label}
                   </Link>
                 </li>
@@ -80,15 +78,17 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-6">
-            <h3 className="eyebrow mb-6">DGFT Services</h3>
+            <h3 className="mb-6 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#d4af37]">
+              DGFT Services
+            </h3>
             <div className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
               {[col1, col2].map((col, i) => (
-                <ul key={i} className="space-y-3 text-sm font-semibold text-theme-muted">
+                <ul key={i} className="space-y-3 text-sm font-semibold text-slate-400">
                   {col.map((s) => (
                     <li key={s.slug}>
                       <Link
                         href={`/service/${s.slug}`}
-                        className="block truncate transition-colors hover:text-gold-500"
+                        className="block truncate transition-colors hover:text-[#e5c158]"
                       >
                         {s.navTitle}
                       </Link>
@@ -100,7 +100,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-subtle pt-8 text-sm font-semibold text-theme-faint sm:flex-row sm:items-center">
+        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-sm font-semibold text-slate-500 sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>

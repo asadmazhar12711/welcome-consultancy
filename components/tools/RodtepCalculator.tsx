@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useId } from "react";
+import { LeadCaptureInline } from "@/components/forms/LeadCaptureInline";
 
 interface SectorRate {
   id: string;
@@ -170,14 +171,13 @@ export default function RodtepCalculator() {
               </div>
             </div>
 
-            <a
-              href={`https://wa.me/919867173397?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold-glow block w-full rounded-none py-3 text-center text-sm"
-            >
-              Claim RoDTEP Scrips via Advisory
-            </a>
+            <LeadCaptureInline
+              source="RoDTEP Calculator"
+              service="RoDTEP Claim"
+              details={`Sector: ${selectedSector.name}. FOB: ${formatCurrency(fobValue)} (${exportFrequency}). Estimated annual refund: ${formatCurrency(annualIncentive)}.`}
+              whatsappHref={`https://wa.me/919867173397?text=${whatsappMessage}`}
+              ctaLabel="Claim RoDTEP Scrips via Advisory"
+            />
           </div>
         </div>
       </div>

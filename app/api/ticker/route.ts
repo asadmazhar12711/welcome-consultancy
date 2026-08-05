@@ -4,8 +4,6 @@ import { getDB, type TickerRow } from "@/lib/db";
 import { getEnv } from "@/lib/env";
 import { optionalString } from "@/lib/validation";
 
-export const runtime = "edge";
-
 async function adminGate(request: NextRequest) {
   const env = await getEnv();
   const secret = env.ADMIN_PASSWORD || process.env.ADMIN_PASSWORD || "";

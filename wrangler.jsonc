@@ -15,8 +15,7 @@
     {
       "binding": "DB",
       "database_name": "welcome-consultancy-db",
-      "database_id": "00000000-0000-0000-0000-000000000001",
-      "preview_database_id": "local-welcome-consultancy-db"
+      "database_id": "f5d75c4c-5073-46c6-886d-9d3c4abf8e06"
     }
   ],
   "vars": {

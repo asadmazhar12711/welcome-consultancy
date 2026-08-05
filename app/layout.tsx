@@ -1,9 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope, Newsreader } from "next/font/google";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { StickyCtas } from "@/components/layout/StickyCtas";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { organizationJsonLd } from "@/lib/seo";
@@ -70,12 +67,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <JsonLd data={organizationJsonLd()} />
-          <Header />
-          <main className="relative z-10 flex min-h-screen flex-1 flex-col pt-[88px]">
-            {children}
-          </main>
-          <Footer />
-          <StickyCtas />
+          {children}
         </ThemeProvider>
       </body>
     </html>

@@ -39,6 +39,30 @@ export type SlotConfigRow = {
   slot_duration_minutes: number;
 };
 
+export type BlogRow = {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  excerpt: string;
+  status: string;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type PopupRow = {
+  id: string;
+  title: string;
+  message: string;
+  cta_label: string;
+  cta_href: string;
+  is_active: number;
+  delay_seconds: number;
+  created_at: string;
+  updated_at: string;
+};
+
 export async function getDB(): Promise<D1Database> {
   const env = await getEnv();
   if (!env.DB) {
@@ -51,4 +75,14 @@ export async function getDB(): Promise<D1Database> {
 
 export function newId(prefix: string): string {
   return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+export function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .slice(0, 80);
 }

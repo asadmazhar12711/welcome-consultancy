@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useId } from "react";
+import { LeadCaptureInline } from "@/components/forms/LeadCaptureInline";
 
 export default function EpcgEstimator() {
   const [machineryCost, setMachineryCost] = useState<number>(10000000);
@@ -127,14 +128,13 @@ export default function EpcgEstimator() {
               </div>
             </div>
 
-            <a
-              href={`https://wa.me/919867173397?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold-glow block w-full rounded-none py-3 text-center text-sm"
-            >
-              Apply for 0% Duty EPCG License
-            </a>
+            <LeadCaptureInline
+              source="EPCG Duty Estimator"
+              service="EPCG License"
+              details={`Machinery cost: ${formatCurrency(machineryCost)}. Duty rate: ${dutyRate}%. Duty saved: ${formatCurrency(dutySaved)}. Export obligation (6yr): ${formatCurrency(exportObligation)}.`}
+              whatsappHref={`https://wa.me/919867173397?text=${whatsappMessage}`}
+              ctaLabel="Apply for 0% Duty EPCG License"
+            />
           </div>
         </div>
       </div>
