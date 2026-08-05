@@ -1,10 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/admin-auth";
-import { getDB } from "@/lib/db";
+import { getDB, slugify } from "@/lib/db";
 import { getEnv } from "@/lib/env";
 import { optionalString } from "@/lib/validation";
 
 const STATUSES = ["Draft", "Published"] as const;
+const ROBOTS = [
+  "index, follow",
+  "noindex, follow",
+  "index, nofollow",
+  "noindex, nofollow",
+] as const;
 
 async function adminGate(request: NextRequest) {
   const env = await getEnv();
@@ -46,6 +52,55 @@ export async function PATCH(
   if (excerpt) {
     sets.push("excerpt = ?");
     binds.push(excerpt);
+  }
+  if (typeof body.body === "string") {
+    sets.push("body = ?");
+    binds.push(optionalString(body.body, 20000));
+  }
+
+  if (typeof body.slug === "string" && body.slug.trim()) {
+    const nextSlug = slugify(body.slug);
+    if (nextSlug) {
+      const clash = await db
+        .prepare("SELECT id FROM blog_posts WHERE slug = ? AND id != ?")
+        .bind(nextSlug, id)
+        .first();
+      if (clash) {
+        return NextResponse.json({ error: "Slug already in use." }, { status: 409 });
+      }
+      sets.push("slug = ?");
+      binds.push(nextSlug);
+    }
+  }
+
+  const nullableSeoFields = [
+    ["seo_title", 70],
+    ["meta_description", 160],
+    ["canonical_url", 300],
+    ["og_title", 70],
+    ["og_description", 200],
+    ["og_image", 300],
+    ["twitter_title", 70],
+    ["twitter_description", 200],
+    ["twitter_image", 300],
+    ["image_alt", 160],
+  ] as const;
+
+  for (const [field, max] of nullableSeoFields) {
+    if (field in body) {
+      const value = optionalString(body[field], max);
+      sets.push(`${field} = ?`);
+      binds.push(value || null);
+    }
+  }
+
+  if (typeof body.meta_robots === "string") {
+    const robots = optionalString(body.meta_robots, 40);
+    if (!ROBOTS.includes(robots as (typeof ROBOTS)[number])) {
+      return NextResponse.json({ error: "Invalid meta_robots value." }, { status: 400 });
+    }
+    sets.push("meta_robots = ?");
+    binds.push(robots);
   }
 
   const status = optionalString(body.status, 20);

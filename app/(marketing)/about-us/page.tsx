@@ -3,16 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Award, Quote, ShieldCheck, Sparkles, Target, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { VisualFrame } from "@/components/visual/VisualFrame";
 import { GoldOrb, TradeRouteLines } from "@/components/visual/Decor";
 import { ILLUSTRATIONS } from "@/lib/illustrations";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "About Us",
   description:
     "Welcome Consultancy Mumbai — leading Export Incentives & DGFT consulting firm since 2011, serving 1000+ clients PAN India.",
-};
+  path: "/about-us",
+  keywords: ["about Welcome Consultancy", "DGFT consultant Mumbai", "EXIM advisors"],
+});
 
 const STATS = [
   { value: SITE.metrics.team, label: "Team members", icon: Users },
@@ -44,6 +48,13 @@ const TIMELINE = [
 
 export default function AboutUsPage() {
   return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about-us" },
+        ])}
+      />
     <div className="min-h-screen bg-page">
       {/* ── Compact intro: no giant banner — copy leads, collage supports ── */}
       <section className="relative overflow-hidden pb-16 pt-32 md:pb-24 md:pt-40">
@@ -263,5 +274,6 @@ export default function AboutUsPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

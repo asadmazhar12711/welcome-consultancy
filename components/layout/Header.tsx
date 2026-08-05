@@ -106,11 +106,17 @@ export function Header() {
           <img
             src="/images/logo-light.png"
             alt="Welcome Consultancy"
+            width={180}
+            height={44}
+            decoding="async"
             className="h-11 w-auto block dark:hidden object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
           <img
             src="/images/logo-dark.png"
             alt="Welcome Consultancy"
+            width={180}
+            height={44}
+            decoding="async"
             className="h-11 w-auto hidden dark:block object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </Link>

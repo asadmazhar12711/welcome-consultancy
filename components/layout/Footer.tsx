@@ -20,6 +20,9 @@ export function Footer() {
               <img
                 src="/images/logo-dark.png"
                 alt="Welcome Consultancy"
+                width={196}
+                height={48}
+                decoding="async"
                 className="h-12 w-auto object-contain"
               />
             </div>

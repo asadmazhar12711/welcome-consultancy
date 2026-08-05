@@ -1,6 +1,6 @@
 # Welcome Consultancy
 
-> India's premier Foreign Trade & DGFT advisory firm (10+ years, 500+ clients, 16 EXIM services).
+> India's premier Foreign Trade & DGFT advisory firm (10+ years, 1000+ clients, 16 EXIM services).
 
 ## About
 
@@ -8,33 +8,35 @@ Welcome Consultancy helps Indian exporters and importers with DGFT licensing, cu
 
 ## Services
 
-- [IEC Code Registration](https://welcomeconsultancy.in/services/import-export-code): Mandatory 10-digit DGFT import-export code.
-- [Export Incentives (RoDTEP / RoSCTL / Duty Drawback)](https://welcomeconsultancy.in/services/export-incentives): Maximize embedded tax rebates on exports.
-- [EPCG License](https://welcomeconsultancy.in/services/epcg-license): Zero-duty capital goods import with 6x export obligation.
-- [Advance Licence](https://welcomeconsultancy.in/services/advance-licence): Duty-free raw material imports for export production.
-- [Star Export House Certificate](https://welcomeconsultancy.in/services/export-house-certificate): DGFT Star Exporter status recognition.
-- [RCMC Application](https://welcomeconsultancy.in/services/rcmc-application): Export Promotion Council membership.
-- [Certificate of Origin](https://welcomeconsultancy.in/services/certificate-of-origin): Preferential & non-preferential COO issuance.
-- [Class 3 Digital Signature](https://welcomeconsultancy.in/services/digital-signature): EXIM DSC for DGFT & ICEGATE.
-- [AD Code Registration](https://welcomeconsultancy.in/services/ad-code-registration): Bank AD Code tagging across ICEGATE ports.
-- [FSSAI Import/Export License](https://welcomeconsultancy.in/services/fssai-registration): Central FSSAI for food EXIM.
-- [AEO Registration](https://welcomeconsultancy.in/services/aeo-registration): Authorized Economic Operator T1/T2/T3.
-- [SIMS Registration](https://welcomeconsultancy.in/services/sims-registration): Steel and commodity import monitoring filings.
-- [Health Certificate](https://welcomeconsultancy.in/services/health-certificate): Phytosanitary & health clearance for agri exports.
-- [Interest Equalization Scheme](https://welcomeconsultancy.in/services/interest-equalization-scheme): Export credit interest subvention advisory.
-- [REX Registration](https://welcomeconsultancy.in/services/rex-registration): EU/UK GSP self-certification of origin.
-- [ICEGATE Registration](https://welcomeconsultancy.in/services/icegate-registration): Customs portal onboarding & e-SANCHIT.
+- [IEC Code Registration](https://welcomeconsultancy.in/service/iec-code-import-export-code): Mandatory 10-digit DGFT import-export code.
+- [Export Incentives (RoDTEP / RoSCTL / Duty Drawback)](https://welcomeconsultancy.in/service/export-incentives): Maximize embedded tax rebates on exports.
+- [EPCG License](https://welcomeconsultancy.in/service/epcg-license): Zero-duty capital goods import with 6x export obligation.
+- [Advance Licence](https://welcomeconsultancy.in/service/advance-licence): Duty-free raw material imports for export production.
+- [Star Export House Certificate](https://welcomeconsultancy.in/service/export-house-certificate): DGFT Star Exporter status recognition.
+- [RCMC Application](https://welcomeconsultancy.in/service/rcmc-application): Export Promotion Council membership.
+- [Certificate of Origin](https://welcomeconsultancy.in/service/c-o-o-certificate-of-origin): Preferential & non-preferential COO issuance.
+- [Class 3 Digital Signature](https://welcomeconsultancy.in/service/digital-signature): EXIM DSC for DGFT & ICEGATE.
+- [AD Code Registration](https://welcomeconsultancy.in/service/ad-code-registration): Bank AD Code tagging across ICEGATE ports.
+- [FSSAI Import/Export License](https://welcomeconsultancy.in/service/fssai): Central FSSAI for food EXIM.
+- [AEO Registration](https://welcomeconsultancy.in/service/aeo-registration): Authorized Economic Operator T1/T2/T3.
+- [SIMS Registration](https://welcomeconsultancy.in/service/sims-registration): Steel and commodity import monitoring filings.
+- [Health Certificate](https://welcomeconsultancy.in/service/health-certificate): Phytosanitary & health clearance for agri exports.
+- [Interest Equalization Scheme](https://welcomeconsultancy.in/service/interest-equalization): Export credit interest subvention advisory.
+- [REX Registration](https://welcomeconsultancy.in/service/rex-registration): EU/UK GSP self-certification of origin.
+- [ICEGATE Registration](https://welcomeconsultancy.in/service/icegate-registration): Customs portal onboarding & e-SANCHIT.
 
 ## Tools
 
-- RoDTEP / Duty Drawback Incentive Calculator: `/tools#rodtep`
-- EPCG Duty Savings Estimator: `/tools#epcg`
-- EXIM Document Checklist Generator: `/tools#checklist`
-- Consultation Booking: `/book`
+- RoDTEP / Duty Drawback Incentive Calculator: https://welcomeconsultancy.in/tools#rodtep
+- EPCG Duty Savings Estimator: https://welcomeconsultancy.in/tools#epcg
+- EXIM Document Checklist Generator: https://welcomeconsultancy.in/tools#checklist
+- Consultation Booking: https://welcomeconsultancy.in/tools#book
 
 ## Contact
 
 - Phone / WhatsApp: +91 98671 73397
-- Email: info@welcomeconsultancy.in
-- Contact form: https://welcomeconsultancy.in/contact
-- Book consultation: https://welcomeconsultancy.in/book
+- Email: enquiry@welcomeconsultancy.in
+- Contact form: https://welcomeconsultancy.in/contact-us
+- Book consultation: https://welcomeconsultancy.in/tools
+- About: https://welcomeconsultancy.in/about-us
+- Blog: https://welcomeconsultancy.in/blogs

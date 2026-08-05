@@ -19,6 +19,7 @@
     }
   ],
   "vars": {
-    "SITE_URL": "https://welcomeconsultancy.in"
+    "SITE_URL": "https://welcomeconsultancy.in",
+    "GA4_ID": "G-SBVK5GGG6Q"
   }
 }

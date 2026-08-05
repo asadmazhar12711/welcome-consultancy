@@ -1,8 +1,13 @@
 import type { MetadataRoute } from "next";
+import { listPublishedBlogSlugs } from "@/lib/db";
 import { SERVICE_SLUGS } from "@/lib/services";
 import { SITE } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const now = new Date();
+
   const staticRoutes = [
     "",
     "/about-us",
@@ -12,17 +17,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blogs",
   ].map((path) => ({
     url: `${SITE.url}${path}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: path === "" ? 1 : 0.8,
   }));
 
   const serviceRoutes = SERVICE_SLUGS.map((slug) => ({
     url: `${SITE.url}/service/${slug}`,
-    lastModified: new Date(),
+    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
 
-  return [...staticRoutes, ...serviceRoutes];
+  const blogRows = await listPublishedBlogSlugs();
+  const blogRoutes = blogRows.map((row) => ({
+    url: `${SITE.url}/blogs/${row.slug}`,
+    lastModified: new Date(row.updated_at || row.published_at || now),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
 }

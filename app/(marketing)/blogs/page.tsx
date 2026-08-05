@@ -4,24 +4,28 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ILLUSTRATIONS } from "@/lib/illustrations";
 import { getDB, type BlogRow } from "@/lib/db";
+import { buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Blogs & Regulatory Updates",
   description:
     "Stay updated with the latest DGFT and Customs circulars, policy changes, and export incentives from Welcome Consultancy.",
-};
+  path: "/blogs",
+  keywords: ["DGFT updates", "export incentive news", "customs circulars"],
+});
 
-// Posts are admin-managed in D1 — always read fresh so publishes show up immediately.
 export const dynamic = "force-dynamic";
 
 const BLOG_ART = ["dgft", "rodtep", "epcg", "compliance", "iec", "aeo"] as const;
 
 type Post = {
   title: string;
+  slug: string;
   category: string;
   excerpt: string;
   date: string;
+  imageAlt: string;
 };
 
 function formatDate(value: string | null): string {
@@ -43,12 +47,21 @@ async function getPosts(): Promise<Post[]> {
     if (!rows.length) throw new Error("empty");
     return rows.map((r) => ({
       title: r.title,
+      slug: r.slug,
       category: r.category,
       excerpt: r.excerpt,
       date: formatDate(r.published_at),
+      imageAlt: r.image_alt || r.title,
     }));
   } catch {
-    return SITE.blogs.map((b) => ({ ...b }));
+    return SITE.blogs.map((b) => ({
+      title: b.title,
+      slug: b.slug,
+      category: b.category,
+      excerpt: b.excerpt,
+      date: b.date,
+      imageAlt: b.title,
+    }));
   }
 }
 
@@ -86,19 +99,23 @@ export default async function BlogsPage() {
             const art = ILLUSTRATIONS.services[key];
             return (
               <article
-                key={post.title}
+                key={post.slug}
                 className="group grid grid-cols-1 overflow-hidden rounded-none border border-subtle bg-elevated shadow-theme-sm transition-all duration-300 hover:border-gold hover:shadow-theme-md md:grid-cols-[280px_1fr]"
               >
-                <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[200px]">
+                <Link
+                  href={`/blogs/${post.slug}`}
+                  className="relative aspect-[16/10] md:aspect-auto md:min-h-[200px]"
+                  aria-label={`Read ${post.title}`}
+                >
                   <Image
                     src={art.src}
-                    alt={art.alt}
+                    alt={post.imageAlt || art.alt}
                     fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 280px"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                </div>
+                </Link>
                 <div className="flex flex-col justify-center p-7 md:p-9">
                   <div className="mb-3 flex items-center justify-between gap-3">
                     <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
@@ -107,16 +124,21 @@ export default async function BlogsPage() {
                     <span className="text-xs font-medium text-theme-faint">{post.date}</span>
                   </div>
                   <h2 className="font-display text-xl font-semibold tracking-tight text-theme-primary md:text-2xl">
-                    {post.title}
+                    <Link
+                      href={`/blogs/${post.slug}`}
+                      className="transition-colors hover:text-gold-500"
+                    >
+                      {post.title}
+                    </Link>
                   </h2>
                   <p className="mt-3 line-clamp-3 text-sm font-medium leading-relaxed text-theme-muted">
                     {post.excerpt}
                   </p>
                   <Link
-                    href="/contact-us"
+                    href={`/blogs/${post.slug}`}
                     className="mt-5 inline-flex min-h-11 items-center text-sm font-bold text-gold-500 transition-colors hover:text-theme-primary"
                   >
-                    Discuss with desk <ArrowRight className="ml-2 h-4 w-4" />
+                    Read article <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
               </article>

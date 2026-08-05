@@ -1,0 +1,12 @@
+# Local Cloudflare / OpenNext secrets & analytics overrides.
+# Copy to .dev.vars and fill in values as needed.
+
+ADMIN_PASSWORD=change-me
+
+# Optional analytics overrides (CMS Admin → SEO & Analytics takes precedence when set in D1)
+# GTM_ID=GTM-XXXXXXX
+# GA4_ID=G-SBVK5GGG6Q
+# CLARITY_ID=
+# META_PIXEL_ID=
+# GSC_VERIFICATION=
+# BING_VERIFICATION=

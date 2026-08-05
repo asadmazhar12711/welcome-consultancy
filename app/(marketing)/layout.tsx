@@ -11,7 +11,11 @@ export default function MarketingLayout({
   return (
     <>
       <Header />
-      <main className="relative z-10 flex min-h-screen flex-1 flex-col pt-[88px]">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="relative z-10 flex min-h-screen flex-1 flex-col pt-[88px] outline-none"
+      >
         {children}
       </main>
       <Footer />

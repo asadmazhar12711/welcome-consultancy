@@ -45,8 +45,20 @@ export type BlogRow = {
   slug: string;
   category: string;
   excerpt: string;
+  body?: string | null;
   status: string;
   published_at: string | null;
+  seo_title?: string | null;
+  meta_description?: string | null;
+  canonical_url?: string | null;
+  meta_robots?: string | null;
+  og_title?: string | null;
+  og_description?: string | null;
+  og_image?: string | null;
+  twitter_title?: string | null;
+  twitter_description?: string | null;
+  twitter_image?: string | null;
+  image_alt?: string | null;
   created_at: string;
   updated_at: string;
 };
@@ -60,6 +72,29 @@ export type PopupRow = {
   is_active: number;
   delay_seconds: number;
   created_at: string;
+  updated_at: string;
+};
+
+export type RedirectRow = {
+  id: string;
+  from_path: string;
+  to_path: string;
+  status_code: number;
+  is_active: number;
+  created_at: string;
+  updated_at: string;
+};
+
+export type SeoSettingsRow = {
+  id: number;
+  gtm_id: string;
+  ga4_id: string;
+  clarity_id: string;
+  meta_pixel_id: string;
+  gsc_verification: string;
+  bing_verification: string;
+  default_og_image: string;
+  robots_extra: string;
   updated_at: string;
 };
 
@@ -85,4 +120,50 @@ export function slugify(value: string): string {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .slice(0, 80);
+}
+
+export async function getSeoSettings(): Promise<SeoSettingsRow | null> {
+  try {
+    const db = await getDB();
+    return (
+      (await db
+        .prepare("SELECT * FROM seo_settings WHERE id = 1")
+        .first<SeoSettingsRow>()) ?? null
+    );
+  } catch {
+    return null;
+  }
+}
+
+export async function getActiveRedirect(fromPath: string): Promise<RedirectRow | null> {
+  try {
+    const db = await getDB();
+    return (
+      (await db
+        .prepare(
+          "SELECT * FROM redirects WHERE from_path = ? AND is_active = 1 LIMIT 1",
+        )
+        .bind(fromPath)
+        .first<RedirectRow>()) ?? null
+    );
+  } catch {
+    return null;
+  }
+}
+
+export async function listPublishedBlogSlugs(): Promise<
+  { slug: string; updated_at: string; published_at: string | null }[]
+> {
+  try {
+    const db = await getDB();
+    const result = await db
+      .prepare(
+        `SELECT slug, updated_at, published_at FROM blog_posts
+         WHERE status = 'Published' ORDER BY published_at DESC`,
+      )
+      .all<{ slug: string; updated_at: string; published_at: string | null }>();
+    return result.results ?? [];
+  } catch {
+    return [];
+  }
 }

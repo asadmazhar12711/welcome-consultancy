@@ -115,6 +115,7 @@ export const SITE = {
   blogs: [
     {
       title: "Star House Certificate",
+      slug: "star-house-certificate",
       excerpt:
         "This certificate is to recognize such Exporter firms as Business Leaders who have excelled in International Trade and have successfully contributed to the country's Foreign Trade.",
       category: "DGFT Policy",
@@ -122,6 +123,7 @@ export const SITE = {
     },
     {
       title: "Export Promotion Capital Goods (EPCG)",
+      slug: "export-promotion-capital-goods-epcg",
       excerpt:
         "EPCG is intended for promoting exports and the Indian government with the help of this scheme offers incentives and financial support to the exporters.",
       category: "Incentives",
@@ -129,6 +131,7 @@ export const SITE = {
     },
     {
       title: "Authorized Economic Operator (AEO)",
+      slug: "authorized-economic-operator-aeo",
       excerpt:
         "The benefits of AEO include faster processing and clearance of cargo, deferred payment of duty, direct port delivery/entry, and benefits under Mutual Recognition arrangements (MRA).",
       category: "Customs",
@@ -136,6 +139,7 @@ export const SITE = {
     },
     {
       title: "Certificate of Origin",
+      slug: "certificate-of-origin",
       excerpt:
         "The certificate of origin holds significant importance in the transportation of goods across borders. It serves as proof of the country where the product was manufactured.",
       category: "Documentation",

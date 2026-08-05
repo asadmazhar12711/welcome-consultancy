@@ -2,17 +2,28 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { ILLUSTRATIONS, illustrationForService } from "@/lib/illustrations";
 import { SERVICES } from "@/lib/services";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "DGFT & EXIM Services",
   description: `Complete portfolio of ${SITE.metrics.services} DGFT, Customs, and export incentive services from Welcome Consultancy Mumbai.`,
-};
+  path: "/services",
+  keywords: ["DGFT services", "EXIM services Mumbai", "export license consultants"],
+});
 
 export default function ServicesIndexPage() {
   return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ])}
+      />
     <div className="min-h-screen bg-page">
       <section className="relative isolate min-h-[60vh] overflow-hidden">
         <Image
@@ -87,5 +98,6 @@ export default function ServicesIndexPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
