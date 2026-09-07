@@ -59,7 +59,7 @@ type HeroVisualProps = {
 /** Full-bleed hero plane — video or image is the composition, copy sits inside */
 export function HeroVisual({ src, alt, videoSrc, videoWebm, children }: HeroVisualProps) {
   return (
-    <section className="hero-visual relative isolate w-full max-w-full min-h-[85vh] md:min-h-[min(94vh,900px)] overflow-hidden">
+    <section className="hero-visual relative isolate w-full max-w-full h-[100dvh] min-h-screen overflow-hidden">
       {videoSrc ? (
         <video
           autoPlay
@@ -83,7 +83,7 @@ export function HeroVisual({ src, alt, videoSrc, videoWebm, children }: HeroVisu
         />
       )}
       <div className="hero-visual__scrim" aria-hidden />
-      <div className="container-site relative z-10 flex min-h-[85vh] md:min-h-[min(94vh,900px)] flex-col justify-between pt-28 pb-8 sm:pt-32 sm:pb-10 md:pt-36 md:pb-12">
+      <div className="container-site relative z-10 flex h-[100dvh] min-h-screen flex-col justify-between pt-24 pb-6 sm:pt-28 sm:pb-8 md:pt-32 md:pb-10">
         {children}
       </div>
     </section>

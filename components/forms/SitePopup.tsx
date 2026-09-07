@@ -19,16 +19,6 @@ export function SitePopup() {
   });
 
   useEffect(() => {
-    // Check if previously dismissed in this session
-    if (typeof window !== "undefined" && sessionStorage.getItem(POPUP_DISMISS_KEY)) {
-      return;
-    }
-
-    // Auto-open after 2 seconds
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 2000);
-
     // Listen for custom trigger event so any button on the site can open it
     const handleTrigger = (e: CustomEvent<{ role?: "buyer" | "supplier" }>) => {
       if (e.detail?.role) {
@@ -39,8 +29,16 @@ export function SitePopup() {
 
     window.addEventListener("open-scrip-popup" as never, handleTrigger);
 
+    // Auto-open after 3 seconds only if not previously dismissed in this session
+    let timer: NodeJS.Timeout | null = null;
+    if (typeof window !== "undefined" && !sessionStorage.getItem(POPUP_DISMISS_KEY)) {
+      timer = setTimeout(() => {
+        setOpen(true);
+      }, 3000);
+    }
+
     return () => {
-      clearTimeout(timer);
+      if (timer) clearTimeout(timer);
       window.removeEventListener("open-scrip-popup" as never, handleTrigger);
     };
   }, []);

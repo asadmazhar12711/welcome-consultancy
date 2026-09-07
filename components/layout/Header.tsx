@@ -38,22 +38,12 @@ export function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-      if (pathname === "/") {
-        const hero = document.querySelector(".hero-visual");
-        if (hero) {
-          const rect = hero.getBoundingClientRect();
-          setScrolled(rect.bottom <= 80);
-        } else {
-          setScrolled(window.scrollY > 300);
-        }
-      } else {
-        setScrolled(window.scrollY > 16);
-      }
+      setScrolled(window.scrollY > 20);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [pathname]);
+  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -110,8 +100,8 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-[100] w-full transition-all duration-300 ${
         isSolid
-          ? "bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-subtle shadow-md"
-          : "bg-gradient-to-b from-black/75 via-black/30 to-transparent border-b border-transparent shadow-none"
+          ? "bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl shadow-md"
+          : "bg-gradient-to-b from-black/75 via-black/30 to-transparent shadow-none"
       }`}
     >
       <nav
