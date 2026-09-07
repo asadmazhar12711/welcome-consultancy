@@ -244,6 +244,291 @@ export const SERVICE_EXTRAS: Record<string, ServiceExtras> = {
       "Aadhar and PAN of the authorized person"
     ],
     "pageDescription": "ICEGATE is the national portal of Indian Customs for e-filing. We set up comprehensive ICEGATE profiles, link AD codes, register DSCs, and ensure your e-Sanchit facility is fully operational."
+  },
+  "rodtep-rosctl-application": {
+    "benefits": [
+      "Substantial Cash Remission: Directly refund embedded duties, fuel taxes, and local levies.",
+      "ICEGATE Electronic Scrips: Freely transferable in customs ledger for duty payment or market sale.",
+      "PAN-India Shipping Bill Audit: Recover stuck or pending scroll generation across all customs ports.",
+      "Optimized Tariff Mapping: Ensure your product HSN qualifies for the maximum notified incentive rate."
+    ],
+    "documents": [
+      "Shipping Bills (Let Export Copy)",
+      "Bank Realization Certificates (e-BRC / IRM)",
+      "Active ICEGATE User ID and Digital Signature Certificate",
+      "Valid RCMC and IEC copies"
+    ],
+    "pageDescription": "Maximize your export profitability with RoDTEP and RoSCTL. We validate HSN eligibility, reconcile shipping bills, and ensure fast scrip generation into your transferable customs ledger."
+  },
+  "sale-purchase-duty-credit-scrips": {
+    "benefits": [
+      "Immediate Liquidity for Exporters: Convert digital scrips into instant cash at premium market rates.",
+      "Duty Cost Reduction for Importers: Save 2% to 4% on Basic Customs Duty through discounted scrips.",
+      "Zero Counterparty Risk: 100% verified ledger-to-ledger transfers with same-day RTGS escrow settlement.",
+      "Full Compliance Clearance: Verification of valid scrip issuance and non-encumbrance on ICEGATE."
+    ],
+    "documents": [
+      "ICEGATE User Credentials with active Credit Ledger",
+      "Issued RoDTEP / RoSCTL Scrip details (Scrip number, date, and face value)",
+      "Company PAN, GSTIN, and cancelled cheque for payment transfer",
+      "Board Resolution / Authorization Letter"
+    ],
+    "pageDescription": "Welcome Consultancy operates an institutional scrip desk for buying and selling RoDTEP, RoSCTL, and MEIS duty credit scrips with immediate settlement and verified ICEGATE transfers."
+  },
+  "epcg-advance-license-closures": {
+    "benefits": [
+      "0% Customs Duty on Capital Goods: Save upfront duty on imported production machinery.",
+      "Duty-Free Raw Material Import: Exemption from BCD and IGST for inputs under Advance Authorisation.",
+      "Export Obligation Redemption (EODC): Timely redemption to discharge bank guarantees and legal undertakings.",
+      "Clubbing & Amendment Assistance: Restructure shortfalls and extend obligation periods with DGFT approval."
+    ],
+    "documents": [
+      "Proforma Invoice of capital goods / raw materials to be imported",
+      "Chartered Engineer Nexus Certificate",
+      "Past 3 years FOB export performance figures",
+      "Shipping Bills and e-BRCs for EODC redemption filing"
+    ],
+    "pageDescription": "End-to-end management of EPCG and Advance Authorisation schemes from issuance to final redemption (EODC) and customs bond cancellation."
+  },
+  "scomet-license": {
+    "benefits": [
+      "Legal Export Authorization: Mandatory clearance for dual-use high-technology and chemical items.",
+      "Inter-Ministerial Liaison: Seamless representation before DGFT, Defense, MEA, and DAE committees.",
+      "Penalty & Seizure Prevention: Avoid catastrophic blacklisting and export holds at customs ports.",
+      "Global Tier-1 Credibility: Reassure international defense and industrial buyers of export legitimacy."
+    ],
+    "documents": [
+      "End-User Certificate (EUC) in Appendix 2S / 2T DGFT prescribed format",
+      "Technical datasheets, chemical analysis reports, and industrial blueprints",
+      "Foreign buyer purchase order and bilateral supply contract",
+      "Company Internal Compliance Programme (ICP) overview"
+    ],
+    "pageDescription": "Specialized DGFT and Inter-Ministerial Working Group (IMWG) licensing for Special Chemicals, Organisms, Materials, Equipment and Technologies (SCOMET)."
+  },
+  "dfia-license-transferable": {
+    "benefits": [
+      "Duty-Free Import of Production Inputs: Exempt from Basic Customs Duty under SION norms.",
+      "Transferable Endorsement: Freely sell the DFIA license in the domestic market post-export.",
+      "Working Capital Flexibility: Monetize raw material import quotas without actual user restrictions.",
+      "Full Customs Acceptance: Recognized across all Indian customs EDI sea, air, and ICD ports."
+    ],
+    "documents": [
+      "Export Shipping Bills with explicit DFIA claim declaration",
+      "Bank Realization Certificates (e-BRCs)",
+      "Standard Input-Output Norms (SION) reference documentation",
+      "Valid IEC and Digital Signature"
+    ],
+    "pageDescription": "Duty Free Import Authorisation (DFIA) application, norm management, and post-export transferable endorsement for optimum commercial return."
+  },
+  "iec-code-registration": {
+    "benefits": [
+      "Lifetime Primary Trade Identity: Required for all import, export, and foreign remittance operations.",
+      "Instant DGFT Activation: Online linkage with PAN and automated customs EDI synchronization.",
+      "Annual Profile Validation: Timely April–June updates preventing IEC suspension.",
+      "Pan-India Validity: Unified registration across all Indian ports and customs stations."
+    ],
+    "documents": [
+      "PAN Card copy of entity and directors / partners / proprietor",
+      "Aadhaar / Passport copy of authorized signatory",
+      "Premises ownership proof (Electricity bill, Rent Agreement, or Tax receipt)",
+      "Cancelled Cheque or Bank Certificate with entity name pre-printed"
+    ],
+    "pageDescription": "Fast-track 10-digit Import Export Code generation, profile modifications, annual renewals, and DGFT portal linkage for cross-border businesses."
+  },
+  "rcmc-registration-renewal": {
+    "benefits": [
+      "Mandatory for DGFT Schemes: Essential for claiming RoDTEP, EPCG, and Advance Licenses.",
+      "Export Promotion Council Access: Trade leads, international delegations, and market intelligence.",
+      "Subsidized Trade Fair Participation: Market Access Initiative (MAI) financial grants.",
+      "Multiple Council Coverage: FIEO, EEPC, APEDA, Pharmexcil, Chemexcil, and 37 specialized boards."
+    ],
+    "documents": [
+      "Valid Import Export Code (IEC)",
+      "Company Incorporation Certificate / Partnership Deed / Shop Act",
+      "CA Certified export turnover certificate (for past 3 years)",
+      "Manufacturing / Factory License (for manufacturer exporters)"
+    ],
+    "pageDescription": "Registration-cum-Membership Certificate (RCMC) application, annual renewal, and category endorsements across all Indian export promotion councils."
+  },
+  "certificate-of-origin": {
+    "benefits": [
+      "Preferential Tariff Savings: Zero or reduced import duty for foreign buyers under FTAs.",
+      "24-Hour Digital Issuance: Online application on DGFT e-COO common digital platform.",
+      "Broad Bilateral Agreement Coverage: CEPA (UAE), ECTA (Australia), SAFTA, ASEAN, IJCEPA, and FORM A1.",
+      "Chamber of Commerce Attestation: Non-preferential COOs certified by recognized trade chambers."
+    ],
+    "documents": [
+      "Commercial Invoice and Packing List",
+      "Bill of Lading or Airway Bill copy",
+      "Indigenous value-addition cost sheet certified by CA (for preferential COO)",
+      "Raw material purchase invoices proving domestic origin"
+    ],
+    "pageDescription": "Rapid electronic Certificate of Origin (COO) issuance for preferential FTA trade and non-preferential general customs clearance worldwide."
+  },
+  "star-export-house": {
+    "benefits": [
+      "Prestige Recognition: Institutional branding as a verified 1-Star to 5-Star Indian Export House.",
+      "Bank Guarantee Exemption: Complete waiver of bank guarantees under FTP schemes.",
+      "Self-Certification of Origin: Freedom to self-certify export documents under bilateral agreements.",
+      "Priority Customs Fast-Track: Accelerated green-channel clearance at ports."
+    ],
+    "documents": [
+      "FOB export performance statements in US Dollars for past financial years",
+      "CA / CMA certified turnover certificate",
+      "Valid IEC, GST, and RCMC registration",
+      "Director identification and authorized signatory digital signature"
+    ],
+    "pageDescription": "Status Holder Star Export House certification under Foreign Trade Policy 2023 based on realized FOB export performance."
+  },
+  "fssai-central-registration": {
+    "benefits": [
+      "Mandatory for Food EXIM: Required for clearing food, beverage, and agricultural cargo at customs.",
+      "FoSCoS Central Verification: Direct EDI integration with ICEGATE for seamless clearance.",
+      "Consumer Trust & Global Compliance: Assures international importers of statutory food hygiene standards.",
+      "Multi-Category Coverage: Processed food, nutraceuticals, dairy, spices, and agri-commodities."
+    ],
+    "documents": [
+      "Facility layout blueprint and equipment list",
+      "NOC from local municipality / industrial authority",
+      "Food Safety Management System (FSMS) plan",
+      "Water analysis test report and product category specifications"
+    ],
+    "pageDescription": "Central FSSAI licensing for food importers, exporters, repackagers, and cross-border distribution facilities."
+  },
+  "free-sale-certificate": {
+    "benefits": [
+      "Overcomes Overseas Regulatory Barriers: Required by foreign ministries for product registration.",
+      "DGFT & FDA Endorsement: Official certification that goods are freely sold in Indian domestic trade.",
+      "Broad International Acceptance: Widely mandated across Latin America, Africa, and Southeast Asia.",
+      "Rapid Turnaround: Document preparation and online application completed in 3–5 working days."
+    ],
+    "documents": [
+      "Manufacturing license or municipal industrial registration",
+      "Copies of domestic sales tax invoices proving active Indian market sales",
+      "Product specification sheets, packaging artwork, and brochures",
+      "Valid IEC and DGFT portal profile"
+    ],
+    "pageDescription": "Free Sale and Commerce Certificate issuance from DGFT and statutory authorities for overseas product registration."
+  },
+  "legalization-of-export-documents": {
+    "benefits": [
+      "Ensures Destination Customs Clearance: Mandatory in the UAE, Saudi Arabia, Qatar, and Latin America.",
+      "Three-Tier Authentication: Chamber of Commerce → MEA Apostille → Embassy / Consular Stamping.",
+      "Fast-Track Processing: Dedicated courier and diplomatic liaison preventing vessel demurrage.",
+      "Legal Enforceability: Validates power of attorney, contracts, and commercial invoices abroad."
+    ],
+    "documents": [
+      "Original commercial invoices, packing lists, and certificates of origin on company letterhead",
+      "Power of Attorney / Agency Agreement (where applicable)",
+      "Passport copies of authorized signatories",
+      "Target embassy consular application vouchers"
+    ],
+    "pageDescription": "Chamber of Commerce attestation, Ministry of External Affairs (MEA) apostille, and embassy legalization for international trade documents."
+  },
+  "pending-duty-drawback": {
+    "benefits": [
+      "Unlocks Trapped Working Capital: Recover pending drawback funds under Section 74 and Section 75.",
+      "ICEGATE Error Resolution: Resolve error codes SB001, SB002, SB005, and missing EGM issues.",
+      "Direct Customs House Liaison: Active representation at Mumbai, Nhava Sheva, Mundra, Chennai, and Delhi ports.",
+      "Historical Claim Audits: Reconcile years of pending shipping bills for full refund credit."
+    ],
+    "documents": [
+      "Copies of export shipping bills with drawback claim declaration",
+      "Export General Manifest (EGM) details from shipping line",
+      "Customs EDI bank account registration proof (AD code linkage)",
+      "ICEGATE track-and-trace query screenshot"
+    ],
+    "pageDescription": "Specialized resolution and recovery of stuck, queried, or uncredited duty drawback claims directly with Indian Customs."
+  },
+  "igst-refund-claim": {
+    "benefits": [
+      "Resolves GSTN & ICEGATE Mismatches: Clear errors SB005 (invoice mismatch) and SB001 (port code mismatch).",
+      "Accelerates Cash Flow: Ensure automatic IGST refund scrolls generate and credit to your bank account.",
+      "Concordance Table Filing: Technical reconciliation between Table 6A of GSTR-1 and shipping bills.",
+      "Customs EDI & PFMS Reconciliation: Rectify bank account validation errors on the PFMS portal."
+    ],
+    "documents": [
+      "GSTR-1, GSTR-3B filings and Table 6A export invoice details",
+      "Shipping Bill (Let Export Copy) with IGST payment details",
+      "Port of export clearance and ICEGATE error code log",
+      "Bank account details linked with PFMS for electronic refund credit"
+    ],
+    "pageDescription": "Resolution of export IGST refund mismatches between GST portal filings and Customs ICEGATE shipping bills for immediate liquidity."
+  },
+  "digital-signature-certificate": {
+    "benefits": [
+      "Government-Approved Class 3 DSC: Signing and Encryption certificates for DGFT and ICEGATE.",
+      "Paperless e-KYC Verification: Quick Aadhaar/PAN based video verification within 2 hours.",
+      "Cryptographic USB Token: FIPS-compliant secure hardware token pre-configured for your browser.",
+      "IEC Organization Embedded: Specifically configured for corporate trade filings and e-SANCHIT."
+    ],
+    "documents": [
+      "Aadhaar Card and PAN Card of authorized applicant",
+      "Company registration certificate, GST, and IEC copy",
+      "Board Resolution / Authorization Letter on company letterhead",
+      "Mobile number and email for video e-KYC verification"
+    ],
+    "pageDescription": "DGFT and ICEGATE compliant Class 3 Digital Signature Certificates (Signing + Encryption) with immediate cryptographic USB token dispatch."
+  },
+  "export-consultancy-services": {
+    "benefits": [
+      "Strategic FTP Advisory: Optimize your business model to leverage maximum government incentive schemes.",
+      "Tariff & HSN Code Optimization: Ensure accurate classification preventing customs penalties and maximizing refunds.",
+      "Foreign Trade Agreement (FTA) Utilization: Structure export logistics to exploit zero-duty destination benefits.",
+      "Ongoing Regulatory Defense: Immediate legal representation for audit queries and customs inspections."
+    ],
+    "documents": [
+      "Product technical datasheets, chemical compositions, and HSN codes",
+      "Current annual export turnover and destination port breakdown",
+      "Existing registrations (IEC, RCMC, GST, ICEGATE)",
+      "Overview of active compliance bottlenecks or dispute history"
+    ],
+    "pageDescription": "Institutional EXIM consultancy, Foreign Trade Policy advisory, and incentive optimization from certified DGFT specialists active since 2011."
+  },
+  "export-documentation-services": {
+    "benefits": [
+      "Zero-Discrepancy Documentation: Complete alignment between commercial invoices, shipping bills, and e-BRCs.",
+      "Faster Customs Cargo Clearance: Error-free checklists preventing port demurrage and appraiser queries.",
+      "e-BRC Reconciliation: Automated banking realization tracking ensuring timely incentive filing.",
+      "CHA Coordination: Seamless liaison with your customs house agents and freight forwarders."
+    ],
+    "documents": [
+      "Buyer Purchase Order (PO) and Sales Contract",
+      "Proforma Invoice and Packing Specifications",
+      "Shipping Line booking and Container Load Plan",
+      "Letter of Credit (LC) copy (where applicable)"
+    ],
+    "pageDescription": "Professional pre-shipment and post-shipment export documentation desk ensuring absolute regulatory concordance and speedy incentive claims."
+  },
+  "reply-customs-dgft-notices": {
+    "benefits": [
+      "Strategic Legal Representation: Rigorous defense before DGFT Regional Authorities and Customs Commissioners.",
+      "Show Cause Notice (SCN) Defense: Evidence-backed replies citing Foreign Trade Policy clauses and tribunal precedents.",
+      "Compounding & Amnesty Applications: Negotiate penalty reductions and settle pending export obligation disputes.",
+      "IEC Protection: Prevent suspension or blacklisting of your primary international business identity."
+    ],
+    "documents": [
+      "Copy of the Show Cause Notice / Demand memo / DRI query",
+      "Historical shipping bills, licenses, and e-BRCs under examination",
+      "Previous correspondence with the issuing authority",
+      "Company legal authorization letter"
+    ],
+    "pageDescription": "Legal and regulatory defense, Show Cause Notice (SCN) drafting, and representation before DGFT and Customs adjudicating authorities."
+  },
+  "epr-registration": {
+    "benefits": [
+      "Statutory CPCB Compliance: Mandatory environmental registration for plastic, battery, and e-waste importers.",
+      "Customs Clearance NOC: Required by Indian Customs before releasing consignments with plastic packaging.",
+      "Authorized Recycling Credits: Facilitate tie-ups with registered recyclers to fulfill annual EPR targets.",
+      "Annual Returns Filing: Complete portal reporting preventing environmental compensation penalties."
+    ],
+    "documents": [
+      "Company PAN, GST, and IEC certificates",
+      "Annual import volume breakdown by plastic polymer or electronic waste category",
+      "Recycler agreement / collection mechanism proof",
+      "Authorized signatory DSC and identity documentation"
+    ],
+    "pageDescription": "Central Pollution Control Board (CPCB) Extended Producer Responsibility (EPR) registration, target fulfillment, and statutory returns."
   }
 };
 

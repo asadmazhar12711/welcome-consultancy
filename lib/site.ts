@@ -3,18 +3,17 @@ export const SITE = {
   legalName: "Welcome Consultancy",
   tagline: "India's Premier Foreign Trade & DGFT Advisory",
   description:
-    "Welcome Consultancy Mumbai is a leading consulting firm in Export Incentives and Formalities, active since 2011. We help 1000+ exporters and importers across India with DGFT consultancy, customs matters, and 16 specialized EXIM services.",
+    "Welcome Consultancy Mumbai is a leading consulting firm in Export Incentives and Formalities, active since 2011. We help 1000+ exporters and importers across India with DGFT consultancy, customs matters, and 25+ specialized EXIM services.",
   url: "https://welcomeconsultancy.in",
-  phone: "+919867173397",
-  phoneDisplay: "+91 98671 73397",
+  phone: "+919833062670",
+  phoneDisplay: "+91 98330 62670",
   phones: [
     { display: "+91 98330 62670", href: "tel:+919833062670" },
-    { display: "+91 90048 49373", href: "tel:+919004849373" },
-    { display: "+91 98671 73397", href: "tel:+919867173397" },
+    { display: "+91 97691 48981", href: "tel:+919769148981" },
   ],
   email: "enquiry@welcomeconsultancy.in",
   emailOwner: "nandkumar@welcomeconsultancy.in",
-  whatsapp: "919867173397",
+  whatsapp: "919833062670",
   hours: "Mon – Sat: 9 am – 6 pm · Sunday: Closed",
   address: {
     street: "113, 1st floor, IJMIMA Complex, Mindspace, Off Link Road, Malad West",
@@ -28,12 +27,11 @@ export const SITE = {
   metrics: {
     years: "10+",
     since: "2011",
-    services: "16",
+    services: "25+",
     clients: "1000+",
     team: "105+",
     awards: "8+",
     feedback: "215+",
-    completed: "310+",
   },
   mission: {
     intro:
@@ -151,6 +149,8 @@ export const SITE = {
 export const LEAD_SOURCES = [
   "Website Contact Form",
   "Service Page Inquiry",
+  "RoDTEP/RoSCTL Scrip Desk",
+  "Export Incentive Assessment",
   "RoDTEP Calculator",
   "EPCG Duty Estimator",
   "Document Checklist Generator",

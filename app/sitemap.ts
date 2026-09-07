@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { listPublishedBlogSlugs } from "@/lib/db";
+import { listPublishedBlogSlugs, listPublishedServices } from "@/lib/db";
 import { SERVICE_SLUGS } from "@/lib/services";
 import { SITE } from "@/lib/site";
 
@@ -13,7 +13,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/about-us",
     "/contact-us",
     "/services",
-    "/tools",
     "/blogs",
   ].map((path) => ({
     url: `${SITE.url}${path}`,
@@ -22,7 +21,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const serviceRoutes = SERVICE_SLUGS.map((slug) => ({
+  const dbServices = await listPublishedServices();
+  const activeServiceSlugs = Array.from(
+    new Set([...SERVICE_SLUGS, ...dbServices.map((s) => s.slug)])
+  );
+
+  const serviceRoutes = activeServiceSlugs.map((slug) => ({
     url: `${SITE.url}/service/${slug}`,
     lastModified: now,
     changeFrequency: "weekly" as const,

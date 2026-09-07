@@ -1,42 +1,61 @@
 # Welcome Consultancy
 
-> India's premier Foreign Trade & DGFT advisory firm (10+ years, 1000+ clients, 16 EXIM services).
+> India's premier Foreign Trade & DGFT advisory firm (10+ years, 1000+ clients, 25+ EXIM services).
 
 ## About
 
-Welcome Consultancy helps Indian exporters and importers with DGFT licensing, customs compliance, and export incentive optimization. Phone: +91 98671 73397. Website: https://welcomeconsultancy.in
+Welcome Consultancy helps Indian exporters and importers with DGFT licensing, customs compliance, and export incentive optimization.
+Phone: +91 98330 62670 / +91 97691 48981.
+Website: https://welcomeconsultancy.in
+Office: Shop No. 1, 2nd Floor, Dattani Square, Near Malad Railway Station, Malad West, Mumbai, Maharashtra 400064, India.
 
-## Services
+## Services Portfolio (26 DGFT Services)
 
-- [IEC Code Registration](https://welcomeconsultancy.in/service/iec-code-import-export-code): Mandatory 10-digit DGFT import-export code.
-- [Export Incentives (RoDTEP / RoSCTL / Duty Drawback)](https://welcomeconsultancy.in/service/export-incentives): Maximize embedded tax rebates on exports.
-- [EPCG License](https://welcomeconsultancy.in/service/epcg-license): Zero-duty capital goods import with 6x export obligation.
-- [Advance Licence](https://welcomeconsultancy.in/service/advance-licence): Duty-free raw material imports for export production.
-- [Star Export House Certificate](https://welcomeconsultancy.in/service/export-house-certificate): DGFT Star Exporter status recognition.
-- [RCMC Application](https://welcomeconsultancy.in/service/rcmc-application): Export Promotion Council membership.
-- [Certificate of Origin](https://welcomeconsultancy.in/service/c-o-o-certificate-of-origin): Preferential & non-preferential COO issuance.
-- [Class 3 Digital Signature](https://welcomeconsultancy.in/service/digital-signature): EXIM DSC for DGFT & ICEGATE.
-- [AD Code Registration](https://welcomeconsultancy.in/service/ad-code-registration): Bank AD Code tagging across ICEGATE ports.
-- [FSSAI Import/Export License](https://welcomeconsultancy.in/service/fssai): Central FSSAI for food EXIM.
-- [AEO Registration](https://welcomeconsultancy.in/service/aeo-registration): Authorized Economic Operator T1/T2/T3.
-- [SIMS Registration](https://welcomeconsultancy.in/service/sims-registration): Steel and commodity import monitoring filings.
-- [Health Certificate](https://welcomeconsultancy.in/service/health-certificate): Phytosanitary & health clearance for agri exports.
-- [Interest Equalization Scheme](https://welcomeconsultancy.in/service/interest-equalization): Export credit interest subvention advisory.
-- [REX Registration](https://welcomeconsultancy.in/service/rex-registration): EU/UK GSP self-certification of origin.
-- [ICEGATE Registration](https://welcomeconsultancy.in/service/icegate-registration): Customs portal onboarding & e-SANCHIT.
+### 1. Licensing Services
+- [RoDTEP & RoSCTL Application](https://welcomeconsultancy.in/service/rodtep-rosctl-application): Remission of duties and taxes on exported products.
+- [Sale & Purchase of All Duty Credit Scrips](https://welcomeconsultancy.in/service/sale-purchase-duty-credit-scrips): RoDTEP, RoSCTL, and MEIS scrip trading desk.
+- [EPCG & Advance License & Closures](https://welcomeconsultancy.in/service/epcg-advance-license-closures): Zero-duty capital goods and duty-free raw material import authorisations and EODC redemption.
+- [SCOMET License](https://welcomeconsultancy.in/service/scomet-license): Special Chemicals, Organisms, Materials, Equipment and Technologies export clearance.
+- [DFIA License & Transfer](https://welcomeconsultancy.in/service/dfia-license-transferable): Duty Free Import Authorisation and transferable market endorsement.
 
-## Tools
+### 2. Registration Services
+- [IEC Code Updation & New Application](https://welcomeconsultancy.in/service/iec-code-registration): 10-digit DGFT import-export code generation and annual profile renewals.
+- [AD Code Registration](https://welcomeconsultancy.in/service/ad-code-registration): Authorized Dealer code registration across Indian customs ports.
+- [SIMS Registration for Steel Import](https://welcomeconsultancy.in/service/sims-registration): Steel Import Monitoring System mandatory filings.
+- [ICEGATE Registration](https://welcomeconsultancy.in/service/icegate-registration): Customs EDI portal onboarding, DSC registration, and e-SANCHIT.
+- [Various Council (RCMC) Registration & Renewal](https://welcomeconsultancy.in/service/rcmc-registration-renewal): Export Promotion Council membership certificates.
+- [REX Registration Services](https://welcomeconsultancy.in/service/rex-registration): Registered Exporter System for EU/UK self-certification.
+- [EPR Registration](https://welcomeconsultancy.in/service/epr-registration): Extended Producer Responsibility registration for plastic packaging, battery, and electronic waste.
 
-- RoDTEP / Duty Drawback Incentive Calculator: https://welcomeconsultancy.in/tools#rodtep
-- EPCG Duty Savings Estimator: https://welcomeconsultancy.in/tools#epcg
-- EXIM Document Checklist Generator: https://welcomeconsultancy.in/tools#checklist
-- Consultation Booking: https://welcomeconsultancy.in/tools#book
+### 3. Certification Services
+- [Certificate of Origin (Preferential / Non-Preferential)](https://welcomeconsultancy.in/service/certificate-of-origin): Trade agreement certification (CEPA, ISAFTA, SAFTA, FORM A1).
+- [Health Certificate](https://welcomeconsultancy.in/service/health-certificate): Veterinary and phytosanitary clearance for food/agri exports.
+- [Interest Equalization Scheme](https://welcomeconsultancy.in/service/interest-equalization-scheme): Export credit interest subvention advisory for MSME manufacturers.
+- [AEO Registration Services](https://welcomeconsultancy.in/service/aeo-registration): Authorized Economic Operator T1/T2 certification.
+- [Status Holder Certificate (Star Export House)](https://welcomeconsultancy.in/service/star-export-house): 1-Star to 5-Star export house accreditation.
+- [FSSAI Central Registration](https://welcomeconsultancy.in/service/fssai-central-registration): Central food license for import/export operations.
+- [Free Sale Certificate](https://welcomeconsultancy.in/service/free-sale-certificate): DGFT certificate of free sale for foreign market product registration.
+- [Legalization of Export Documents](https://welcomeconsultancy.in/service/legalization-of-export-documents): Chamber of Commerce, MEA Apostille, and embassy consular attestation.
+
+### 4. Other Export Related Work
+- [Pending Duty Drawback Matter Follow-up](https://welcomeconsultancy.in/service/pending-duty-drawback): Recovery of stuck drawback claims and ICEGATE scroll generation.
+- [IGST Refund Claim & Error Resolution](https://welcomeconsultancy.in/service/igst-refund-claim): Resolution of SB005/SB001 invoice and port mismatches.
+- [Digital Signature (Class 3 / IEC)](https://welcomeconsultancy.in/service/digital-signature-certificate): FIPS-compliant cryptographic USB tokens for DGFT and ICEGATE.
+- [Export Consultancy Services](https://welcomeconsultancy.in/service/export-consultancy-services): Strategic Foreign Trade Policy (FTP 2023) advisory.
+- [Export Documentation Services](https://welcomeconsultancy.in/service/export-documentation-services): Complete pre-shipment and post-shipment documentation desk.
+- [Reply to Customs & DGFT Notices](https://welcomeconsultancy.in/service/reply-customs-dgft-notices): Show Cause Notice (SCN) drafting and regulatory dispute representation.
+
+## Interactive Tools & Intelligence Desk
+
+- Export Incentive Assessment: https://welcomeconsultancy.in/#intelligence-desk
+- Scrip Trading Desk: https://welcomeconsultancy.in/#intelligence-desk
 
 ## Contact
 
-- Phone / WhatsApp: +91 98671 73397
-- Email: enquiry@welcomeconsultancy.in
-- Contact form: https://welcomeconsultancy.in/contact-us
-- Book consultation: https://welcomeconsultancy.in/tools
+- Phone / WhatsApp: +91 98330 62670
+- Secondary Phone: +91 97691 48981
+- Email: enquiry@welcomeconsultancy.in / nandkumar@welcomeconsultancy.in
+- Contact Form: https://welcomeconsultancy.in/contact-us
 - About: https://welcomeconsultancy.in/about-us
+- Regulatory Updates: https://welcomeconsultancy.in/#regulatory-updates
 - Blog: https://welcomeconsultancy.in/blogs

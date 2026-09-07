@@ -87,6 +87,9 @@ export type RedirectRow = {
 
 export type SeoSettingsRow = {
   id: number;
+  site_title: string;
+  default_meta_description: string;
+  site_url: string;
   gtm_id: string;
   ga4_id: string;
   clarity_id: string;
@@ -95,6 +98,60 @@ export type SeoSettingsRow = {
   bing_verification: string;
   default_og_image: string;
   robots_extra: string;
+  updated_at: string;
+};
+
+export type PageRow = {
+  id: string;
+  title: string;
+  slug: string;
+  content_json: string;
+  status: string;
+  seo_title?: string | null;
+  meta_description?: string | null;
+  canonical_url?: string | null;
+  meta_robots?: string | null;
+  og_title?: string | null;
+  og_description?: string | null;
+  og_image?: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ServiceRow = {
+  id: string;
+  title: string;
+  slug: string;
+  short_description?: string | null;
+  content_json: string;
+  faqs_json: string;
+  benefits_json?: string | null;
+  documents_json?: string | null;
+  body_json?: string | null;
+  image_url?: string | null;
+  status: string;
+  seo_title?: string | null;
+  meta_description?: string | null;
+  canonical_url?: string | null;
+  meta_robots?: string | null;
+  og_title?: string | null;
+  og_description?: string | null;
+  og_image?: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type MediaRow = {
+  id: string;
+  filename: string;
+  url: string;
+  alt_text?: string | null;
+  uploaded_at: string;
+};
+
+export type RobotsConfigRow = {
+  id: number;
+  content: string;
   updated_at: string;
 };
 
@@ -162,6 +219,46 @@ export async function listPublishedBlogSlugs(): Promise<
          WHERE status = 'Published' ORDER BY published_at DESC`,
       )
       .all<{ slug: string; updated_at: string; published_at: string | null }>();
+    return result.results ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getPageBySlug(slug: string): Promise<PageRow | null> {
+  try {
+    const db = await getDB();
+    return (
+      (await db
+        .prepare("SELECT * FROM pages WHERE slug = ? AND status = 'Published' LIMIT 1")
+        .bind(slug)
+        .first<PageRow>()) ?? null
+    );
+  } catch {
+    return null;
+  }
+}
+
+export async function getServiceBySlug(slug: string): Promise<ServiceRow | null> {
+  try {
+    const db = await getDB();
+    return (
+      (await db
+        .prepare("SELECT * FROM services WHERE slug = ? AND status = 'Published' LIMIT 1")
+        .bind(slug)
+        .first<ServiceRow>()) ?? null
+    );
+  } catch {
+    return null;
+  }
+}
+
+export async function listPublishedServices(): Promise<ServiceRow[]> {
+  try {
+    const db = await getDB();
+    const result = await db
+      .prepare("SELECT * FROM services WHERE status = 'Published' ORDER BY title ASC")
+      .all<ServiceRow>();
     return result.results ?? [];
   } catch {
     return [];

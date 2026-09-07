@@ -25,12 +25,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-11 w-11",
     };
 
-    const compClassName = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:pointer-events-none disabled:opacity-50 disabled:translate-y-0 active:scale-[0.98] active:translate-y-0 ${variants[variant]} ${sizes[size]} ${className}`;
+    const compClassName = `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-semibold transition-[transform,background-color,border-color,color,box-shadow] duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page disabled:pointer-events-none disabled:opacity-50 disabled:translate-y-0 active:scale-[0.97] active:translate-y-0 ${variants[variant]} ${sizes[size]} ${className}`;
 
     if (asChild && React.isValidElement(props.children)) {
+      const { children: _childNode, ...restProps } = props;
       const child = props.children as React.ReactElement<{ className?: string }>;
       return React.cloneElement(child, {
-        ...props,
+        ...restProps,
         className: `${compClassName} ${child.props.className || ""}`,
         ref: ref as React.Ref<HTMLElement>,
       } as never);

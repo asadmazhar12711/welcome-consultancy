@@ -120,6 +120,41 @@ export const ILLUSTRATIONS = {
 export type ServiceIllustrationKey = keyof typeof ILLUSTRATIONS.services;
 
 const SLUG_TO_ILLUSTRATION: Record<string, ServiceIllustrationKey> = {
+  // Licensing Services
+  "rodtep-rosctl-application": "rodtep",
+  "sale-purchase-duty-credit-scrips": "rodtep",
+  "epcg-advance-license-closures": "epcg",
+  "scomet-license": "compliance",
+  "dfia-license-transferable": "advanceLicence",
+
+  // Registration Services
+  "iec-code-registration": "iec",
+  "ad-code-registration": "icegate",
+  "sims-registration": "compliance",
+  "icegate-registration": "icegate",
+  "rcmc-registration-renewal": "rcmc",
+  "rex-registration": "coo",
+  "epr-registration": "compliance",
+
+  // Certification Services
+  "certificate-of-origin": "coo",
+  "health-certificate": "fssai",
+  "interest-equalization-scheme": "rodtep",
+  "aeo-registration": "aeo",
+  "star-export-house": "exportHouse",
+  "fssai-central-registration": "fssai",
+  "free-sale-certificate": "dgft",
+  "legalization-of-export-documents": "compliance",
+
+  // Other Export Related Work
+  "pending-duty-drawback": "rodtep",
+  "igst-refund-claim": "icegate",
+  "digital-signature-certificate": "dsc",
+  "export-consultancy-services": "dgft",
+  "export-documentation-services": "compliance",
+  "reply-customs-dgft-notices": "compliance",
+
+  // Legacy mappings
   "iec-code-import-export-code": "iec",
   "export-incentives": "rodtep",
   "epcg-license": "epcg",
@@ -128,14 +163,8 @@ const SLUG_TO_ILLUSTRATION: Record<string, ServiceIllustrationKey> = {
   "rcmc-application": "rcmc",
   "c-o-o-certificate-of-origin": "coo",
   "digital-signature": "dsc",
-  "ad-code-registration": "icegate",
   fssai: "fssai",
-  "aeo-registration": "aeo",
-  "sims-registration": "compliance",
-  "health-certificate": "fssai",
   "interest-equalization": "rodtep",
-  "rex-registration": "coo",
-  "icegate-registration": "icegate",
 };
 
 export function illustrationForService(slug: string) {

@@ -59,9 +59,9 @@ export default function BookingCalendar() {
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [clientName, setClientName] = useState("");
   const [clientPhone, setClientPhone] = useState("");
-  const [serviceTopic, setServiceTopic] = useState(TOPICS[0]);
+  const [serviceTopic, setServiceTopic] = useState<string>(TOPICS[0]);
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<string>("");
 
   const nameInputId = useId();
   const phoneInputId = useId();
@@ -196,17 +196,17 @@ export default function BookingCalendar() {
   }
 
   return (
-    <div className="bento-card p-6 sm:p-8">
-      <div className="mb-8 flex items-center justify-between gap-4">
+    <div className="bento-card p-6 sm:p-8 relative">
+      <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
         <div>
           <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-gold-500">
             Direct Expert Advisory
           </span>
-          <h3 className="text-xl font-bold tracking-tight text-theme-primary">
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-theme-primary">
             Schedule 1-on-1 DGFT Consultation
           </h3>
         </div>
-        <div className="hidden items-center gap-1.5 rounded-none border border-gold bg-gold-muted px-3 py-1.5 text-xs font-mono text-gold-500 sm:flex">
+        <div className="items-center gap-1.5 rounded-none border border-gold bg-gold-muted px-3 py-1.5 text-xs font-mono text-gold-500 flex">
           <span>Free · No obligation</span>
         </div>
       </div>
@@ -235,47 +235,33 @@ export default function BookingCalendar() {
               ) : null}
             </div>
 
-            <div>
-              <span
-                id={slotsGroupId}
-                className="mb-2 block text-xs font-semibold uppercase tracking-wider text-theme-secondary"
-              >
-                2. Select Available Time Slot (IST)
-              </span>
+            <div className="field">
+              <label htmlFor={slotsGroupId} className="text-xs font-bold uppercase tracking-wider text-theme-secondary">
+                2. Select Available Time Slot (IST) *
+              </label>
               {loadingConfig ? (
-                <div className="flex items-center gap-2 py-4 text-sm text-theme-muted">
-                  <Loader2 className="h-4 w-4 animate-spin" /> Loading live availability…
+                <div className="flex items-center gap-2 py-3 text-sm text-theme-muted">
+                  <Loader2 className="h-4 w-4 animate-spin text-gold-500" /> Checking live slot availability…
                 </div>
               ) : !isWorkingDay || availableSlots.length === 0 ? (
-                <p className="py-2 text-sm text-theme-muted">
-                  No slots available for this date. Try another date.
+                <p className="py-2 text-xs text-theme-muted">
+                  No slots available for this date. Please select another date.
                 </p>
               ) : (
-                <div
-                  className="grid grid-cols-1 gap-2 sm:grid-cols-2"
-                  role="group"
-                  aria-labelledby={slotsGroupId}
+                <select
+                  id={slotsGroupId}
+                  value={selectedTime}
+                  onChange={(e) => setSelectedTime(e.target.value)}
+                  className="field-obsidian !py-2.5 text-xs sm:text-sm"
+                  required
                 >
+                  <option value="">-- Choose Available Time Slot --</option>
                   {availableSlots.map((slot) => (
-                    <button
-                      key={slot.time}
-                      type="button"
-                      disabled={slot.taken}
-                      onClick={() => setSelectedTime(slot.time)}
-                      aria-pressed={selectedTime === slot.time}
-                      className={`rounded-none border px-3 py-2.5 text-left text-xs font-mono font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-page ${
-                        slot.taken
-                          ? "cursor-not-allowed border-subtle bg-fill text-theme-faint line-through opacity-50"
-                          : selectedTime === slot.time
-                            ? "border-gold-fill bg-gold-muted text-theme-primary shadow-gold"
-                            : "border-subtle bg-fill text-theme-muted hover:border-elevated hover:bg-fill-hover hover:text-theme-primary"
-                      }`}
-                    >
-                      {slot.label}
-                      {slot.taken ? " · Booked" : ""}
-                    </button>
+                    <option key={slot.time} value={slot.time} disabled={slot.taken}>
+                      {slot.label} {slot.taken ? "· (Already Booked)" : "· (Available)"}
+                    </option>
                   ))}
-                </div>
+                </select>
               )}
             </div>
           </div>

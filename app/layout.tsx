@@ -1,5 +1,12 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#030712",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 import { Manrope, Newsreader } from "next/font/google";
 import { Analytics } from "@/components/seo/Analytics";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -52,9 +59,13 @@ export async function generateMetadata(): Promise<Metadata> {
     BING_VERIFICATION: env?.BING_VERIFICATION || process.env.BING_VERIFICATION,
   });
 
+  const siteTitle = settings?.site_title || SITE.name;
+  const siteDesc = settings?.default_meta_description || SITE.description;
+  const siteUrl = settings?.site_url || SITE.url;
+
   const base = buildMetadata({
-    title: `${SITE.name} | DGFT & EXIM Advisory`,
-    description: SITE.description,
+    title: `${siteTitle} | DGFT & EXIM Advisory`,
+    description: siteDesc,
     path: "",
     ogImage: analytics.defaultOgImage || DEFAULT_OG_IMAGE,
   });
@@ -62,10 +73,16 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     ...base,
     title: {
-      default: `${SITE.name} | DGFT & EXIM Advisory`,
-      template: `%s | ${SITE.name}`,
+      default: `${siteTitle} | DGFT & EXIM Advisory`,
+      template: `%s | ${siteTitle}`,
     },
-    metadataBase: new URL(SITE.url),
+    metadataBase: new URL(siteUrl),
+    manifest: "/manifest.json",
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: "black-translucent",
+      title: "Welcome EXIM",
+    },
     verification: {
       ...(analytics.gscVerification
         ? { google: analytics.gscVerification }

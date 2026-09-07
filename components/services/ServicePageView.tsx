@@ -7,6 +7,7 @@ import {
   Clock,
   FileText,
   Phone,
+  Plus,
   ShieldCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,8 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
   const documents =
     service.documents.length > 0 ? service.documents : service.checklist;
   const art = illustrationForService(service.slug);
+  const imageSrc = (service as any).imageUrl || art.src;
+  const imageAlt = (service as any).imageAlt || art.alt;
 
   return (
     <div className="min-h-screen bg-page">
@@ -76,12 +79,13 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
 
             <div className="relative aspect-square overflow-hidden rounded-none border border-subtle shadow-theme-xl sm:aspect-[4/3] lg:aspect-square">
               <Image
-                src={art.src}
-                alt={art.alt}
+                src={imageSrc}
+                alt={imageAlt}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 480px"
                 className="object-cover"
+                unoptimized={imageSrc.startsWith("http")}
               />
             </div>
           </div>
@@ -176,8 +180,11 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                       key={faq.q}
                       className="group rounded-none border border-subtle bg-elevated p-5 open:border-gold"
                     >
-                      <summary className="cursor-pointer list-none font-bold text-theme-primary marker:content-none">
-                        {faq.q}
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-theme-primary marker:content-none">
+                        <span>{faq.q}</span>
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-none border border-subtle transition-transform duration-300 group-open:rotate-45 group-open:border-gold group-open:text-gold-500">
+                          <Plus className="h-4 w-4" />
+                        </span>
                       </summary>
                       <p className="mt-3 text-sm font-medium leading-relaxed text-theme-muted">
                         {faq.a}

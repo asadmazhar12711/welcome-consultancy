@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "welcome-consultancy",
+  "account_id": "eadc6e7427fc03bf5fd620d30787f391",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-07-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -20,6 +21,7 @@
   ],
   "vars": {
     "SITE_URL": "https://welcomeconsultancy.in",
-    "GA4_ID": "G-SBVK5GGG6Q"
+    "GA4_ID": "G-SY495SGMRF",
+    "GSC_VERIFICATION": "kX413ojJFJn5gq4v81KWui4jEV35NvBBs9Vqj5xyn-Q"
   }
 }

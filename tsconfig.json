@@ -20,5 +20,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "cloudflare-env.d.ts"],
-  "exclude": ["node_modules", "_legacy", "Old Website", "old_v1_website"]
+  "exclude": ["node_modules", "_legacy", "Old Website", "old_v1_website", "welcome-consultancy-shareable"]
 }

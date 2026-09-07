@@ -57,7 +57,7 @@ type HeroVisualProps = {
 /** Full-bleed hero plane — image is the composition, copy sits inside */
 export function HeroVisual({ src, alt, children }: HeroVisualProps) {
   return (
-    <section className="hero-visual relative isolate min-h-[min(92vh,880px)] overflow-hidden">
+    <section className="hero-visual relative isolate w-full max-w-full min-h-[75vh] md:min-h-[min(92vh,880px)] overflow-hidden">
       <Image
         src={src}
         alt={alt}
@@ -67,7 +67,7 @@ export function HeroVisual({ src, alt, children }: HeroVisualProps) {
         className="object-cover object-center"
       />
       <div className="hero-visual__scrim" aria-hidden />
-      <div className="container-site relative z-10 flex min-h-[min(92vh,880px)] flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
+      <div className="container-site relative z-10 flex min-h-[75vh] md:min-h-[min(92vh,880px)] flex-col justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 md:pb-24 md:pt-36">
         {children}
       </div>
     </section>

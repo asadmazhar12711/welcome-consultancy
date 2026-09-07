@@ -19,10 +19,10 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const STATS = [
-  { value: SITE.metrics.team, label: "Team members", icon: Users },
-  { value: SITE.metrics.awards, label: "Winning awards", icon: Award },
-  { value: SITE.metrics.feedback, label: "Client feedback", icon: Sparkles },
-  { value: SITE.metrics.completed, label: "Completed works", icon: ShieldCheck },
+  { value: SITE.metrics.clients, label: "Active Exporters", icon: Users },
+  { value: SITE.metrics.years, label: "Years of Practice", icon: Award },
+  { value: SITE.metrics.services, label: "DGFT Services", icon: ShieldCheck },
+  { value: SITE.metrics.team, label: "Advisory Team", icon: Sparkles },
 ];
 
 const TIMELINE = [
@@ -41,7 +41,7 @@ const TIMELINE = [
   {
     year: "Today",
     title: `${SITE.metrics.clients} active clients`,
-    body: "Sixteen specialized EXIM services — licensing, incentives, and customs — under one roof.",
+    body: "Over 25 specialized EXIM and DGFT services — licensing, incentives, and customs — under one roof.",
     art: ILLUSTRATIONS.services.rodtep,
   },
 ];

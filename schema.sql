@@ -131,6 +131,9 @@ CREATE INDEX IF NOT EXISTS idx_redirects_active_from
 
 CREATE TABLE IF NOT EXISTS seo_settings (
   id INTEGER PRIMARY KEY CHECK (id = 1),
+  site_title TEXT NOT NULL DEFAULT 'Welcome Consultancy',
+  default_meta_description TEXT NOT NULL DEFAULT '',
+  site_url TEXT NOT NULL DEFAULT 'https://welcomeconsultancy.in',
   gtm_id TEXT NOT NULL DEFAULT '',
   ga4_id TEXT NOT NULL DEFAULT 'G-SBVK5GGG6Q',
   clarity_id TEXT NOT NULL DEFAULT '',
@@ -160,3 +163,62 @@ INSERT OR IGNORE INTO popups (id, title, message, cta_label, cta_href, is_active
   ('popup-free-meeting', 'Get a Free 1-on-1 Consultation',
    'Talk to our DGFT expert about RoDTEP, EPCG, licensing, or customs compliance — no cost, no obligation.',
    'Schedule Free Meeting', '/#book-a-meeting', 1, 20);
+
+CREATE TABLE IF NOT EXISTS pages (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
+  content_json TEXT NOT NULL DEFAULT '{}',
+  status TEXT NOT NULL DEFAULT 'Draft',
+  seo_title TEXT,
+  meta_description TEXT,
+  canonical_url TEXT,
+  meta_robots TEXT NOT NULL DEFAULT 'index, follow',
+  og_title TEXT,
+  og_description TEXT,
+  og_image TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS services (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
+  short_description TEXT,
+  content_json TEXT NOT NULL DEFAULT '{}',
+  faqs_json TEXT NOT NULL DEFAULT '[]',
+  benefits_json TEXT NOT NULL DEFAULT '[]',
+  documents_json TEXT NOT NULL DEFAULT '[]',
+  body_json TEXT NOT NULL DEFAULT '[]',
+  image_url TEXT,
+  status TEXT NOT NULL DEFAULT 'Draft',
+  seo_title TEXT,
+  meta_description TEXT,
+  canonical_url TEXT,
+  meta_robots TEXT NOT NULL DEFAULT 'index, follow',
+  og_title TEXT,
+  og_description TEXT,
+  og_image TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS media (
+  id TEXT PRIMARY KEY,
+  filename TEXT NOT NULL,
+  url TEXT NOT NULL,
+  alt_text TEXT,
+  uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS robots_config (
+  id INTEGER PRIMARY KEY CHECK (id = 1),
+  content TEXT NOT NULL DEFAULT 'User-agent: *
+Disallow: /admin/
+Allow: /
+Sitemap: https://welcomeconsultancy.in/sitemap.xml',
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT OR IGNORE INTO robots_config (id) VALUES (1);

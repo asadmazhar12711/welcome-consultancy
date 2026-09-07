@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { LeadCaptureInline } from "@/components/forms/LeadCaptureInline";
+import { SITE } from "@/lib/site";
 
 interface DocItem {
   id: string;
@@ -157,7 +158,7 @@ export default function ChecklistGenerator() {
             source="Document Checklist Generator"
             service="Compliance Documentation"
             details={`Checklist (${selectedCount}/${totalCount}): ${selectedNames.join(", ")}.`}
-            whatsappHref={`https://wa.me/919867173397?text=${whatsappMessage}`}
+            whatsappHref={`https://wa.me/${SITE.whatsapp}?text=${whatsappMessage}`}
             ctaLabel="Send Checklist to Advisor"
           />
         </div>

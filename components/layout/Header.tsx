@@ -16,11 +16,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { SERVICES, servicesByCategory } from "@/lib/services";
-import { SITE, whatsappUrl } from "@/lib/site";
+import { SITE, telUrl, whatsappUrl } from "@/lib/site";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/tools", label: "Tools" },
   { href: "/blogs", label: "Blog" },
   { href: "/about-us", label: "About Us" },
   { href: "/contact-us", label: "Contact" },
@@ -30,6 +29,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [openCategory, setOpenCategory] = useState<string | null>(null);
   const pathname = usePathname();
   const megaRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -81,23 +82,16 @@ export function Header() {
     closeTimer.current = setTimeout(() => setMegaOpen(false), 160);
   }
 
-  const core = [
-    ...servicesByCategory("Core Licensing"),
-    ...servicesByCategory("Export Incentives"),
-    ...servicesByCategory("Status Recognition"),
-  ];
-  const compliance = [
-    ...servicesByCategory("Customs Compliance"),
-    ...servicesByCategory("Specialized Compliance"),
-  ];
+  const licensing = servicesByCategory("Licensing Services");
+  const registration = servicesByCategory("Registration Services");
+  const certification = servicesByCategory("Certification Services");
+  const otherWork = servicesByCategory("Other Export Related Work");
 
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] px-4 pt-4 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-[100] w-full bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-subtle transition-all duration-200">
       <nav
         aria-label="Main navigation"
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-none px-5 py-3.5 transition-all duration-300 ${
-          scrolled || megaOpen ? "glass-nav" : "border border-transparent bg-transparent"
-        }`}
+        className="mx-auto flex h-16 sm:h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6"
       >
         <Link
           href="/"
@@ -109,7 +103,7 @@ export function Header() {
             width={180}
             height={44}
             decoding="async"
-            className="h-11 w-auto block dark:hidden object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className="h-10 sm:h-11 w-auto block dark:hidden object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
           <img
             src="/images/logo-dark.png"
@@ -117,7 +111,7 @@ export function Header() {
             width={180}
             height={44}
             decoding="async"
-            className="h-11 w-auto hidden dark:block object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className="h-10 sm:h-11 w-auto hidden dark:block object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
         </Link>
 
@@ -130,25 +124,37 @@ export function Header() {
           </Link>
 
           <div
-            className="relative"
+            className="relative flex items-center"
             onMouseEnter={openMega}
             onMouseLeave={scheduleCloseMega}
           >
+            <Link
+              href="/services"
+              onClick={() => setMegaOpen(false)}
+              className={`flex items-center gap-1.5 rounded-none px-3.5 py-2 text-sm font-semibold transition-colors ${
+                pathname === "/services" || (pathname?.startsWith("/service") && !megaOpen)
+                  ? "bg-gold-muted text-gold-500"
+                  : "text-theme-secondary hover:bg-fill hover:text-theme-primary"
+              }`}
+            >
+              <span>Services</span>
+              <span className="rounded border border-gold/30 bg-gold-muted px-1.5 py-0.5 text-[10px] font-bold text-gold-500">
+                25+
+              </span>
+            </Link>
             <button
               ref={triggerRef}
               type="button"
               onClick={() => setMegaOpen((v) => !v)}
               aria-expanded={megaOpen}
               aria-haspopup="true"
-              className={`flex items-center gap-1.5 rounded-none px-4 py-2 text-sm font-semibold transition-colors ${
-                megaOpen || pathname?.startsWith("/service")
-                  ? "bg-gold-muted text-gold-500"
-                  : "text-theme-secondary hover:bg-fill hover:text-theme-primary"
+              aria-label="Toggle services menu"
+              className={`p-2 transition-colors rounded-none ${
+                megaOpen ? "text-gold-500 bg-gold-muted" : "text-theme-secondary hover:text-theme-primary hover:bg-fill"
               }`}
             >
-              Services
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${megaOpen ? "rotate-180" : ""}`}
+                className={`h-4 w-4 transition-transform duration-200 ${megaOpen ? "rotate-180" : ""}`}
               />
             </button>
           </div>
@@ -182,7 +188,7 @@ export function Header() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-12 w-12 items-center justify-center rounded-none border border-subtle bg-fill text-theme-primary transition-colors hover:bg-fill-hover"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-none border border-subtle bg-fill text-theme-primary transition-colors hover:bg-fill-hover"
             aria-expanded={mobileOpen}
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((v) => !v)}
@@ -197,131 +203,358 @@ export function Header() {
           ref={megaRef}
           onMouseEnter={openMega}
           onMouseLeave={scheduleCloseMega}
-          className="mega-menu-panel animate-mega-menu mx-auto mt-2 max-w-7xl overflow-hidden rounded-none bg-elevated text-theme-primary"
+          className="mega-menu-panel animate-mega-menu absolute inset-x-0 top-full w-full bg-white/98 dark:bg-[#090D1A]/98 backdrop-blur-2xl text-theme-primary shadow-[0_25px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_30px_70px_rgba(0,0,0,0.7)] border-b border-subtle border-t border-gold/30"
           role="region"
           aria-label="Services mega menu"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-3">
-            <div className="col-span-2 grid grid-cols-1 gap-10 p-8 md:grid-cols-2 md:p-10">
+          {/* 4 Clean Equal Columns inside Max-W-7XL container */}
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Col 1: Licensing Services */}
               <div>
-                <h3 className="mb-5 text-[10px] font-extrabold uppercase tracking-[0.22em] text-gold-500">
-                  Licensing & Incentives
-                </h3>
+                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-subtle">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                    Licensing Services
+                  </span>
+                  <span className="text-[10px] font-bold text-theme-faint bg-surface px-1.5 py-0.5 border border-subtle">
+                    {licensing.length}
+                  </span>
+                </div>
                 <ul className="space-y-1">
-                  {core.map((s) => (
+                  {licensing.map((s) => (
                     <li key={s.slug}>
                       <Link
                         href={`/service/${s.slug}`}
-                        className="group flex items-start gap-3 rounded-none px-3 py-2.5 transition-colors hover:bg-fill"
+                        onClick={() => setMegaOpen(false)}
+                        className="group flex items-center justify-between rounded-none px-2.5 py-1.5 transition-colors hover:bg-gold-muted/30"
                       >
-                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-none border border-subtle bg-fill transition-colors group-hover:border-gold group-hover:bg-gold-muted">
-                          <ArrowRight className="h-3.5 w-3.5 text-theme-muted group-hover:text-gold-500" />
+                        <span className="text-xs font-semibold text-theme-secondary group-hover:text-gold-500 truncate">
+                          {s.navTitle}
                         </span>
-                        <span>
-                          <span className="block text-sm font-semibold text-theme-secondary group-hover:text-theme-primary">
-                            {s.navTitle}
-                          </span>
-                          <span className="mt-0.5 block text-xs text-theme-faint">{s.turnaround}</span>
-                        </span>
+                        <ArrowRight className="h-3 w-3 shrink-0 text-gold-500 opacity-0 group-hover:opacity-100 transition-opacity ml-1" />
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
+
+              {/* Col 2: Registration Services */}
               <div>
-                <h3 className="mb-5 text-[10px] font-extrabold uppercase tracking-[0.22em] text-gold-500">
-                  Customs & Compliance
-                </h3>
+                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-subtle">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                    Registration Services
+                  </span>
+                  <span className="text-[10px] font-bold text-theme-faint bg-surface px-1.5 py-0.5 border border-subtle">
+                    {registration.length}
+                  </span>
+                </div>
                 <ul className="space-y-1">
-                  {compliance.map((s) => (
+                  {registration.map((s) => (
                     <li key={s.slug}>
                       <Link
                         href={`/service/${s.slug}`}
-                        className="group flex items-start gap-3 rounded-none px-3 py-2.5 transition-colors hover:bg-fill"
+                        onClick={() => setMegaOpen(false)}
+                        className="group flex items-center justify-between rounded-none px-2.5 py-1.5 transition-colors hover:bg-gold-muted/30"
                       >
-                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-none border border-subtle bg-fill transition-colors group-hover:border-gold group-hover:bg-gold-muted">
-                          <ArrowRight className="h-3.5 w-3.5 text-theme-muted group-hover:text-gold-500" />
+                        <span className="text-xs font-semibold text-theme-secondary group-hover:text-gold-500 truncate">
+                          {s.navTitle}
                         </span>
-                        <span>
-                          <span className="block text-sm font-semibold text-theme-secondary group-hover:text-theme-primary">
-                            {s.navTitle}
-                          </span>
-                          <span className="mt-0.5 block text-xs text-theme-faint">{s.turnaround}</span>
+                        <ArrowRight className="h-3 w-3 shrink-0 text-gold-500 opacity-0 group-hover:opacity-100 transition-opacity ml-1" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Col 3: Certification Services */}
+              <div>
+                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-subtle">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                    Certification Services
+                  </span>
+                  <span className="text-[10px] font-bold text-theme-faint bg-surface px-1.5 py-0.5 border border-subtle">
+                    {certification.length}
+                  </span>
+                </div>
+                <ul className="space-y-1">
+                  {certification.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/service/${s.slug}`}
+                        onClick={() => setMegaOpen(false)}
+                        className="group flex items-center justify-between rounded-none px-2.5 py-1.5 transition-colors hover:bg-gold-muted/30"
+                      >
+                        <span className="text-xs font-semibold text-theme-secondary group-hover:text-gold-500 truncate">
+                          {s.navTitle}
                         </span>
+                        <ArrowRight className="h-3 w-3 shrink-0 text-gold-500 opacity-0 group-hover:opacity-100 transition-opacity ml-1" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Col 4: Other Export Related Work */}
+              <div>
+                <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-subtle">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                    Other Export Work
+                  </span>
+                  <span className="text-[10px] font-bold text-theme-faint bg-surface px-1.5 py-0.5 border border-subtle">
+                    {otherWork.length}
+                  </span>
+                </div>
+                <ul className="space-y-1">
+                  {otherWork.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={`/service/${s.slug}`}
+                        onClick={() => setMegaOpen(false)}
+                        className="group flex items-center justify-between rounded-none px-2.5 py-1.5 transition-colors hover:bg-gold-muted/30"
+                      >
+                        <span className="text-xs font-semibold text-theme-secondary group-hover:text-gold-500 truncate">
+                          {s.navTitle}
+                        </span>
+                        <ArrowRight className="h-3 w-3 shrink-0 text-gold-500 opacity-0 group-hover:opacity-100 transition-opacity ml-1" />
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
+          </div>
 
-            <aside className="relative flex flex-col justify-between overflow-hidden border-t border-subtle bg-gradient-to-b from-elevated to-page p-8 md:p-10 lg:border-l lg:border-t-0">
-              <ShieldCheck className="pointer-events-none absolute -right-4 top-4 h-36 w-36 text-gold-500 opacity-[0.06]" />
-              <div className="relative z-10">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-none border border-gold bg-gold-muted">
-                  <Zap className="h-6 w-6 text-gold-500" />
-                </div>
-                <h3 className="mb-2 text-xl font-extrabold tracking-tight text-theme-primary">
-                  Need expert help?
-                </h3>
-                <p className="mb-6 text-sm font-medium leading-relaxed text-theme-muted">
-                  Our DGFT desk evaluates incentives, licensing, and customs compliance — typically
-                  within business hours.
-                </p>
-                <Link href="/contact-us" className="mb-3 block">
-                  <Button className="w-full font-extrabold">Consult now</Button>
-                </Link>
-                <Link href="/services" className="block text-center text-sm font-semibold text-theme-muted transition-colors hover:text-gold-500">
-                  View all {SERVICES.length} services →
+          {/* Integrated Slim Institutional Footer Strip */}
+          <div className="border-t border-subtle bg-slate-50 dark:bg-surface/80">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-semibold text-theme-primary">PAN India DGFT &amp; Customs Liaison</span>
+                <span className="hidden md:inline text-theme-muted">· Direct Regional Authority representation</span>
+              </div>
+              <div className="flex items-center gap-5">
+                <a
+                  href={telUrl()}
+                  className="font-semibold text-theme-secondary hover:text-gold-500 transition-colors flex items-center gap-1.5"
+                >
+                  <PhoneCall className="h-3.5 w-3.5 text-gold-500" />
+                  {SITE.phoneDisplay}
+                </a>
+                <Link
+                  href="/services"
+                  onClick={() => setMegaOpen(false)}
+                  className="font-bold text-gold-500 hover:text-theme-primary transition-colors flex items-center gap-1"
+                >
+                  View all 26 services index <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
-            </aside>
+            </div>
           </div>
         </div>
       )}
 
+      {/* Full-Height Mobile Drawer with Light Mode, Collapsed Services by Default, and Fixed Bottom Buttons */}
       {mobileOpen && (
-        <div className="glass-panel animate-mega-menu mx-auto mt-2 flex max-w-7xl flex-col gap-1 rounded-none bg-elevated p-4 text-theme-primary lg:hidden">
-          <Link href="/" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
-            Home
-          </Link>
-          <div className="px-4 py-2">
-            <p className="mb-3 text-[10px] font-extrabold uppercase tracking-[0.2em] text-gold-500">
-              All Services
-            </p>
-            <div className="max-h-[45vh] space-y-1 overflow-y-auto border-l border-subtle pl-3">
-              {SERVICES.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={`/service/${s.slug}`}
-                  className="flex items-center gap-2 py-2 text-sm font-semibold text-theme-secondary hover:text-theme-primary"
-                >
-                  <FileText className="h-3.5 w-3.5 shrink-0 text-theme-faint" />
-                  {s.navTitle}
-                </Link>
-              ))}
+        <div
+          className="fixed inset-x-0 top-16 bottom-0 z-[99] bg-white dark:bg-[#030712] text-theme-primary border-t border-subtle lg:hidden flex flex-col justify-between"
+          style={{ height: "calc(100dvh - 4rem)" }}
+        >
+          {/* Scrollable Middle Container: Fits on screen; only scrolls when services catalog is expanded */}
+          <div className="flex-1 overflow-y-auto p-5 space-y-3">
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between py-2 text-base font-bold text-theme-primary hover:text-gold-500 border-b border-subtle"
+            >
+              <span>Home</span>
+            </Link>
+
+            {/* Collapsible Services (Collapsed by Default) */}
+            <div className="border-b border-subtle pb-2">
+              <button
+                type="button"
+                onClick={() => setServicesExpanded(!servicesExpanded)}
+                className="flex w-full items-center justify-between py-2 text-base font-bold text-theme-primary hover:text-gold-500"
+              >
+                <span className="flex items-center gap-2">
+                  <span>DGFT Services</span>
+                  <span className="rounded border border-gold/40 bg-gold-muted px-2 py-0.5 text-[10px] font-bold text-gold-500">
+                    25+
+                  </span>
+                </span>
+                <ChevronDown
+                  className={`h-4 w-4 text-gold-500 transition-transform duration-200 ${
+                    servicesExpanded ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {servicesExpanded && (
+                <div className="mt-2 space-y-3 pl-2 animate-fade-in">
+                  <div className="flex items-center justify-between pb-1">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                      Catalog Categories
+                    </span>
+                    <Link
+                      href="/services"
+                      onClick={() => setMobileOpen(false)}
+                      className="text-xs font-bold text-gold-500 underline underline-offset-2"
+                    >
+                      View All 26 Services →
+                    </Link>
+                  </div>
+
+                  {/* 1. Licensing */}
+                  <div className="rounded-none border border-subtle bg-slate-50 dark:bg-surface/60 p-3">
+                    <button
+                      type="button"
+                      onClick={() => setOpenCategory(openCategory === "licensing" ? null : "licensing")}
+                      className="flex w-full items-center justify-between text-xs font-bold text-theme-primary"
+                    >
+                      <span>Licensing Services ({licensing.length})</span>
+                      <ChevronDown className={`h-3.5 w-3.5 text-gold-500 transition-transform ${openCategory === "licensing" ? "rotate-180" : ""}`} />
+                    </button>
+                    {(openCategory === "licensing" || !openCategory) && (
+                      <div className="mt-2 grid grid-cols-1 gap-1 pt-2 border-t border-subtle/50">
+                        {licensing.map((s) => (
+                          <Link
+                            key={s.slug}
+                            href={`/service/${s.slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between py-1 text-xs text-slate-600 dark:text-slate-400 hover:text-gold-500"
+                          >
+                            <span>{s.navTitle}</span>
+                            <ArrowRight className="h-3 w-3 text-gold-500" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 2. Registration */}
+                  <div className="rounded-none border border-subtle bg-slate-50 dark:bg-surface/60 p-3">
+                    <button
+                      type="button"
+                      onClick={() => setOpenCategory(openCategory === "registration" ? null : "registration")}
+                      className="flex w-full items-center justify-between text-xs font-bold text-theme-primary"
+                    >
+                      <span>Registration Services ({registration.length})</span>
+                      <ChevronDown className={`h-3.5 w-3.5 text-gold-500 transition-transform ${openCategory === "registration" ? "rotate-180" : ""}`} />
+                    </button>
+                    {openCategory === "registration" && (
+                      <div className="mt-2 grid grid-cols-1 gap-1 pt-2 border-t border-subtle/50">
+                        {registration.map((s) => (
+                          <Link
+                            key={s.slug}
+                            href={`/service/${s.slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between py-1 text-xs text-slate-600 dark:text-slate-400 hover:text-gold-500"
+                          >
+                            <span>{s.navTitle}</span>
+                            <ArrowRight className="h-3 w-3 text-gold-500" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 3. Certification */}
+                  <div className="rounded-none border border-subtle bg-slate-50 dark:bg-surface/60 p-3">
+                    <button
+                      type="button"
+                      onClick={() => setOpenCategory(openCategory === "certification" ? null : "certification")}
+                      className="flex w-full items-center justify-between text-xs font-bold text-theme-primary"
+                    >
+                      <span>Certification Services ({certification.length})</span>
+                      <ChevronDown className={`h-3.5 w-3.5 text-gold-500 transition-transform ${openCategory === "certification" ? "rotate-180" : ""}`} />
+                    </button>
+                    {openCategory === "certification" && (
+                      <div className="mt-2 grid grid-cols-1 gap-1 pt-2 border-t border-subtle/50">
+                        {certification.map((s) => (
+                          <Link
+                            key={s.slug}
+                            href={`/service/${s.slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between py-1 text-xs text-slate-600 dark:text-slate-400 hover:text-gold-500"
+                          >
+                            <span>{s.navTitle}</span>
+                            <ArrowRight className="h-3 w-3 text-gold-500" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* 4. Other Work */}
+                  <div className="rounded-none border border-subtle bg-slate-50 dark:bg-surface/60 p-3">
+                    <button
+                      type="button"
+                      onClick={() => setOpenCategory(openCategory === "other" ? null : "other")}
+                      className="flex w-full items-center justify-between text-xs font-bold text-theme-primary"
+                    >
+                      <span>Other Export Work ({otherWork.length})</span>
+                      <ChevronDown className={`h-3.5 w-3.5 text-gold-500 transition-transform ${openCategory === "other" ? "rotate-180" : ""}`} />
+                    </button>
+                    {openCategory === "other" && (
+                      <div className="mt-2 grid grid-cols-1 gap-1 pt-2 border-t border-subtle/50">
+                        {otherWork.map((s) => (
+                          <Link
+                            key={s.slug}
+                            href={`/service/${s.slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between py-1 text-xs text-slate-600 dark:text-slate-400 hover:text-gold-500"
+                          >
+                            <span>{s.navTitle}</span>
+                            <ArrowRight className="h-3 w-3 text-gold-500" />
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
+
+            <Link
+              href="/blogs"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between py-2.5 text-base font-bold text-theme-primary hover:text-gold-500 border-b border-subtle"
+            >
+              <span>Trade Regulatory Blog</span>
+            </Link>
+            <Link
+              href="/about-us"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between py-2.5 text-base font-bold text-theme-primary hover:text-gold-500 border-b border-subtle"
+            >
+              <span>About Our Firm</span>
+            </Link>
+            <Link
+              href="/contact-us"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between py-2.5 text-base font-bold text-theme-primary hover:text-gold-500"
+            >
+              <span>Contact Desk</span>
+            </Link>
           </div>
-          <Link href="/tools" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
-            Tools
-          </Link>
-          <Link href="/blogs" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
-            Blog
-          </Link>
-          <Link href="/about-us" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
-            About Us
-          </Link>
-          <Link href="/contact-us" className="rounded-none px-4 py-3.5 text-sm font-bold text-theme-primary hover:bg-fill-hover">
-            Contact
-          </Link>
-          <a
-            href={whatsappUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold-glow mt-3 rounded-none px-4 py-4 text-center text-sm font-extrabold"
-          >
-            WhatsApp {SITE.phoneDisplay}
-          </a>
+
+          {/* Fixed Footer Buttons Inside Drawer */}
+          <div className="p-4 border-t border-subtle bg-slate-50 dark:bg-surface/90 space-y-2 shrink-0">
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold-glow w-full py-3.5 text-center text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2"
+            >
+              WhatsApp Us · {SITE.phoneDisplay}
+            </a>
+            <a
+              href={telUrl()}
+              className="btn-glass w-full py-3 text-center text-xs font-bold text-theme-primary flex items-center justify-center gap-2 border-subtle"
+            >
+              <PhoneCall className="h-3.5 w-3.5 text-gold-500" /> Call Consultant Directly
+            </a>
+          </div>
         </div>
       )}
     </header>

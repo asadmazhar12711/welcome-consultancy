@@ -15,7 +15,9 @@
     "db:local": "wrangler d1 execute welcome-consultancy-db --local --file=./schema.sql",
     "db:remote": "wrangler d1 execute welcome-consultancy-db --remote --file=./schema.sql",
     "db:migrate:local": "wrangler d1 execute welcome-consultancy-db --local --file=./migrations/001_seo.sql",
-    "db:migrate:remote": "wrangler d1 execute welcome-consultancy-db --remote --file=./migrations/001_seo.sql"
+    "db:migrate:remote": "wrangler d1 execute welcome-consultancy-db --remote --file=./migrations/001_seo.sql",
+    "db:seed:local": "wrangler d1 execute welcome-consultancy-db --local --file=./migrations/002_seed_content.sql",
+    "db:seed:remote": "wrangler d1 execute welcome-consultancy-db --remote --file=./migrations/002_seed_content.sql"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.6.5",

@@ -19,6 +19,9 @@ export async function GET(request: NextRequest) {
 
   const settings = (await getSeoSettings()) ?? {
     id: 1,
+    site_title: "Welcome Consultancy",
+    default_meta_description: "",
+    site_url: "https://welcomeconsultancy.in",
     gtm_id: ANALYTICS_DEFAULTS.gtmId,
     ga4_id: ANALYTICS_DEFAULTS.ga4Id,
     clarity_id: ANALYTICS_DEFAULTS.clarityId,
@@ -45,6 +48,9 @@ export async function PUT(request: NextRequest) {
   }
 
   const payload: Omit<SeoSettingsRow, "id" | "updated_at"> = {
+    site_title: optionalString(body.site_title, 120) || "Welcome Consultancy",
+    default_meta_description: optionalString(body.default_meta_description, 300) || "",
+    site_url: optionalString(body.site_url, 200) || "https://welcomeconsultancy.in",
     gtm_id: optionalString(body.gtm_id, 40),
     ga4_id: optionalString(body.ga4_id, 40) || ANALYTICS_DEFAULTS.ga4Id,
     clarity_id: optionalString(body.clarity_id, 40),
@@ -60,10 +66,13 @@ export async function PUT(request: NextRequest) {
   await db
     .prepare(
       `INSERT INTO seo_settings (
-         id, gtm_id, ga4_id, clarity_id, meta_pixel_id,
+         id, site_title, default_meta_description, site_url, gtm_id, ga4_id, clarity_id, meta_pixel_id,
          gsc_verification, bing_verification, default_og_image, robots_extra, updated_at
-       ) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+       ) VALUES (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
        ON CONFLICT(id) DO UPDATE SET
+         site_title = excluded.site_title,
+         default_meta_description = excluded.default_meta_description,
+         site_url = excluded.site_url,
          gtm_id = excluded.gtm_id,
          ga4_id = excluded.ga4_id,
          clarity_id = excluded.clarity_id,
@@ -75,6 +84,9 @@ export async function PUT(request: NextRequest) {
          updated_at = CURRENT_TIMESTAMP`,
     )
     .bind(
+      payload.site_title,
+      payload.default_meta_description,
+      payload.site_url,
       payload.gtm_id,
       payload.ga4_id,
       payload.clarity_id,

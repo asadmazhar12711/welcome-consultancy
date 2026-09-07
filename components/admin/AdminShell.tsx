@@ -14,6 +14,9 @@ import {
   Loader2,
   Search,
   ArrowLeftRight,
+  Layers,
+  Briefcase,
+  Image as ImageIcon,
 } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
@@ -21,7 +24,10 @@ const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { href: "/admin/leads", label: "Leads", icon: Users },
   { href: "/admin/meetings", label: "Meeting Slots", icon: Calendar },
+  { href: "/admin/pages", label: "Pages CMS", icon: Layers },
+  { href: "/admin/services", label: "Services CMS", icon: Briefcase },
   { href: "/admin/blogs", label: "Blog CMS", icon: FileText },
+  { href: "/admin/media", label: "Media Library", icon: ImageIcon },
   { href: "/admin/popups", label: "Popups", icon: MessageSquareText },
   { href: "/admin/redirects", label: "Redirects", icon: ArrowLeftRight },
   { href: "/admin/seo", label: "SEO & Analytics", icon: Search },

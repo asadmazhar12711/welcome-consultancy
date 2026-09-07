@@ -158,7 +158,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-page">
       {/* Visual-first contact hero */}
-      <section className="relative isolate min-h-[65vh] overflow-hidden">
+      <section className="relative isolate min-h-[50vh] md:min-h-[65vh] overflow-hidden">
         <Image
           src={ILLUSTRATIONS.contact.src}
           alt={ILLUSTRATIONS.contact.alt}
@@ -168,7 +168,7 @@ export default function ContactPage() {
           className="object-cover object-center"
         />
         <div className="hero-visual__scrim" aria-hidden />
-        <div className="container-site relative z-10 flex min-h-[65vh] flex-col justify-end pb-16 pt-28 md:pb-20">
+        <div className="container-site relative z-10 flex min-h-[50vh] md:min-h-[65vh] flex-col justify-center md:justify-end md:pb-20">
           <p className="eyebrow !text-[#D4AF37]">Connect with experts</p>
           <h1 className="display-title max-w-2xl text-4xl !text-white md:text-6xl">Contact Us</h1>
           <p className="mt-5 max-w-lg text-lg font-medium leading-relaxed text-slate-200">

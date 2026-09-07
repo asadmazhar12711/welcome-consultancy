@@ -15,8 +15,8 @@ export function Footer() {
 
       <div className="container-site relative z-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-4">
-            <div className="mb-6 flex items-center">
+          <div className="lg:col-span-4 text-center lg:text-left">
+            <div className="mb-6 flex items-center justify-center lg:justify-start">
               <img
                 src="/images/logo-dark.png"
                 alt="Welcome Consultancy"
@@ -26,14 +26,14 @@ export function Footer() {
                 className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="mb-8 max-w-sm text-sm font-medium leading-relaxed text-slate-400">
+            <p className="mb-8 max-w-sm text-sm font-medium leading-relaxed text-slate-400 mx-auto lg:mx-0">
               {SITE.mission.intro}
             </p>
-            <ul className="space-y-4 text-sm font-semibold text-slate-300">
+            <ul className="space-y-4 text-sm font-semibold text-slate-300 flex flex-col items-center lg:items-start">
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="inline-flex items-center gap-3 transition-colors hover:text-[#e5c158]"
+                  className="inline-flex items-center justify-center lg:justify-start gap-3 transition-colors hover:text-[#e5c158]"
                 >
                   <Mail className="h-4 w-4 text-[#d4af37]" aria-hidden />
                   {SITE.email}
@@ -42,34 +42,33 @@ export function Footer() {
               <li>
                 <a
                   href={SITE.phones[0].href}
-                  className="inline-flex items-center gap-3 transition-colors hover:text-[#e5c158]"
+                  className="inline-flex items-center justify-center lg:justify-start gap-3 transition-colors hover:text-[#e5c158]"
                 >
                   <Phone className="h-4 w-4 text-[#d4af37]" aria-hidden />
                   {SITE.phones[0].display} / {SITE.phones[1].display}
                 </a>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex flex-col sm:flex-row items-center lg:items-start gap-2 sm:gap-3 text-center lg:text-left">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]" aria-hidden />
                 <span className="max-w-[280px] leading-relaxed">{SITE.address.full}</span>
               </li>
-              <li className="inline-flex items-center gap-3">
+              <li className="inline-flex items-center justify-center lg:justify-start gap-3">
                 <Clock className="h-4 w-4 text-[#d4af37]" aria-hidden />
                 {SITE.hours}
               </li>
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 text-center lg:text-left">
             <h3 className="mb-6 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#d4af37]">
               Explore
             </h3>
             <ul className="space-y-4 text-sm font-semibold text-slate-400">
               {[
                 { label: "About Us", href: "/about-us" },
-                { label: "All Services", href: "/services" },
+                { label: "All Services (25+)", href: "/services" },
                 { label: "Contact", href: "/contact-us" },
-                { label: "Exporter Tools", href: "/tools" },
-                { label: "Blogs", href: "/blogs" },
+                { label: "Blogs & Circulars", href: "/blogs" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="transition-colors hover:text-white">
@@ -80,13 +79,13 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 text-center lg:text-left">
             <h3 className="mb-6 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#d4af37]">
               DGFT Services
             </h3>
             <div className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
               {[col1, col2].map((col, i) => (
-                <ul key={i} className="space-y-3 text-sm font-semibold text-slate-400">
+                <ul key={i} className="space-y-3 text-sm font-semibold text-slate-400 text-center sm:text-left">
                   {col.map((s) => (
                     <li key={s.slug}>
                       <Link
@@ -103,11 +102,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-sm font-semibold text-slate-500 sm:flex-row sm:items-center">
+        <div className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-sm font-semibold text-slate-500 sm:flex-row text-center sm:text-left">
           <p>
             © {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center gap-2">
             <span className="h-2 w-2 animate-pulse-glow rounded-none bg-[var(--success)]" aria-hidden />
             <p>Serving exporters PAN India since {SITE.metrics.since}</p>
           </div>

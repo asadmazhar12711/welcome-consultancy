@@ -24,3 +24,9 @@ image-import/
 logos/
 branding-preview/
 validation-screenshots/
+
+# Backups and temporary archives
+.backup/
+welcome-consultancy-shareable/
+welcome-consultancy-shareable.zip
+

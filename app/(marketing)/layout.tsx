@@ -14,7 +14,7 @@ export default function MarketingLayout({
       <main
         id="main-content"
         tabIndex={-1}
-        className="relative z-10 flex min-h-screen flex-1 flex-col pt-[88px] outline-none"
+        className="relative z-10 flex min-h-screen flex-1 flex-col pt-16 sm:pt-20 outline-none w-full max-w-full overflow-x-hidden"
       >
         {children}
       </main>
