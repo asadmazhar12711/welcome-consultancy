@@ -36,3 +36,9 @@ These rules govern all AI agent interactions and automated coding tasks within t
    - Primary lead display highlights client mobile numbers.
    - Categorizes lead sources accurately.
    - Manages slot booking availability via Cloudflare D1 database.
+
+7. **Cloudflare Deployment & Multi-Account Isolation**:
+   - **Never rely on global browser Wrangler login for deployments**: Because multiple client projects and accounts are handled on this machine, deployments must ALWAYS be strictly scoped using project-level environment variables (`CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` stored in `.env.local` / `.dev.vars`).
+   - All deployment scripts, D1 migrations, and worker publishing commands MUST use the project-specific `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` to ensure zero cross-client deployment accidents.
+   - Do NOT run generic `wrangler deploy` without verifying that the targeted Cloudflare account ID matches this project's dedicated account.
+
