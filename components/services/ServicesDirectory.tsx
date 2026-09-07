@@ -148,8 +148,8 @@ export function ServicesDirectory() {
 
                     {/* Category Tag */}
                     <div className="absolute top-3 left-3">
-                      <span className="inline-flex items-center gap-1.5 rounded-none border border-gold/40 bg-black/70 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-gold-400 backdrop-blur-md">
-                        <Sparkles className="h-2.5 w-2.5 text-gold-500" />
+                      <span className="inline-flex items-center gap-1.5 rounded-none border border-white/20 bg-black/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-200 backdrop-blur-md">
+                        <Sparkles className="h-2.5 w-2.5 text-amber-400" />
                         {service.category.replace(" Related Work", "")}
                       </span>
                     </div>
@@ -157,7 +157,7 @@ export function ServicesDirectory() {
                     {/* Turnaround Badge on Image Bottom */}
                     <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white/90">
                       <span className="inline-flex items-center gap-1 text-[11px] font-medium bg-black/50 px-2 py-0.5 backdrop-blur-sm">
-                        <Clock className="h-3 w-3 text-gold-500" />
+                        <Clock className="h-3 w-3 text-slate-400" />
                         {service.turnaround}
                       </span>
                     </div>
@@ -184,7 +184,7 @@ export function ServicesDirectory() {
                             key={i}
                             className="flex items-start gap-2 text-[11px] font-semibold text-theme-secondary line-clamp-1"
                           >
-                            <CheckCircle2 className="h-3.5 w-3.5 text-gold-500 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500 shrink-0 mt-0.5" />
                             <span className="truncate">{item}</span>
                           </div>
                         ))}

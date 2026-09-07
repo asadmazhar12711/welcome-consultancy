@@ -40,7 +40,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
               Services
             </Link>
             <ChevronRight className="h-4 w-4 text-theme-muted" />
-            <span className="text-gold-500">{service.navTitle}</span>
+            <span className="text-theme-primary font-semibold">{service.navTitle}</span>
           </nav>
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
@@ -120,7 +120,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                       key={benefit}
                       className="flex items-start gap-3 rounded-none border border-subtle bg-elevated p-4"
                     >
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold-500" />
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
                       <span className="text-sm font-semibold text-theme-secondary">{benefit}</span>
                     </li>
                   ))}
@@ -161,7 +161,7 @@ export function ServicePageView({ service }: { service: ServiceDetail }) {
                   <ul className="space-y-3">
                     {service.checklist.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-theme-secondary">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-gold-500" />
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
                         <span className="text-sm font-medium">{item}</span>
                       </li>
                     ))}

@@ -26,6 +26,7 @@ type Post = {
   excerpt: string;
   date: string;
   imageAlt: string;
+  ogImage?: string | null;
 };
 
 function formatDate(value: string | null): string {
@@ -52,6 +53,7 @@ async function getPosts(): Promise<Post[]> {
       excerpt: r.excerpt,
       date: formatDate(r.published_at),
       imageAlt: r.image_alt || r.title,
+      ogImage: r.og_image,
     }));
   } catch {
     return SITE.blogs.map((b) => ({
@@ -61,6 +63,7 @@ async function getPosts(): Promise<Post[]> {
       excerpt: b.excerpt,
       date: b.date,
       imageAlt: b.title,
+      ogImage: null,
     }));
   }
 }
@@ -81,7 +84,7 @@ export default async function BlogsPage() {
         />
         <div className="hero-visual__scrim" aria-hidden />
         <div className="container-site relative z-10 flex min-h-[55vh] flex-col justify-end pb-14 pt-28 md:pb-20">
-          <p className="eyebrow !text-[#D4AF37]">Blog</p>
+          <p className="eyebrow">Blog</p>
           <h1 className="display-title max-w-3xl text-4xl !text-white md:text-5xl lg:text-6xl">
             Regulatory Updates
           </h1>
@@ -97,6 +100,7 @@ export default async function BlogsPage() {
           {posts.map((post, i) => {
             const key = BLOG_ART[i % BLOG_ART.length];
             const art = ILLUSTRATIONS.services[key];
+            const imgSrc = post.ogImage || art.src;
             return (
               <article
                 key={post.slug}
@@ -108,7 +112,7 @@ export default async function BlogsPage() {
                   aria-label={`Read ${post.title}`}
                 >
                   <Image
-                    src={art.src}
+                    src={imgSrc}
                     alt={post.imageAlt || art.alt}
                     fill
                     loading="lazy"
@@ -118,7 +122,7 @@ export default async function BlogsPage() {
                 </Link>
                 <div className="flex flex-col justify-center p-7 md:p-9">
                   <div className="mb-3 flex items-center justify-between gap-3">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                       {post.category}
                     </span>
                     <span className="text-xs font-medium text-theme-faint">{post.date}</span>
@@ -136,7 +140,7 @@ export default async function BlogsPage() {
                   </p>
                   <Link
                     href={`/blogs/${post.slug}`}
-                    className="mt-5 inline-flex min-h-11 items-center text-sm font-bold text-gold-500 transition-colors hover:text-theme-primary"
+                    className="mt-5 inline-flex min-h-11 items-center text-sm font-bold text-theme-secondary transition-colors hover:text-gold-500"
                   >
                     Read article <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>

@@ -77,14 +77,83 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
+function renderBlogContent(body: string) {
+  const blocks = body.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
+
+  const formatInline = (text: string) => {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={i} className="font-bold text-white">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return part;
+    });
+  };
+
+  return blocks.map((block, idx) => {
+    if (block.startsWith("### ")) {
+      return (
+        <h3 key={idx} className="font-display text-xl sm:text-2xl font-bold text-white mt-8 mb-3">
+          {block.slice(4)}
+        </h3>
+      );
+    }
+    if (block.startsWith("## ")) {
+      return (
+        <h2 key={idx} className="font-display text-2xl sm:text-3xl font-bold text-white mt-12 mb-4 pt-8 border-t border-subtle">
+          {block.slice(3)}
+        </h2>
+      );
+    }
+    if (block.startsWith("> ")) {
+      return (
+        <blockquote
+          key={idx}
+          className="my-6 border-l-2 border-gold-500/80 bg-surface/80 px-5 py-3 text-sm font-medium leading-relaxed text-slate-200"
+        >
+          {formatInline(block.replace(/^>\s*/gm, ""))}
+        </blockquote>
+      );
+    }
+    const lines = block.split("\n");
+    if (lines.length > 1 && lines.every((line) => line.trim().startsWith("- ") || line.trim().startsWith("* "))) {
+      return (
+        <ul key={idx} className="my-5 space-y-2.5">
+          {lines.map((line, lineIdx) => {
+            const clean = line.replace(/^[-*]\s*/, "").trim();
+            return (
+              <li key={lineIdx} className="flex items-start gap-3 text-base text-slate-300 leading-relaxed">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500/80" />
+                <span>{formatInline(clean)}</span>
+              </li>
+            );
+          })}
+        </ul>
+      );
+    }
+    return (
+      <p
+        key={idx}
+        className="text-base font-medium leading-relaxed text-slate-300"
+      >
+        {formatInline(block)}
+      </p>
+    );
+  });
+}
+
 export default async function BlogDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) notFound();
 
   const art = artForSlug(post.slug);
+  const heroImage = post.og_image || art.src;
   const body = (post.body || post.excerpt).trim();
-  const paragraphs = body.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
 
   return (
     <>
@@ -96,7 +165,7 @@ export default async function BlogDetailPage({ params }: Props) {
             path: `/blogs/${post.slug}`,
             publishedAt: post.published_at,
             modifiedAt: post.updated_at,
-            image: post.og_image || art.src,
+            image: heroImage,
             category: post.category,
           }),
           breadcrumbJsonLd([
@@ -110,7 +179,7 @@ export default async function BlogDetailPage({ params }: Props) {
       <article className="min-h-screen bg-page">
         <section className="relative isolate min-h-[50vh] overflow-hidden">
           <Image
-            src={art.src}
+            src={heroImage}
             alt={post.image_alt || art.alt}
             fill
             priority
@@ -121,11 +190,11 @@ export default async function BlogDetailPage({ params }: Props) {
           <div className="container-site relative z-10 flex min-h-[50vh] flex-col justify-end pb-14 pt-28 md:pb-20">
             <Link
               href="/blogs"
-              className="mb-4 inline-flex min-h-11 w-fit items-center text-sm font-bold text-[#D4AF37] transition-colors hover:text-white"
+              className="mb-4 inline-flex min-h-11 w-fit items-center text-sm font-semibold text-slate-300 transition-colors hover:text-white"
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> All articles
             </Link>
-            <p className="eyebrow !text-[#D4AF37]">{post.category}</p>
+            <p className="eyebrow">{post.category}</p>
             <h1 className="display-title mt-2 max-w-4xl text-4xl !text-white md:text-5xl lg:text-6xl">
               {post.title}
             </h1>
@@ -139,18 +208,11 @@ export default async function BlogDetailPage({ params }: Props) {
 
         <section className="section-pad !pt-12">
           <div className="container-site max-w-3xl">
-            <p className="text-lg font-medium leading-relaxed text-theme-secondary">
+            <p className="text-lg font-medium leading-relaxed text-slate-200">
               {post.excerpt}
             </p>
             <div className="mt-10 space-y-6 border-t border-subtle pt-10">
-              {paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 48)}
-                  className="text-base font-medium leading-relaxed text-theme-muted"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              {renderBlogContent(body)}
             </div>
 
             <div className="mt-14 flex flex-wrap items-center gap-4 border-t border-subtle pt-10">

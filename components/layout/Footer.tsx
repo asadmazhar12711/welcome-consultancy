@@ -60,7 +60,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 text-center lg:text-left">
-            <h3 className="mb-6 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#d4af37]">
+            <h3 className="mb-6 text-xs font-bold uppercase tracking-wider text-slate-300">
               Explore
             </h3>
             <ul className="space-y-4 text-sm font-semibold text-slate-400">
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-6 text-center lg:text-left">
-            <h3 className="mb-6 text-[11px] font-extrabold uppercase tracking-[0.22em] text-[#d4af37]">
+            <h3 className="mb-6 text-xs font-bold uppercase tracking-wider text-slate-300">
               DGFT Services
             </h3>
             <div className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">

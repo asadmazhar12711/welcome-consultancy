@@ -55,7 +55,7 @@ export async function PATCH(
   }
   if (typeof body.body === "string") {
     sets.push("body = ?");
-    binds.push(optionalString(body.body, 20000));
+    binds.push(optionalString(body.body, 100000));
   }
 
   if (typeof body.slug === "string" && body.slug.trim()) {

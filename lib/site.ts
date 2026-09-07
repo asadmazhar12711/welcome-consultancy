@@ -112,36 +112,58 @@ export const SITE = {
   ],
   blogs: [
     {
-      title: "Star House Certificate",
-      slug: "star-house-certificate",
+      title:
+        "RoDTEP Scheme 2024–2025: Complete Guide to Rates, Eligible Tariff Lines & Duty Credit Scrip Realization",
+      slug: "rodtep-scheme-complete-guide-rates-eligible-tariff-lines-scrip-realization",
       excerpt:
-        "This certificate is to recognize such Exporter firms as Business Leaders who have excelled in International Trade and have successfully contributed to the country's Foreign Trade.",
-      category: "DGFT Policy",
+        "The Remission of Duties and Taxes on Exported Products (RoDTEP) scheme is India's flagship WTO-compliant export incentive mechanism. Learn how the scheme works, current rebate rates across tariff lines, ICEGATE scrip generation, and monetization strategies.",
+      category: "Export Incentives",
+      date: "September 2026",
+    },
+    {
+      title:
+        "EPCG Scheme Explained: 100% Customs Duty Exemption on Capital Goods & Export Obligation Compliance",
+      slug: "epcg-scheme-customs-duty-exemption-capital-goods-export-obligation",
+      excerpt:
+        "The Export Promotion Capital Goods (EPCG) scheme permits zero-duty import of manufacturing machinery in exchange for export obligations. Read our comprehensive analysis of eligibility, calculation formulas, installation certification, and EODC redemption.",
+      category: "EPCG",
+      date: "August 2026",
+    },
+    {
+      title:
+        "Advance Authorisation Scheme: How Indian Manufacturers Import Duty-Free Raw Materials under SION",
+      slug: "advance-authorisation-scheme-duty-free-raw-materials-sion-guide",
+      excerpt:
+        "The Advance Authorisation scheme enables duty-free import of manufacturing raw materials, fuel, and catalysts. Discover how SION works, minimum value addition rules, redemption processes, and compliance requirements.",
+      category: "Advance Authorisation",
+      date: "August 2026",
+    },
+    {
+      title:
+        "Star Export House Certification: Thresholds, Status Holder Privileges & Application Roadmap",
+      slug: "star-export-house-certification-status-holder-privileges-thresholds",
+      excerpt:
+        "Star Export House status confers institutional credibility and operational privileges upon Indian exporters. Review the 1 to 5 star eligibility thresholds, self-certification benefits, double weightage rules, and application process.",
+      category: "Export Compliance",
       date: "July 2026",
     },
     {
-      title: "Export Promotion Capital Goods (EPCG)",
-      slug: "export-promotion-capital-goods-epcg",
+      title:
+        "AEO Certification India: Tier-1, Tier-2 & Tier-3 Accreditation for Faster Customs Clearance",
+      slug: "aeo-certification-india-t1-t2-t3-fast-track-customs-clearance",
       excerpt:
-        "EPCG is intended for promoting exports and the Indian government with the help of this scheme offers incentives and financial support to the exporters.",
-      category: "Incentives",
-      date: "June 2026",
+        "The Authorized Economic Operator (AEO) program transforms international supply chain logistics. Discover the benefits of AEO T1, T2, and T3 certifications, deferred customs duty payments, DPD facility, and global Mutual Recognition Agreements.",
+      category: "Customs Compliance",
+      date: "July 2026",
     },
     {
-      title: "Authorized Economic Operator (AEO)",
-      slug: "authorized-economic-operator-aeo",
+      title:
+        "IEC Code Registration & Annual DGFT Profile Update: Mandatory Rules to Prevent License Deactivation",
+      slug: "iec-code-registration-annual-dgft-profile-update-compliance-guide",
       excerpt:
-        "The benefits of AEO include faster processing and clearance of cargo, deferred payment of duty, direct port delivery/entry, and benefits under Mutual Recognition arrangements (MRA).",
-      category: "Customs",
-      date: "May 2026",
-    },
-    {
-      title: "Certificate of Origin",
-      slug: "certificate-of-origin",
-      excerpt:
-        "The certificate of origin holds significant importance in the transportation of goods across borders. It serves as proof of the country where the product was manufactured.",
-      category: "Documentation",
-      date: "April 2026",
+        "The Importer Exporter Code (IEC) is the non-negotiable legal passport for cross-border trade in India. Learn the new registration process, mandatory annual updating rules, DSC linkage, and how to recover deactivated licenses.",
+      category: "DGFT Policy",
+      date: "July 2026",
     },
   ],
 } as const;

@@ -115,21 +115,21 @@ export default function ExportIncentiveAssessment() {
 
           <div className="space-y-3 pt-4 border-t border-subtle">
             <div className="flex items-start gap-2.5">
-              <CheckCircle2 className="h-4 w-4 text-gold-500 shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-theme-primary">Tariff Line Mapping</p>
                 <p className="text-[11px] text-theme-muted">Evaluated against the latest RoDTEP schedule and Chapter-wise rate caps.</p>
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <CheckCircle2 className="h-4 w-4 text-gold-500 shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-theme-primary">Confidential Review</p>
                 <p className="text-[11px] text-theme-muted">Strict client data confidentiality. Evaluated by senior DGFT practitioners.</p>
               </div>
             </div>
             <div className="flex items-start gap-2.5">
-              <CheckCircle2 className="h-4 w-4 text-gold-500 shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-bold text-theme-primary">Prompt Advisory Response</p>
                 <p className="text-[11px] text-theme-muted">Our team contacts you directly with a tailored assessment report within business hours.</p>

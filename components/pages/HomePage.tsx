@@ -191,7 +191,7 @@ export default function HomePage() {
         <div className="container-site relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-              <div className="inline-flex items-center justify-center lg:justify-start gap-2 rounded-none border border-gold/40 bg-gold-muted/40 px-3.5 py-1 text-xs font-bold text-gold-500 mx-auto lg:mx-0">
+              <div className="inline-flex items-center justify-center lg:justify-start gap-2 rounded-none border border-subtle bg-elevated/80 px-3.5 py-1 text-xs font-semibold text-slate-300 mx-auto lg:mx-0">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Duty Credit Scrip Realization & ICEGATE Liquidity</span>
               </div>
@@ -214,7 +214,7 @@ export default function HomePage() {
                   onClick={() => triggerScripPopup("buyer")}
                   className="btn-glass w-full sm:w-auto py-3 px-6 text-xs font-extrabold text-theme-primary hover:text-gold-500 flex items-center justify-center gap-2 border-subtle"
                 >
-                  <Tag className="h-4 w-4 text-gold-500" /> I Want to Buy Scrips (Importers)
+                  <Tag className="h-4 w-4 text-theme-muted" /> I Want to Buy Scrips (Importers)
                 </button>
               </div>
             </div>
@@ -272,8 +272,8 @@ export default function HomePage() {
                     <div className="rail-step__index">{i + 1}</div>
                     <div className="pb-1 pt-1">
                       <div className="mb-1.5 flex items-center gap-2">
-                        <step.icon className="h-3.5 w-3.5 text-gold-500" aria-hidden />
-                        <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gold-500">
+                        <step.icon className="h-3.5 w-3.5 text-slate-400" aria-hidden />
+                        <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
                           Step {String(i + 1).padStart(2, "0")}
                         </span>
                       </div>
@@ -322,7 +322,7 @@ export default function HomePage() {
           <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between text-center md:text-left">
             <div className="max-w-xl mx-auto md:mx-0">
               <p className="eyebrow justify-center md:justify-start">
-                <Newspaper className="mr-2 inline h-3.5 w-3.5 text-gold-500" /> Regulatory updates
+                <Newspaper className="mr-2 inline h-3.5 w-3.5 text-slate-400" /> Regulatory updates
               </p>
               <h2 className="display-title text-3xl md:text-5xl">
                 Trade Notices, Circulars & Policy Shifts
@@ -359,7 +359,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="mb-3 flex items-center justify-between gap-3">
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-gold-500">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
                         {post.category}
                       </span>
                       {post.date ? (
@@ -372,7 +372,7 @@ export default function HomePage() {
                     <p className="mt-3 line-clamp-3 text-sm font-medium leading-relaxed text-theme-muted">
                       {post.excerpt}
                     </p>
-                    <span className="mt-5 inline-flex items-center text-sm font-bold text-gold-500 transition-colors group-hover:text-theme-primary">
+                    <span className="mt-5 inline-flex items-center text-sm font-bold text-theme-secondary transition-colors group-hover:text-gold-500">
                       Read analysis <ArrowRight className="ml-2 h-4 w-4" />
                     </span>
                   </div>
@@ -435,7 +435,7 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="flex flex-1 flex-col p-7 md:p-8">
-                      <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gold-500">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
                         01 · {service.category} · {service.turnaround}
                       </p>
                       <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight text-theme-primary md:text-3xl">
@@ -444,7 +444,7 @@ export default function HomePage() {
                       <p className="mt-3 max-w-lg text-base font-medium leading-relaxed text-theme-muted">
                         {service.shortDesc}
                       </p>
-                      <span className="mt-6 inline-flex items-center text-sm font-bold text-gold-500 transition-colors group-hover:text-theme-primary">
+                      <span className="mt-6 inline-flex items-center text-sm font-bold text-theme-secondary transition-colors group-hover:text-gold-500">
                         Explore service{" "}
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                       </span>
@@ -477,7 +477,7 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-gold-500">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
                         0{index + 1} · {service.category}
                       </p>
                       <h3 className="mt-1.5 text-base font-extrabold text-theme-primary">
@@ -486,7 +486,7 @@ export default function HomePage() {
                       <p className="mt-1.5 line-clamp-2 text-[13px] font-medium text-theme-muted">
                         {service.shortDesc}
                       </p>
-                      <span className="mt-3 inline-flex items-center text-xs font-bold text-gold-500 transition-colors group-hover:text-theme-primary">
+                      <span className="mt-3 inline-flex items-center text-xs font-bold text-theme-secondary transition-colors group-hover:text-gold-500">
                         Explore <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                       </span>
                     </div>
@@ -516,13 +516,13 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-gold-500">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
                       0{index + 1} · {service.turnaround}
                     </p>
                     <h3 className="mt-1 truncate text-sm font-extrabold text-theme-primary">
                       {service.navTitle}
                     </h3>
-                    <span className="mt-1.5 inline-flex items-center text-xs font-bold text-gold-500 transition-colors group-hover:text-theme-primary">
+                    <span className="mt-1.5 inline-flex items-center text-xs font-bold text-theme-secondary transition-colors group-hover:text-gold-500">
                       Explore <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                     </span>
                   </div>
@@ -594,13 +594,13 @@ export default function HomePage() {
               href="/services"
               className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-theme-secondary hover:text-gold-500"
             >
-              <ShieldCheck className="h-4 w-4 text-gold-500" /> Explore 25+ DGFT Service Catalog
+              <ShieldCheck className="h-4 w-4 text-theme-muted" /> Explore 25+ DGFT Service Catalog
             </Link>
             <Link
               href="/contact-us"
               className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-theme-secondary hover:text-gold-500"
             >
-              <CalendarDays className="h-4 w-4 text-gold-500" /> Priority Consultation Booking
+              <CalendarDays className="h-4 w-4 text-theme-muted" /> Priority Consultation Booking
             </Link>
           </div>
         </div>
@@ -612,8 +612,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             {/* Left Column: Heading, Value Props, Direct Contact */}
             <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center justify-center lg:justify-start gap-2 rounded-none border border-gold/40 bg-gold-muted/40 px-3 py-1 text-xs font-bold text-gold-500 mx-auto lg:mx-0">
-                <Sparkles className="h-3 w-3" /> Free DGFT Consultation
+              <div className="inline-flex items-center justify-center lg:justify-start gap-2 rounded-none border border-subtle bg-elevated px-3 py-1 text-xs font-semibold text-slate-300 mx-auto lg:mx-0">
+                <Sparkles className="h-3 w-3 text-amber-400" /> Free DGFT Consultation
               </div>
 
               <h2 className="display-title text-3xl sm:text-4xl lg:text-5xl text-center lg:text-left">
@@ -626,21 +626,21 @@ export default function HomePage() {
 
               <div className="space-y-3 pt-4 border-t border-subtle">
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-gold-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-xs font-bold text-theme-primary">30-Minute Technical Session</p>
                     <p className="text-[11px] text-theme-muted">Direct discussion with an accredited Foreign Trade Policy specialist.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-gold-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-xs font-bold text-theme-primary">Statutory Scheme Roadmap</p>
                     <p className="text-[11px] text-theme-muted">Tailored eligibility review for RoDTEP, EPCG, and Advance Authorization.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="h-4 w-4 text-gold-500 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-xs font-bold text-theme-primary">Immediate Confirmation</p>
                     <p className="text-[11px] text-theme-muted">Slot confirmed directly on WhatsApp and calendar invite sent to your inbox.</p>
@@ -653,7 +653,7 @@ export default function HomePage() {
                 <p className="text-[11px] text-theme-muted mt-0.5">Call our senior consultant directly without waiting for a scheduled slot.</p>
                 <a
                   href={`tel:${SITE.phone}`}
-                  className="mt-2 text-xs font-extrabold text-gold-500 hover:text-theme-primary transition-colors flex items-center gap-1.5"
+                  className="mt-2 text-xs font-bold text-theme-secondary hover:text-gold-500 transition-colors flex items-center gap-1.5"
                 >
                   Direct: {SITE.phoneDisplay} →
                 </a>
@@ -721,7 +721,7 @@ export default function HomePage() {
                   “
                 </span>
                 <div className="relative z-10 mb-6 flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-none border border-gold bg-gold-muted text-base font-extrabold text-gold-500">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-none border border-subtle bg-elevated text-base font-extrabold text-theme-primary">
                     {t.name.charAt(0)}
                   </div>
                   <div>
@@ -794,7 +794,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden py-20 md:py-28 border-t border-subtle bg-gradient-to-b from-surface via-elevated to-surface">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)]" />
         <div className="container-site relative z-10 text-center max-w-3xl mx-auto">
-          <span className="pill-tag !border-gold/50 !bg-gold-muted !text-gold-500 font-bold mb-4 inline-block">
+          <span className="pill-tag !border-subtle !bg-elevated !text-slate-300 font-bold mb-4 inline-block">
             Next Step · Priority EXIM Onboarding
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-theme-primary">

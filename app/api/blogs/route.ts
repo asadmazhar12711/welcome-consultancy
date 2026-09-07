@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
   const title = optionalString(body.title, 160);
   const category = optionalString(body.category, 60) || "General";
   const excerpt = optionalString(body.excerpt, 600);
-  const content = optionalString(body.body, 20000);
+  const content = optionalString(body.body, 100000);
   const publishNow = body.status === "Published";
   const customSlug = optionalString(body.slug, 80);
   const seoTitle = optionalString(body.seo_title, 70);

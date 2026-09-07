@@ -84,7 +84,7 @@ export default function ChecklistGenerator() {
     <div className="bento-card p-6 sm:p-8">
       <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-gold-500">
+          <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-slate-400">
             DGFT &amp; Customs Readiness
           </span>
           <h3 className="text-xl font-bold tracking-tight text-theme-primary">

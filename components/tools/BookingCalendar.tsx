@@ -199,7 +199,7 @@ export default function BookingCalendar() {
     <div className="bento-card p-6 sm:p-8 relative">
       <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
         <div>
-          <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-gold-500">
+          <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-slate-400">
             Direct Expert Advisory
           </span>
           <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-theme-primary">
