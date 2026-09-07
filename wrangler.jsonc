@@ -22,6 +22,8 @@
   "vars": {
     "SITE_URL": "https://welcomeconsultancy.in",
     "GA4_ID": "G-SY495SGMRF",
-    "GSC_VERIFICATION": "kX413ojJFJn5gq4v81KWui4jEV35NvBBs9Vqj5xyn-Q"
+    "GTM_ID": "GTM-WTLN3WJJ",
+    "GSC_VERIFICATION": "kX413ojJFJn5gq4v81KWui4jEV35NvBBs9Vqj5xyn-Q",
+    "ADMIN_PASSWORD": "9810815415"
   }
 }

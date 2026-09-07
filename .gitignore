@@ -31,6 +31,9 @@ welcome-consultancy-shareable/
 welcome-consultancy-shareable.zip
 *.bak
 full_database_export.sql
+dns_records_backup.json
+.docx_inspect/
+
 
 
 

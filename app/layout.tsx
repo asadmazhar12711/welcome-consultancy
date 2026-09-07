@@ -120,6 +120,17 @@ export default async function RootLayout({
       <body
         className={`${manrope.variable} ${newsreader.variable} min-h-screen bg-page font-sans text-theme-primary antialiased`}
       >
+        {analytics.gtmId ? (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${analytics.gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+              title="Google Tag Manager"
+            />
+          </noscript>
+        ) : null}
         <ThemeProvider>
           <SkipLink />
           <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />

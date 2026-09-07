@@ -10,13 +10,13 @@ export type AnalyticsConfig = {
   defaultOgImage: string;
 };
 
-/** Defaults from the legacy WordPress site — overridable via CMS / env. */
+/** Defaults from the client technical specification — overridable via CMS / env. */
 export const ANALYTICS_DEFAULTS: AnalyticsConfig = {
-  gtmId: "",
-  ga4Id: "G-SBVK5GGG6Q",
+  gtmId: "GTM-WTLN3WJJ",
+  ga4Id: "G-SY495SGMRF",
   clarityId: "",
   metaPixelId: "",
-  gscVerification: "",
+  gscVerification: "kX413ojJFJn5gq4v81KWui4jEV35NvBBs9Vqj5xyn-Q",
   bingVerification: "",
   defaultOgImage: "/illustrations/hero-global-trade.webp",
 };
@@ -32,9 +32,18 @@ export function mergeAnalyticsConfig(
     BING_VERIFICATION?: string;
   },
 ): AnalyticsConfig {
+  const envGa4 = env?.GA4_ID?.trim();
+  const rowGa4 = row?.ga4_id?.trim();
+  const resolvedGa4 =
+    envGa4 && envGa4 !== "G-SBVK5GGG6Q"
+      ? envGa4
+      : rowGa4 && rowGa4 !== "G-SBVK5GGG6Q"
+      ? rowGa4
+      : envGa4 || ANALYTICS_DEFAULTS.ga4Id;
+
   return {
-    gtmId: (row?.gtm_id || env?.GTM_ID || ANALYTICS_DEFAULTS.gtmId).trim(),
-    ga4Id: (row?.ga4_id || env?.GA4_ID || ANALYTICS_DEFAULTS.ga4Id).trim(),
+    gtmId: (env?.GTM_ID || row?.gtm_id || ANALYTICS_DEFAULTS.gtmId).trim(),
+    ga4Id: resolvedGa4.trim(),
     clarityId: (row?.clarity_id || env?.CLARITY_ID || ANALYTICS_DEFAULTS.clarityId).trim(),
     metaPixelId: (
       row?.meta_pixel_id ||
@@ -42,13 +51,13 @@ export function mergeAnalyticsConfig(
       ANALYTICS_DEFAULTS.metaPixelId
     ).trim(),
     gscVerification: (
-      row?.gsc_verification ||
       env?.GSC_VERIFICATION ||
+      row?.gsc_verification ||
       ANALYTICS_DEFAULTS.gscVerification
     ).trim(),
     bingVerification: (
-      row?.bing_verification ||
       env?.BING_VERIFICATION ||
+      row?.bing_verification ||
       ANALYTICS_DEFAULTS.bingVerification
     ).trim(),
     defaultOgImage: (

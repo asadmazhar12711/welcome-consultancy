@@ -42,3 +42,8 @@ These rules govern all AI agent interactions and automated coding tasks within t
    - All deployment scripts, D1 migrations, and worker publishing commands MUST use the project-specific `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` to ensure zero cross-client deployment accidents.
    - Do NOT run generic `wrangler deploy` without verifying that the targeted Cloudflare account ID matches this project's dedicated account.
 
+8. **Strict Zero-Leak Policy for Cloudflare Tokens & Credentials**:
+   - **Never print, echo, or expose API tokens in chat output, logs, or commit messages**: Cloudflare security bot systems automatically scan public and chat buffers and permanently revoke exposed tokens within minutes.
+   - Always reference credentials by variable name only (`CLOUDFLARE_API_TOKEN`) or mask them completely (`CLOUDFLARE_API_TOKEN=******`).
+
+
