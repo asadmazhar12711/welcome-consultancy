@@ -116,7 +116,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-page">
+    <div className="min-h-screen bg-page -mt-16 sm:-mt-20">
       {/* ── Cinematic Visual Hero: original high-impact full video / image ── */}
       <HeroVisual
         src={ILLUSTRATIONS.hero.src}
@@ -124,7 +124,7 @@ export default function HomePage() {
         videoSrc="/videos/hero-bg.mp4"
         videoWebm="/videos/hero-bg.webm"
       >
-        <div className="animate-fade-in max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
+        <div className="animate-fade-in max-w-2xl text-center sm:text-left mx-auto sm:mx-0 pt-8 sm:pt-12">
           <p className="eyebrow inline-flex items-center justify-center sm:justify-start gap-2 !text-gold-400 mx-auto sm:mx-0">
             <Sparkles className="h-3.5 w-3.5" aria-hidden />
             Est. {SITE.metrics.since} · {SITE.metrics.clients} Exporters · PAN India
@@ -161,29 +161,28 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-      </HeroVisual>
 
-      {/* ── Trust strip over trade-route atmosphere ── */}
-      <section className="trust-strip relative overflow-hidden py-12" aria-label="Key metrics">
-        <TradeRouteLines className="pointer-events-none absolute inset-x-0 top-1/2 h-40 -translate-y-1/2 text-gold-500 opacity-40" />
-        <div className="container-site relative z-10 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
-          {[
-            { v: SITE.metrics.clients, l: "Active customers" },
-            { v: SITE.metrics.years, l: "Years experience" },
-            { v: "25+", l: "DGFT services" },
-            { v: "PAN India", l: "Coverage" },
-          ].map((stat) => (
-            <div key={stat.l} className="text-center md:text-left">
-              <p className="font-display text-3xl font-semibold tracking-tight text-theme-primary md:text-4xl">
-                {stat.v}
-              </p>
-              <p className="mt-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-theme-faint">
-                {stat.l}
-              </p>
-            </div>
-          ))}
+        {/* ── Transparent numerical trust stats floating directly over video ── */}
+        <div className="trust-strip mt-12 sm:mt-16 w-full pt-6 pb-2 border-t border-white/15">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { v: SITE.metrics.clients, l: "Active customers" },
+              { v: SITE.metrics.years, l: "Years experience" },
+              { v: "25+", l: "DGFT services" },
+              { v: "PAN India", l: "Coverage" },
+            ].map((stat) => (
+              <div key={stat.l} className="text-center sm:text-left">
+                <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
+                  {stat.v}
+                </p>
+                <p className="mt-1 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-slate-200 drop-shadow-sm">
+                  {stat.l}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
+      </HeroVisual>
 
       {/* ── Live Scrip & DGFT Trade Terminal ── */}
       <section className="relative overflow-hidden py-16 md:py-20 border-b border-subtle bg-gradient-to-b from-page via-surface to-page">

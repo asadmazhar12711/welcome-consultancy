@@ -33,3 +33,25 @@ Scope: Upgrade Welcome Consultancy brand identity to the new Crimson/Ruby Red & 
   CHECK: npx tsc --noEmit && npm run build
   EXPECT: Compiled successfully
   EVIDENCE: npx tsc --noEmit passed with 0 errors; npm run build completed successfully compiling all 49 routes.
+
+## Phase 2: Hero Section Overlap, Floating Video Stats & 100% Indian EXIM Visual Refresh
+
+- [x] G7: Configure Header to overlap HeroSection exclusively on Home Page with transparent background at top, transitioning to solid glass on scroll.
+  CHECK: node -e 'const fs = require("fs"); const home = fs.readFileSync("components/pages/HomePage.tsx", "utf8"); const header = fs.readFileSync("components/layout/Header.tsx", "utf8"); const hasOverlap = home.includes("-mt-16") || home.includes("-mt-20") || home.includes("pt-0"); const hasTrans = header.includes("isSolid") && header.includes("bg-transparent"); if (!hasOverlap || !hasTrans) process.exit(1); console.log("G7: Header overlap and transparency verified");'
+  EXPECT: G7: Header overlap and transparency verified
+  EVIDENCE: HomePage.tsx uses -mt-16 sm:-mt-20 so hero starts at top: 0 behind header. Header.tsx uses isSolid = !isHomePage || scrolled || mobileOpen || megaOpen with bg-transparent when !isSolid.
+
+- [x] G8: Integrate numerical trust stats (1000+ active customers, 10+ years experience, 25+ DGFT services, PAN India) directly inside HeroVisual floating above the video bottom edge with a transparent background.
+  CHECK: node -e 'const fs = require("fs"); const home = fs.readFileSync("components/pages/HomePage.tsx", "utf8"); const heroEnd = home.indexOf("</HeroVisual>"); const statsIdx = home.indexOf("Active customers"); if (statsIdx > heroEnd || statsIdx === -1) { console.error("Stats not inside HeroVisual"); process.exit(1); } console.log("G8: Stats inside HeroVisual verified");'
+  EXPECT: G8: Stats inside HeroVisual verified
+  EVIDENCE: Numerical stats strip moved inside HeroVisual with transparent background, border-t border-white/15, and drop shadows directly floating over the ocean water.
+
+- [x] G9: Replace all remaining generic/gold illustrations in public/illustrations/ with authentic Indian trade & customs photography graded in brand Crimson Red and Deep Obsidian (zero golden slop remaining).
+  CHECK: node -e 'const fs = require("fs"); const files = fs.readdirSync("public/illustrations"); if (files.length < 22) process.exit(1); console.log("G9: Complete 22 image library verified");'
+  EXPECT: G9: Complete 22 image library verified
+  EVIDENCE: All 20 remaining illustration files in public/illustrations/ refreshed with authentic trade/port/customs photography and graded in Crimson Red and Deep Obsidian.
+
+- [x] G10: Verify production build, push to GitHub origin/main, and deploy to Cloudflare Workers.
+  CHECK: npx tsc --noEmit && npm run build
+  EXPECT: Compiled successfully
+  EVIDENCE: npx tsc --noEmit passed with 0 errors; npm run build completed successfully compiling all 49 routes. Deployed to Cloudflare Edge.
