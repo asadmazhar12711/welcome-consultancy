@@ -90,7 +90,7 @@ export function Header() {
   const certification = servicesByCategory("Certification Services");
   const otherWork = servicesByCategory("Other Export Related Work");
 
-  const isHomePage = pathname === "/";
+  const isHomePage = !pathname || pathname === "/";
   const isSolid = !isHomePage || scrolled || mobileOpen || megaOpen;
   const navLinkClass = isSolid
     ? "text-theme-secondary hover:bg-fill hover:text-theme-primary"
@@ -98,6 +98,7 @@ export function Header() {
 
   return (
     <header
+      suppressHydrationWarning
       className={`fixed inset-x-0 top-0 z-[100] w-full transition-all duration-300 ${
         isSolid
           ? "bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl shadow-md"
