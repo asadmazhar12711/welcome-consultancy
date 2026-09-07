@@ -78,10 +78,38 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     metadataBase: new URL(siteUrl),
     manifest: "/manifest.json",
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [
+        { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+      shortcut: "/favicon.png",
+    },
     appleWebApp: {
       capable: true,
       statusBarStyle: "black-translucent",
       title: "Welcome EXIM",
+      startupImage: "/favicon.png",
+    },
+    openGraph: {
+      ...base.openGraph,
+      images: [
+        {
+          url: "/images/og-main.jpg",
+          width: 1200,
+          height: 630,
+          alt: `${siteTitle} | India's Premier DGFT & EXIM Advisory`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${siteTitle} | DGFT & EXIM Advisory`,
+      description: siteDesc,
+      images: ["/images/og-main.jpg"],
     },
     verification: {
       ...(analytics.gscVerification

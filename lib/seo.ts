@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/site";
 
-export const DEFAULT_OG_IMAGE = "/illustrations/hero-global-trade.webp";
+export const DEFAULT_OG_IMAGE = "/images/og-main.jpg";
 
 export type RobotsDirective =
   | "index, follow"
