@@ -163,7 +163,7 @@ export default function HomePage() {
         </div>
 
         {/* ── Transparent numerical trust stats floating directly over video ── */}
-        <div className="trust-strip mt-12 sm:mt-16 w-full pt-6 pb-2 border-t border-white/15">
+        <div className="mt-12 sm:mt-16 w-full pt-6 pb-2 border-t border-white/15 bg-transparent">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
             {[
               { v: SITE.metrics.clients, l: "Active customers" },
