@@ -120,7 +120,7 @@ export default function HomePage() {
       {/* ── Cinematic Visual Hero: original high-impact full image ── */}
       <HeroVisual src={ILLUSTRATIONS.hero.src} alt={ILLUSTRATIONS.hero.alt}>
         <div className="animate-fade-in max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
-          <p className="eyebrow inline-flex items-center justify-center sm:justify-start gap-2 !text-[#D4AF37] mx-auto sm:mx-0">
+          <p className="eyebrow inline-flex items-center justify-center sm:justify-start gap-2 !text-gold-400 mx-auto sm:mx-0">
             <Sparkles className="h-3.5 w-3.5" aria-hidden />
             Est. {SITE.metrics.since} · {SITE.metrics.clients} Exporters · PAN India
           </p>
@@ -246,27 +246,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Trust strip over trade-route atmosphere ── */}
-      <section className="trust-strip relative overflow-hidden py-12" aria-label="Key metrics">
-        <TradeRouteLines className="pointer-events-none absolute inset-x-0 top-1/2 h-40 -translate-y-1/2 text-gold-500 opacity-40" />
-        <div className="container-site relative z-10 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
-          {[
-            { v: SITE.metrics.clients, l: "Active customers" },
-            { v: SITE.metrics.years, l: "Years experience" },
-            { v: "25+", l: "DGFT services" },
-            { v: "PAN India", l: "Coverage" },
-          ].map((stat) => (
-            <div key={stat.l} className="text-center md:text-left">
-              <p className="font-display text-3xl font-semibold tracking-tight text-theme-primary md:text-4xl">
-                {stat.v}
-              </p>
-              <p className="mt-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-theme-faint">
-                {stat.l}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ── How we work: 3 client steps from consultation to post shipment incentive ── */}
       <section className="section-pad relative overflow-hidden">

@@ -56,6 +56,13 @@ module.exports = {
           fill: "var(--gold-fill)",
           muted: "var(--gold-muted)",
         },
+        crimson: {
+          400: "var(--gold-soft)",
+          500: "var(--gold)",
+          600: "var(--gold-deep)",
+          fill: "var(--gold-fill)",
+          muted: "var(--gold-muted)",
+        },
         theme: {
           primary: "var(--text-primary)",
           secondary: "var(--text-secondary)",
