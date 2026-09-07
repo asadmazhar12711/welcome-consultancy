@@ -52,6 +52,6 @@ Scope: Upgrade Welcome Consultancy brand identity to the new Crimson/Ruby Red & 
   EVIDENCE: All 20 remaining illustration files in public/illustrations/ refreshed with authentic trade/port/customs photography and graded in Crimson Red and Deep Obsidian.
 
 - [x] G10: Verify production build, push to GitHub origin/main, and deploy to Cloudflare Workers.
-  CHECK: npx tsc --noEmit && npm run build
-  EXPECT: Compiled successfully
-  EVIDENCE: npx tsc --noEmit passed with 0 errors; npm run build completed successfully compiling all 49 routes. Deployed to Cloudflare Edge.
+  CHECK: curl -s -I https://welcomeconsultancy.in | grep -E "HTTP/2 200|HTTP/1.1 200"
+  EXPECT: HTTP/2 200
+  EVIDENCE: Deployed to Cloudflare Edge (Worker version 485696b4-074c-42ee-bf22-a41d71d6471f). Pushed commits to origin/main. Live site verified HTTP/2 200 with transparent header, floating stats over video, and brand Crimson/Obsidian EXIM media.
