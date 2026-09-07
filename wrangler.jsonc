@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "welcome-consultancy",
-  "account_id": "eadc6e7427fc03bf5fd620d30787f391",
+  "account_id": "b9ee8b20d67de62c2c455bae01001f15",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-07-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -16,7 +16,7 @@
     {
       "binding": "DB",
       "database_name": "welcome-consultancy-db",
-      "database_id": "f5d75c4c-5073-46c6-886d-9d3c4abf8e06"
+      "database_id": "351da827-5ec0-42bc-9eca-8766ec733a2d"
     }
   ],
   "vars": {

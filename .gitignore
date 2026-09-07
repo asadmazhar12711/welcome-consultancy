@@ -29,4 +29,8 @@ validation-screenshots/
 .backup/
 welcome-consultancy-shareable/
 welcome-consultancy-shareable.zip
+*.bak
+full_database_export.sql
+
+
 
