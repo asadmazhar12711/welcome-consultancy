@@ -87,8 +87,19 @@ export function Header() {
   const certification = servicesByCategory("Certification Services");
   const otherWork = servicesByCategory("Other Export Related Work");
 
+  const isSolid = scrolled || mobileOpen || megaOpen;
+  const navLinkClass = isSolid
+    ? "text-theme-secondary hover:bg-fill hover:text-theme-primary"
+    : "text-white/90 hover:bg-white/10 hover:text-white drop-shadow-sm";
+
   return (
-    <header className="fixed inset-x-0 top-0 z-[100] w-full bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-subtle transition-all duration-200">
+    <header
+      className={`fixed inset-x-0 top-0 z-[100] w-full transition-all duration-300 ${
+        isSolid
+          ? "bg-white/95 dark:bg-[#030712]/95 backdrop-blur-xl border-b border-subtle shadow-md"
+          : "bg-gradient-to-b from-black/60 via-black/20 to-transparent border-b border-transparent shadow-none"
+      }`}
+    >
       <nav
         aria-label="Main navigation"
         className="mx-auto flex h-16 sm:h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6"
@@ -103,7 +114,7 @@ export function Header() {
             width={180}
             height={44}
             decoding="async"
-            className="h-10 sm:h-11 w-auto block dark:hidden object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className={`h-10 sm:h-11 w-auto ${isSolid ? "block dark:hidden" : "hidden"} object-contain transition-transform duration-300 group-hover:scale-[1.02]`}
           />
           <img
             src="/images/logo-dark.png"
@@ -111,14 +122,14 @@ export function Header() {
             width={180}
             height={44}
             decoding="async"
-            className="h-10 sm:h-11 w-auto hidden dark:block object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            className={`h-10 sm:h-11 w-auto ${isSolid ? "hidden dark:block" : "block"} object-contain transition-transform duration-300 group-hover:scale-[1.02]`}
           />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
           <Link
             href="/"
-            className="rounded-none px-4 py-2 text-sm font-semibold text-theme-secondary transition-colors hover:bg-fill hover:text-theme-primary"
+            className={`rounded-none px-4 py-2 text-sm font-semibold transition-colors ${navLinkClass}`}
           >
             Home
           </Link>
@@ -134,7 +145,7 @@ export function Header() {
               className={`flex items-center gap-1.5 rounded-none px-3.5 py-2 text-sm font-semibold transition-colors ${
                 pathname === "/services" || (pathname?.startsWith("/service") && !megaOpen)
                   ? "bg-gold-muted text-gold-500"
-                  : "text-theme-secondary hover:bg-fill hover:text-theme-primary"
+                  : navLinkClass
               }`}
             >
               <span>Services</span>
@@ -150,7 +161,11 @@ export function Header() {
               aria-haspopup="true"
               aria-label="Toggle services menu"
               className={`p-2 transition-colors rounded-none ${
-                megaOpen ? "text-gold-500 bg-gold-muted" : "text-theme-secondary hover:text-theme-primary hover:bg-fill"
+                megaOpen
+                  ? "text-gold-500 bg-gold-muted"
+                  : isSolid
+                  ? "text-theme-secondary hover:text-theme-primary hover:bg-fill"
+                  : "text-white/90 hover:text-white hover:bg-white/10"
               }`}
             >
               <ChevronDown
@@ -163,7 +178,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-none px-4 py-2 text-sm font-semibold text-theme-secondary transition-colors hover:bg-fill hover:text-theme-primary"
+              className={`rounded-none px-4 py-2 text-sm font-semibold transition-colors ${navLinkClass}`}
             >
               {link.label}
             </Link>
@@ -174,13 +189,17 @@ export function Header() {
           <ThemeToggle />
           <a
             href={SITE.phones[0].href}
-            className="flex items-center gap-2 text-sm font-bold text-theme-secondary transition-colors hover:text-theme-primary"
+            className={`flex items-center gap-2 text-sm font-bold transition-colors ${
+              isSolid
+                ? "text-theme-secondary hover:text-theme-primary"
+                : "text-white hover:text-white/80 drop-shadow-sm"
+            }`}
           >
             <PhoneCall className="h-4 w-4 text-gold-500" />
             {SITE.phones[0].display}
           </a>
           <Link href="/contact-us">
-            <Button className="rounded-none px-6 font-extrabold">Book Appointment</Button>
+            <Button className="rounded-none px-6 font-extrabold shadow-gold">Book Appointment</Button>
           </Link>
         </div>
 
@@ -188,7 +207,11 @@ export function Header() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-none border border-subtle bg-fill text-theme-primary transition-colors hover:bg-fill-hover"
+            className={`inline-flex h-11 w-11 items-center justify-center rounded-none border transition-colors ${
+              isSolid
+                ? "border-subtle bg-fill text-theme-primary hover:bg-fill-hover"
+                : "border-white/25 bg-white/10 text-white hover:bg-white/20"
+            }`}
             aria-expanded={mobileOpen}
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((v) => !v)}

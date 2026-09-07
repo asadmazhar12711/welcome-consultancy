@@ -51,21 +51,37 @@ export function VisualFrame({
 type HeroVisualProps = {
   src: string;
   alt: string;
+  videoSrc?: string;
+  videoWebm?: string;
   children: ReactNode;
 };
 
-/** Full-bleed hero plane — image is the composition, copy sits inside */
-export function HeroVisual({ src, alt, children }: HeroVisualProps) {
+/** Full-bleed hero plane — video or image is the composition, copy sits inside */
+export function HeroVisual({ src, alt, videoSrc, videoWebm, children }: HeroVisualProps) {
   return (
     <section className="hero-visual relative isolate w-full max-w-full min-h-[75vh] md:min-h-[min(92vh,880px)] overflow-hidden">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      {videoSrc ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={src}
+          className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none"
+        >
+          {videoWebm && <source src={videoWebm} type="video/webm" />}
+          <source src={videoSrc} type="video/mp4" />
+        </video>
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      )}
       <div className="hero-visual__scrim" aria-hidden />
       <div className="container-site relative z-10 flex min-h-[75vh] md:min-h-[min(92vh,880px)] flex-col justify-center pt-28 pb-16 sm:pt-32 sm:pb-20 md:pb-24 md:pt-36">
         {children}

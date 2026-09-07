@@ -117,8 +117,13 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-page">
-      {/* ── Cinematic Visual Hero: original high-impact full image ── */}
-      <HeroVisual src={ILLUSTRATIONS.hero.src} alt={ILLUSTRATIONS.hero.alt}>
+      {/* ── Cinematic Visual Hero: original high-impact full video / image ── */}
+      <HeroVisual
+        src={ILLUSTRATIONS.hero.src}
+        alt={ILLUSTRATIONS.hero.alt}
+        videoSrc="/videos/hero-bg.mp4"
+        videoWebm="/videos/hero-bg.webm"
+      >
         <div className="animate-fade-in max-w-2xl text-center sm:text-left mx-auto sm:mx-0">
           <p className="eyebrow inline-flex items-center justify-center sm:justify-start gap-2 !text-gold-400 mx-auto sm:mx-0">
             <Sparkles className="h-3.5 w-3.5" aria-hidden />
